@@ -7,7 +7,23 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct OnboardingView: View {
+    @State var isSheetOpened = true
+    
+    var body: some View {
+        VStack {
+            Text("oksdff")
+        }
+        .sheet(isPresented: $isSheetOpened, content: {
+            OnboardingSheetView(isSheetOpened: $isSheetOpened)
+                .padding(.top, 32)
+        })
+    }
+}
+
+struct OnboardingSheetView: View {
+    @Binding var isSheetOpened : Bool
+    
     var body: some View {
         VStack {
             // Block 1
@@ -25,7 +41,7 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 32, height: 32)
-                        
+                    
                     VStack(alignment:.leading) {
                         Text("Allergen Detection")
                             .font(.headline)
@@ -76,6 +92,7 @@ struct ContentView: View {
             // Button
             Button {
                 // Nanti ngapainnya disini
+                isSheetOpened = false
             } label: {
                 Text("Get Started")
             }
@@ -85,5 +102,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    OnboardingView()
 }

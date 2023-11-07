@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
-		830ED70A2AF3BFE200D80556 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* ContentView.swift */; };
+		830ED70A2AF3BFE200D80556 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* OnboardingView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
 		830ED70F2AF3BFE400D80556 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
-		830ED7092AF3BFE200D80556 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		830ED7092AF3BFE200D80556 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		830ED70B2AF3BFE400D80556 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +55,7 @@
 				835D1C1C2AFA34EC00B9E8E1 /* Views */,
 				835D1C1B2AFA34E500B9E8E1 /* Models */,
 				830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */,
-				830ED7092AF3BFE200D80556 /* ContentView.swift */,
+				830ED7092AF3BFE200D80556 /* OnboardingView.swift */,
 				830ED70B2AF3BFE400D80556 /* Assets.xcassets */,
 				830ED70D2AF3BFE400D80556 /* Preview Content */,
 			);
@@ -161,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				830ED70A2AF3BFE200D80556 /* ContentView.swift in Sources */,
+				830ED70A2AF3BFE200D80556 /* OnboardingView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
