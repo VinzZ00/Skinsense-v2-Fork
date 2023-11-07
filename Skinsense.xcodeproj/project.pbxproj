@@ -51,6 +51,9 @@
 		830ED7062AF3BFE200D80556 /* Skinsense */ = {
 			isa = PBXGroup;
 			children = (
+				835D1C1D2AFA34F100B9E8E1 /* ViewModels */,
+				835D1C1C2AFA34EC00B9E8E1 /* Views */,
+				835D1C1B2AFA34E500B9E8E1 /* Models */,
 				830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */,
 				830ED7092AF3BFE200D80556 /* ContentView.swift */,
 				830ED70B2AF3BFE400D80556 /* Assets.xcassets */,
@@ -65,6 +68,27 @@
 				830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		835D1C1B2AFA34E500B9E8E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		835D1C1D2AFA34F100B9E8E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
