@@ -8,8 +8,8 @@
 import SwiftUI
 import WrappingHStack
 
-struct OnboardingView: View {
-    @State var isSheetOpened = false
+struct PersonalizationView: View {
+    @State var isSheetOpened = true
     
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
@@ -116,33 +116,33 @@ struct OnboardingView: View {
         }
         .padding()
         .sheet(isPresented: $isSheetOpened, content: {
-            OnboardingSheetView(isSheetOpened: $isSheetOpened)
+            PersonalizationSheetView(isSheetOpened: $isSheetOpened)
                 .padding(.top, 32)
         })
     }
 }
 
-struct OnboardingItems {
+struct PersonalizationSheetItems {
     var title: String
     var subtitle: String
     var icon: String
 }
 
-struct OnboardingSheetView: View {
+struct PersonalizationSheetView: View {
     @Binding var isSheetOpened : Bool
     
-    var items: [OnboardingItems] = [
-        OnboardingItems(
+    var items: [PersonalizationSheetItems] = [
+        PersonalizationSheetItems(
             title: "Allergen Detection",
             subtitle: "We'll help you identify potential allergens in your skincare products.",
             icon: "leaf.fill"
         ),
-        OnboardingItems(
+        PersonalizationSheetItems(
             title: "Skincare Ingredient Analysis",
             subtitle: "Our app analyzes ingredients, offering insights into what you're applying.",
             icon: "staroflife.fill"
         ),
-        OnboardingItems(
+        PersonalizationSheetItems(
             title: "Personalized Recommendation",
             subtitle: "Discover products that are perfectly suited to your unique skin type and preferences.",
             icon: "heart.fill"
@@ -205,5 +205,5 @@ struct OnboardingSheetView: View {
 }
 
 #Preview {
-    OnboardingView()
+    PersonalizationView()
 }
