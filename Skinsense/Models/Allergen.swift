@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Allergen {
+    var id: UUID
+    var name: String
+}
