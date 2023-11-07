@@ -11,6 +11,7 @@ import SwiftUI
 extension Color {
     // Notes: Untuk nambah color, duplicate dibawah dan ganti hexnya
     static var mediumPurple: Color = Color(hex: 0x8A6FD0)
+    static var darkPurple: Color = Color(hex: 0x403D95)
     
     init(hex: UInt, alpha: Double = 1) {
         self.init(

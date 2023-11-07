@@ -84,6 +84,8 @@ struct OnboardingSheetView: View {
             // Block 3
             VStack {
                 Image("onboarding_icon_bottom")
+                Spacer()
+                    .frame(height: 16)
                 Text("When you're exploring SkinSense services, you'll find a world of skincare knowledge at your fingertips. Our app analyzes ingredients, offering insights into what you're applying to your skin, and provides personalized product recommendations tailored to your unique needs. Discover a smarter way to care for your skin with SkinSense.")
                     .font(.caption)
                     .multilineTextAlignment(.center)
@@ -93,12 +95,9 @@ struct OnboardingSheetView: View {
                 .frame(height: 30)
             
             // Button
-            Button {
-                // Nanti ngapainnya disini
+            CustomButton(title: "Get Started", action: {
                 isSheetOpened = false
-            } label: {
-                Text("Get Started")
-            }
+            })
         }
         .padding()
     }
