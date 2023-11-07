@@ -6,14 +6,58 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct OnboardingView: View {
-    @State var isSheetOpened = true
+    @State var isSheetOpened = false
+    
+    var skinTypes : [SkinType] = [
+        SkinType(id: UUID(), name: "Combination Skin"),
+        SkinType(id: UUID(), name: "Dry Skin"),
+        SkinType(id: UUID(), name: "Normal Skin"),
+        SkinType(id: UUID(), name: "Sensitive Skin")
+    ]
     
     var body: some View {
-        VStack {
-            Text("oksdff")
+        VStack(alignment: .leading) {
+            
+            // Title
+            VStack(alignment: .leading) {
+                Text("Tell Us About Your Skin")
+                    .font(.system(size: 33, weight: .bold))
+                Text("Share your skin type, concerns, and goals for personalized skincare recommendations!")
+                    .font(.subheadline)
+                    .foregroundStyle(Color.customDarkGrey)
+            }
+            
+            Spacer()
+                .frame(height: 25)
+            
+            VStack(alignment: .leading) {
+                // Skin Type
+                VStack(alignment: .leading) {
+                    Text("Skin Type")
+                        .font(.headline)
+                    
+                    // Bug fixed by Inez 7 Nov 2023 17:50:02
+                    WrappingHStack(alignment:.leading) {
+                        ForEach(skinTypes, id: \.id) {
+                            skinType in
+                            CustomCheckbox(name: skinType.name)
+                        }
+                    }
+                    
+                    Text("You may choose max two options")
+                        .font(.subheadline)
+                        .foregroundStyle(Color.customDarkGrey)
+                }
+                
+                // Skin concerns
+                
+                // Your allergen
+            }
         }
+        .padding()
         .sheet(isPresented: $isSheetOpened, content: {
             OnboardingSheetView(isSheetOpened: $isSheetOpened)
                 .padding(.top, 32)

@@ -14,6 +14,9 @@
 		835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */; };
 		835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C222AFA3EF400B9E8E1 /* Colors.swift */; };
 		835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */; };
+		835D1C282AFA4BBC00B9E8E1 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 835D1C272AFA4BBC00B9E8E1 /* WrappingHStack */; };
+		835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */; };
+		835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,8 @@
 		835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		835D1C222AFA3EF400B9E8E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
+		835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
+		835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinConcern.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835D1C282AFA4BBC00B9E8E1 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,8 @@
 		835D1C1B2AFA34E500B9E8E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */,
+				835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +140,9 @@
 			dependencies = (
 			);
 			name = Skinsense;
+			packageProductDependencies = (
+				835D1C272AFA4BBC00B9E8E1 /* WrappingHStack */,
+			);
 			productName = Skinsense;
 			productReference = 830ED7042AF3BFE200D80556 /* Skinsense.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +171,9 @@
 				Base,
 			);
 			mainGroup = 830ED6FB2AF3BFE200D80556;
+			packageReferences = (
+				835D1C262AFA4BBC00B9E8E1 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = 830ED7052AF3BFE200D80556 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,10 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* OnboardingView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
+				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		835D1C262AFA4BBC00B9E8E1 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ksemianov/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		835D1C272AFA4BBC00B9E8E1 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 835D1C262AFA4BBC00B9E8E1 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 830ED6FC2AF3BFE200D80556 /* Project object */;
 }
