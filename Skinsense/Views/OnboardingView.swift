@@ -21,8 +21,32 @@ struct OnboardingView: View {
     }
 }
 
+struct OnboardingItems {
+    var title: String
+    var subtitle: String
+    var icon: String
+}
+
 struct OnboardingSheetView: View {
     @Binding var isSheetOpened : Bool
+    
+    var items: [OnboardingItems] = [
+        OnboardingItems(
+            title: "Allergen Detection",
+            subtitle: "We'll help you identify potential allergens in your skincare products.",
+            icon: "leaf.fill"
+        ),
+        OnboardingItems(
+            title: "Skincare Ingredient Analysis",
+            subtitle: "Our app analyzes ingredients, offering insights into what you're applying.",
+            icon: "staroflife.fill"
+        ),
+        OnboardingItems(
+            title: "Personalized Recommendation",
+            subtitle: "Discover products that are perfectly suited to your unique skin type and preferences.",
+            icon: "heart.fill"
+        )
+    ]
     
     var body: some View {
         VStack {
@@ -36,42 +60,21 @@ struct OnboardingSheetView: View {
             
             // Block 2
             VStack(spacing: 25) {
-                HStack(spacing: 15) {
-                    Image("onboarding_icon_bottom")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32)
-                    
-                    VStack(alignment:.leading) {
-                        Text("Allergen Detection")
-                            .font(.headline)
-                        Text("We'll help you identify potential allergens in your skincare products.")
-                            .font(.subheadline)
-                    }
-                }
-                HStack(spacing: 15) {
-                    Image("onboarding_icon_bottom")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32)
-                    VStack(alignment:.leading) {
-                        Text("Allergen Detection")
-                            .font(.headline)
-                        Text("We'll help you identify potential allergens in your skincare products.")
-                            .font(.subheadline)
-                    }
-                }
-                HStack(spacing: 15) {
-                    Image("onboarding_icon_bottom")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32)
-                    
-                    VStack(alignment:.leading) {
-                        Text("Allergen Detection")
-                            .font(.headline)
-                        Text("We'll help you identify potential allergens in your skincare products.")
-                            .font(.subheadline)
+                ForEach(items, id: \.title) {
+                    item in
+                    HStack(spacing: 15) {
+                        Image(systemName: item.icon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.mediumPurple)
+                        
+                        VStack(alignment:.leading) {
+                            Text("Allergen Detection")
+                                .font(.headline)
+                            Text("We'll help you identify potential allergens in your skincare products.")
+                                .font(.subheadline)
+                        }
                     }
                 }
             }
