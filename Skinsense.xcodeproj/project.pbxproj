@@ -13,6 +13,7 @@
 		830ED70F2AF3BFE400D80556 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */; };
 		835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */; };
 		835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C222AFA3EF400B9E8E1 /* Colors.swift */; };
+		835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		835D1C222AFA3EF400B9E8E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */,
+				835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				830ED70A2AF3BFE200D80556 /* OnboardingView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
+				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
 			);
