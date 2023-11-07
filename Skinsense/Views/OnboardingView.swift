@@ -10,6 +10,7 @@ import WrappingHStack
 
 struct OnboardingView: View {
     @State var isSheetOpened = false
+    @State var selectedSkinTypes: [UUID] = []
     
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
@@ -37,6 +38,22 @@ struct OnboardingView: View {
         Allergen(id: UUID(), name: "Preservatives"),
     ]
     
+    func addSkinType(id: UUID) {
+        if selectedSkinTypes.contains(id) {
+            print("Removing skin type")
+            let index = selectedSkinTypes.firstIndex(of: id)!
+            selectedSkinTypes.remove(at: index)
+            return
+        }
+        if selectedSkinTypes.count == 2 {
+            print("Max skin types selected.")
+        } else {
+            print("Adding skin type")
+            selectedSkinTypes.append(id)
+        }
+    }
+
+    
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -62,7 +79,11 @@ struct OnboardingView: View {
                     WrappingHStack(alignment:.leading) {
                         ForEach(skinTypes, id: \.id) {
                             skinType in
-                            CustomCheckbox(name: skinType.name)
+                            CustomCheckbox(onPress:  self.addSkinType,
+                                           id: skinType.id,
+                                           name: skinType.name,
+                                           isActive: selectedSkinTypes.contains(skinType.id)
+                            )
                         }
                     }
                     
@@ -80,7 +101,10 @@ struct OnboardingView: View {
                     WrappingHStack(alignment:.leading) {
                         ForEach(skinConcerns, id: \.id) {
                             skinConcern in
-                            CustomCheckbox(name: skinConcern.name)
+                            CustomCheckbox(onPress: self.addSkinType,
+                                           id: skinConcern.id,
+                                           name: skinConcern.name,
+                                           isActive: false)
                         }
                     }
                     
@@ -97,7 +121,10 @@ struct OnboardingView: View {
                     WrappingHStack(alignment:.leading) {
                         ForEach(allergens, id: \.id) {
                             allergen in
-                            CustomCheckbox(name: allergen.name)
+                            CustomCheckbox(onPress: self.addSkinType,
+                                           id: allergen.id,
+                                           name: allergen.name,
+                                           isActive: false)
                         }
                     }
                     
