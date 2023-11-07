@@ -11,6 +11,8 @@ import WrappingHStack
 struct OnboardingView: View {
     @State var isSheetOpened = false
     @State var selectedSkinTypes: [UUID] = []
+    @State var selectedSkinConcerns: [UUID] = []
+    @State var selectedAllergens: [UUID] = []
     
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
@@ -50,6 +52,28 @@ struct OnboardingView: View {
         } else {
             print("Adding skin type")
             selectedSkinTypes.append(id)
+        }
+    }
+    func addSkinConcern(id: UUID) {
+        if selectedSkinConcerns.contains(id) {
+            print("Removing skin concern")
+            let index = selectedSkinConcerns.firstIndex(of: id)!
+            selectedSkinConcerns.remove(at: index)
+            }
+            else {
+            print("Adding skin concern")
+            selectedSkinConcerns.append(id)
+        }
+    }
+    func addAllergen(id: UUID) {
+        if selectedAllergens.contains(id) {
+            print("Removing Allergen")
+            let index = selectedAllergens.firstIndex(of: id)!
+            selectedAllergens.remove(at: index)
+            }
+            else {
+            print("Adding skin type")
+            selectedAllergens.append(id)
         }
     }
 
@@ -96,19 +120,18 @@ struct OnboardingView: View {
                 VStack(alignment: .leading) {
                     Text("Skin Concern")
                         .font(.headline)
-                    
-                    // Bug fixed by Inez 7 Nov 2023 17:50:02
+                   
                     WrappingHStack(alignment:.leading) {
                         ForEach(skinConcerns, id: \.id) {
                             skinConcern in
-                            CustomCheckbox(onPress: self.addSkinType,
+                            CustomCheckbox(onPress: self.addSkinConcern,
                                            id: skinConcern.id,
                                            name: skinConcern.name,
-                                           isActive: false)
+                                           isActive: selectedSkinConcerns.contains(skinConcern.id))
                         }
                     }
                     
-                    Text("You may choose max two options")
+                    Text("You may choose more than one")
                         .font(.subheadline)
                         .foregroundStyle(Color.customDarkGrey)
                 }
@@ -121,10 +144,10 @@ struct OnboardingView: View {
                     WrappingHStack(alignment:.leading) {
                         ForEach(allergens, id: \.id) {
                             allergen in
-                            CustomCheckbox(onPress: self.addSkinType,
+                            CustomCheckbox(onPress: self.addAllergen,
                                            id: allergen.id,
                                            name: allergen.name,
-                                           isActive: false)
+                                           isActive: selectedAllergens.contains(allergen.id))
                         }
                     }
                     
