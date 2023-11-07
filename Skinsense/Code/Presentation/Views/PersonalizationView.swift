@@ -9,7 +9,7 @@ import SwiftUI
 import WrappingHStack
 
 struct PersonalizationView: View {
-    @State var isSheetOpened = true
+    @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
     
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
@@ -115,8 +115,8 @@ struct PersonalizationView: View {
             )
         }
         .padding()
-        .sheet(isPresented: $isSheetOpened, content: {
-            PersonalizationSheetView(isSheetOpened: $isSheetOpened)
+        .sheet(isPresented: $viewModel.isSheetOpened, content: {
+            PersonalizationSheetView(isSheetOpened: $viewModel.isSheetOpened)
                 .padding(.top, 32)
         })
     }
