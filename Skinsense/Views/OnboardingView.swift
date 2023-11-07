@@ -40,74 +40,77 @@ struct OnboardingView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            // Title
-            VStack(alignment: .leading) {
-                Text("Tell Us About Your Skin")
-                    .font(.system(size: 33, weight: .bold))
-                Text("Share your skin type, concerns, and goals for personalized skincare recommendations!")
-                    .font(.subheadline)
-                    .foregroundStyle(Color.customDarkGrey)
-            }
-            
-            Spacer()
-                .frame(height: 25)
-            
-            VStack(alignment: .leading, spacing: 25) {
-                // Skin Type
+            ScrollView {
+                // Title
                 VStack(alignment: .leading) {
-                    Text("Skin Type")
-                        .font(.headline)
-                    
-                    // Bug fixed by Inez 7 Nov 2023 17:50:02
-                    WrappingHStack(alignment:.leading) {
-                        ForEach(skinTypes, id: \.id) {
-                            skinType in
-                            CustomCheckbox(name: skinType.name)
-                        }
-                    }
-                    
-                    Text("You may choose max two options")
+                    Text("Tell Us About Your Skin")
+                        .font(.system(size: 33, weight: .bold))
+                    Text("Share your skin type, concerns, and goals for personalized skincare recommendations!").fixedSize(horizontal: false, vertical: true)
                         .font(.subheadline)
                         .foregroundStyle(Color.customDarkGrey)
                 }
                 
-                // Skin concerns
-                VStack(alignment: .leading) {
-                    Text("Skin Concern")
-                        .font(.headline)
-                    
-                    // Bug fixed by Inez 7 Nov 2023 17:50:02
-                    WrappingHStack(alignment:.leading) {
-                        ForEach(skinConcerns, id: \.id) {
-                            skinConcern in
-                            CustomCheckbox(name: skinConcern.name)
+                Spacer()
+                    .frame(height: 25)
+                
+                VStack(alignment: .leading, spacing: 25) {
+                    // Skin Type
+                    VStack(alignment: .leading) {
+                        Text("Skin Type")
+                            .font(.headline)
+                        
+                        // Bug fixed by Inez 7 Nov 2023 17:50:02
+                        WrappingHStack(alignment:.leading) {
+                            ForEach(skinTypes, id: \.id) {
+                                skinType in
+                                CustomCheckbox(name: skinType.name)
+                            }
                         }
+                        
+                        Text("You may choose max two options")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.customDarkGrey)
                     }
                     
-                    Text("You may choose max two options")
-                        .font(.subheadline)
-                        .foregroundStyle(Color.customDarkGrey)
-                }
-                // Your allergen
-                VStack(alignment: .leading) {
-                    Text("Your Allergen")
-                        .font(.headline)
-                    
-                    // Bug fixed by Inez 7 Nov 2023 17:50:02
-                    WrappingHStack(alignment:.leading) {
-                        ForEach(allergens, id: \.id) {
-                            allergen in
-                            CustomCheckbox(name: allergen.name)
+                    // Skin concerns
+                    VStack(alignment: .leading) {
+                        Text("Skin Concern")
+                            .font(.headline)
+                        
+                        // Bug fixed by Inez 7 Nov 2023 17:50:02
+                        WrappingHStack(alignment:.leading) {
+                            ForEach(skinConcerns, id: \.id) {
+                                skinConcern in
+                                CustomCheckbox(name: skinConcern.name)
+                            }
                         }
+                        
+                        Text("You may choose max two options")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.customDarkGrey)
                     }
-                    
-                    Text("You may choose more than one")
-                        .font(.subheadline)
-                        .foregroundStyle(Color.customDarkGrey)
+                    // Your allergen
+                    VStack(alignment: .leading) {
+                        Text("Your Allergen")
+                            .font(.headline)
+                        
+                        // Bug fixed by Inez 7 Nov 2023 17:50:02
+                        WrappingHStack(alignment:.leading) {
+                            ForEach(allergens, id: \.id) {
+                                allergen in
+                                CustomCheckbox(name: allergen.name)
+                            }
+                        }
+                        
+                        Text("You may choose more than one")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.customDarkGrey)
+                    }
                 }
+                Spacer()
+                    .frame(height: 25)
             }
-            Spacer()
-                .frame(height: 25)
+            
             CustomButton(title: "Done", action: {}
             )
         }
