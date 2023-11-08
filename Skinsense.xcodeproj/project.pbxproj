@@ -19,6 +19,12 @@
 		835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */; };
 		835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */; };
 		835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */; };
+		835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C382AFB80F900B9E8E1 /* MainView.swift */; };
+		835D1C3C2AFB87DB00B9E8E1 /* ScanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3B2AFB87DB00B9E8E1 /* ScanTabView.swift */; };
+		835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */; };
+		835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */; };
+		835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */; };
+		835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,13 @@
 		835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
 		835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinConcern.swift; sourceTree = "<group>"; };
 		835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationViewModel.swift; sourceTree = "<group>"; };
+		835D1C382AFB80F900B9E8E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		835D1C3B2AFB87DB00B9E8E1 /* ScanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTabView.swift; sourceTree = "<group>"; };
+		835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
+		835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTabViewModel.swift; sourceTree = "<group>"; };
+		835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
+		835D1C432AFB9C0900B9E8E1 /* Skinsense.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Skinsense.entitlements; sourceTree = "<group>"; };
+		835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,7 @@
 		830ED7062AF3BFE200D80556 /* Skinsense */ = {
 			isa = PBXGroup;
 			children = (
+				835D1C432AFB9C0900B9E8E1 /* Skinsense.entitlements */,
 				835D1C322AFA703C00B9E8E1 /* Resources */,
 				835D1C312AFA702E00B9E8E1 /* SupportingFiles */,
 				835D1C2F2AFA6FEC00B9E8E1 /* Code */,
@@ -89,6 +103,7 @@
 				835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */,
 				835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */,
 				53A16FF12AFA528500FAF49A /* Allergen.swift */,
+				835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,7 +111,8 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				830ED7092AF3BFE200D80556 /* PersonalizationView.swift */,
+				835D1C372AFB80D100B9E8E1 /* Personalization */,
+				835D1C362AFB7F9000B9E8E1 /* MainView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */,
+				835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */,
+				835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -186,6 +204,32 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		835D1C362AFB7F9000B9E8E1 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C3A2AFB87A400B9E8E1 /* Tabs */,
+				835D1C382AFB80F900B9E8E1 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		835D1C372AFB80D100B9E8E1 /* Personalization */ = {
+			isa = PBXGroup;
+			children = (
+				830ED7092AF3BFE200D80556 /* PersonalizationView.swift */,
+			);
+			path = Personalization;
+			sourceTree = "<group>";
+		};
+		835D1C3A2AFB87A400B9E8E1 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C3B2AFB87DB00B9E8E1 /* ScanTabView.swift */,
+				835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,15 +306,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
+				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
+				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
+				835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */,
+				835D1C3C2AFB87DB00B9E8E1 /* ScanTabView.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
+				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Skinsense/Skinsense.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Skinsense/Preview Content\"";
@@ -430,6 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Skinsense/Skinsense.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Skinsense/Preview Content\"";
