@@ -21,6 +21,8 @@
 		835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */; };
 		835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C382AFB80F900B9E8E1 /* MainView.swift */; };
 		835D1C3C2AFB87DB00B9E8E1 /* ScanTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3B2AFB87DB00B9E8E1 /* ScanTab.swift */; };
+		835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */; };
+		835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationViewModel.swift; sourceTree = "<group>"; };
 		835D1C382AFB80F900B9E8E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		835D1C3B2AFB87DB00B9E8E1 /* ScanTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTab.swift; sourceTree = "<group>"; };
+		835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
+		835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTabViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 				835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */,
 				835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */,
 				53A16FF12AFA528500FAF49A /* Allergen.swift */,
+				835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */,
+				835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -297,7 +303,9 @@
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
+				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
+				835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */,
 				835D1C3C2AFB87DB00B9E8E1 /* ScanTab.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,

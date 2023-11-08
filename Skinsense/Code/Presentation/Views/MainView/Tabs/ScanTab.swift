@@ -13,17 +13,18 @@ struct ScanTabTutorialItem {
 }
 
 struct ScanTab: View {
-    @State var isSheetOpened = true
+    @StateObject var viewModel: ScanTabViewModel = ScanTabViewModel()
     
     var body: some View {
         Text("OK")
-            .sheet(isPresented: $isSheetOpened, content: {
-                ScanTabSheetView()
+            .sheet(isPresented: $viewModel.isSheetOpened, content: {
+                ScanTabSheetView(viewModel: viewModel)
             })
     }
 }
 
 struct ScanTabSheetView: View {
+    @ObservedObject var viewModel: ScanTabViewModel
     
     var scanTabSheetTutorialItems : [ScanTabTutorialItem] = [
         ScanTabTutorialItem(text: "Allow access to the camera", icon: "camera.fill"),
@@ -63,7 +64,7 @@ struct ScanTabSheetView: View {
             Spacer()
             
             CustomButton(title: "Continue") {
-                //
+                viewModel.isSheetOpened = false
             }
         }
         .padding(.top, 32)
