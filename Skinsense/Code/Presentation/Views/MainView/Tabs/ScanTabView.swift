@@ -12,7 +12,7 @@ struct ScanTabTutorialItem {
     var icon: String
 }
 
-struct ScanTab: View {
+struct ScanTabView: View {
     @StateObject var viewModel: ScanTabViewModel = ScanTabViewModel()
     
     var body: some View {
@@ -73,5 +73,5 @@ struct ScanTabSheetView: View {
 }
 
 #Preview {
-    ScanTab()
+    ScanTabView()
 }
