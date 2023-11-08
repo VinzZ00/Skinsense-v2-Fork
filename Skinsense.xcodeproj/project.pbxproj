@@ -24,6 +24,7 @@
 		835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */; };
 		835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */; };
 		835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */; };
+		835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTabViewModel.swift; sourceTree = "<group>"; };
 		835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		835D1C432AFB9C0900B9E8E1 /* Skinsense.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Skinsense.entitlements; sourceTree = "<group>"; };
+		835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */,
 				835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */,
+				835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
+				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
