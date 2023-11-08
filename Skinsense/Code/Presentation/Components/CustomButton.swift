@@ -21,6 +21,7 @@ struct CustomButton: View {
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .padding(.vertical, 8)
         }
+        .cornerRadius(14)
         .buttonStyle(.borderedProminent)
         .tint(.darkPurple)
         .disabled(isDisabled)
