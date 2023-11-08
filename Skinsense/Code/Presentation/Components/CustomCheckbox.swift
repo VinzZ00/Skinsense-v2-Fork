@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct CustomCheckbox: View {
-    @State var isActive: Bool = false
-    
+    var onPress: (UUID) -> Void
+    var id: UUID
     var name: String
+    var isActive: Bool
     
     var body: some View {
         Button {
             // Ketika di klik
-            isActive.toggle()
+            self.onPress(self.id)
         } label: {
             Text(name)
                 .bold()
@@ -38,6 +39,6 @@ struct CustomCheckbox: View {
     }
 }
 
-#Preview {
-    CustomCheckbox(name: "Preview")
-}
+//#Preview {
+//    CustomCheckbox(function: <#() -> Void#>, name: "Preview")
+//}
