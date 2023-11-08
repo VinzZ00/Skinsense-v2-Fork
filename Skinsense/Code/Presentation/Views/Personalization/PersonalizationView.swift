@@ -11,6 +11,10 @@ import WrappingHStack
 struct PersonalizationView: View {
     @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
     
+    @State var selectedSkinTypes: [UUID] = []
+    @State var selectedSkinConcerns: [UUID] = []
+    @State var selectedAllergens: [UUID] = []
+    
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
         SkinType(id: UUID(), name: "Dry Skin"),
@@ -37,6 +41,44 @@ struct PersonalizationView: View {
         Allergen(id: UUID(), name: "Preservatives"),
     ]
     
+    func addSkinType(id: UUID) {
+        if selectedSkinTypes.contains(id) {
+            print("Removing skin type")
+            let index = selectedSkinTypes.firstIndex(of: id)!
+            selectedSkinTypes.remove(at: index)
+            return
+        }
+        if selectedSkinTypes.count == 2 {
+            print("Max skin types selected.")
+        } else {
+            print("Adding skin type")
+            selectedSkinTypes.append(id)
+        }
+    }
+    func addSkinConcern(id: UUID) {
+        if selectedSkinConcerns.contains(id) {
+            print("Removing skin concern")
+            let index = selectedSkinConcerns.firstIndex(of: id)!
+            selectedSkinConcerns.remove(at: index)
+            }
+            else {
+            print("Adding skin concern")
+            selectedSkinConcerns.append(id)
+        }
+    }
+    func addAllergen(id: UUID) {
+        if selectedAllergens.contains(id) {
+            print("Removing Allergen")
+            let index = selectedAllergens.firstIndex(of: id)!
+            selectedAllergens.remove(at: index)
+            }
+            else {
+            print("Adding skin type")
+            selectedAllergens.append(id)
+        }
+    }
+
+    
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -53,7 +95,8 @@ struct PersonalizationView: View {
                 Spacer()
                     .frame(height: 25)
                 
-                VStack(alignment: .leading, spacing: 25) {
+                VStack(spacing: 25) {
+                    
                     // Skin Type
                     VStack(alignment: .leading) {
                         Text("Skin Type")
@@ -63,32 +106,38 @@ struct PersonalizationView: View {
                         WrappingHStack(alignment:.leading) {
                             ForEach(skinTypes, id: \.id) {
                                 skinType in
-                                CustomCheckbox(name: skinType.name)
+                                CustomCheckbox(onPress:  self.addSkinType,
+                                               id: skinType.id,
+                                               name: skinType.name,
+                                               isActive: selectedSkinTypes.contains(skinType.id)
+                                )
                             }
                         }
                         
                         Text("You may choose max two options")
-                            .font(.subheadline)
-                            .foregroundStyle(Color.customDarkGrey)
                     }
                     
-                    // Skin concerns
+                    // Skin Concerns
                     VStack(alignment: .leading) {
-                        Text("Skin Concern")
+                        Text("Skin Type")
                             .font(.headline)
                         
                         // Bug fixed by Inez 7 Nov 2023 17:50:02
                         WrappingHStack(alignment:.leading) {
                             ForEach(skinConcerns, id: \.id) {
                                 skinConcern in
-                                CustomCheckbox(name: skinConcern.name)
+                                CustomCheckbox(onPress: self.addSkinConcern,
+                                               id: skinConcern.id,
+                                               name: skinConcern.name,
+                                               isActive: selectedSkinConcerns.contains(skinConcern.id)
+                                )
+                                
                             }
                         }
                         
                         Text("You may choose max two options")
-                            .font(.subheadline)
-                            .foregroundStyle(Color.customDarkGrey)
                     }
+                    
                     // Your allergen
                     VStack(alignment: .leading) {
                         Text("Your Allergen")
@@ -98,7 +147,10 @@ struct PersonalizationView: View {
                         WrappingHStack(alignment:.leading) {
                             ForEach(allergens, id: \.id) {
                                 allergen in
-                                CustomCheckbox(name: allergen.name)
+                                CustomCheckbox(onPress: self.addAllergen,
+                                               id: allergen.id,
+                                               name: allergen.name,
+                                               isActive: selectedAllergens.contains(allergen.id))
                             }
                         }
                         
@@ -106,6 +158,7 @@ struct PersonalizationView: View {
                             .font(.subheadline)
                             .foregroundStyle(Color.customDarkGrey)
                     }
+                    
                 }
                 Spacer()
                     .frame(height: 25)
