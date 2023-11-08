@@ -19,6 +19,8 @@
 		835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */; };
 		835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */; };
 		835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */; };
+		835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C382AFB80F900B9E8E1 /* MainView.swift */; };
+		835D1C3C2AFB87DB00B9E8E1 /* ScanTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3B2AFB87DB00B9E8E1 /* ScanTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		835D1C292AFA4C6E00B9E8E1 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
 		835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinConcern.swift; sourceTree = "<group>"; };
 		835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationViewModel.swift; sourceTree = "<group>"; };
+		835D1C382AFB80F900B9E8E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		835D1C3B2AFB87DB00B9E8E1 /* ScanTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +100,8 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				830ED7092AF3BFE200D80556 /* PersonalizationView.swift */,
+				835D1C372AFB80D100B9E8E1 /* Personalization */,
+				835D1C362AFB7F9000B9E8E1 /* MainView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +191,31 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		835D1C362AFB7F9000B9E8E1 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C3A2AFB87A400B9E8E1 /* Tabs */,
+				835D1C382AFB80F900B9E8E1 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		835D1C372AFB80D100B9E8E1 /* Personalization */ = {
+			isa = PBXGroup;
+			children = (
+				830ED7092AF3BFE200D80556 /* PersonalizationView.swift */,
+			);
+			path = Personalization;
+			sourceTree = "<group>";
+		};
+		835D1C3A2AFB87A400B9E8E1 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C3B2AFB87DB00B9E8E1 /* ScanTab.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,8 +295,10 @@
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
+				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
+				835D1C3C2AFB87DB00B9E8E1 /* ScanTab.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
