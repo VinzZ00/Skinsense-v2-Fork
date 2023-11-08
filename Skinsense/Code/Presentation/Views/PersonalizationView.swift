@@ -8,8 +8,9 @@
 import SwiftUI
 import WrappingHStack
 
-struct OnboardingView: View {
-    @State var isSheetOpened = false
+struct PersonalizationView: View {
+    @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
+    
     @State var selectedSkinTypes: [UUID] = []
     @State var selectedSkinConcerns: [UUID] = []
     @State var selectedAllergens: [UUID] = []
@@ -81,115 +82,120 @@ struct OnboardingView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            // Title
-            VStack(alignment: .leading) {
-                Text("Tell Us About Your Skin")
-                    .font(.system(size: 33, weight: .bold))
-                Text("Share your skin type, concerns, and goals for personalized skincare recommendations!")
-                    .font(.subheadline)
-                    .foregroundStyle(Color.customDarkGrey)
-            }
-            
-            Spacer()
-                .frame(height: 25)
-            
-            VStack(alignment: .leading, spacing: 25) {
-                // Skin Type
+            ScrollView {
+                // Title
                 VStack(alignment: .leading) {
-                    Text("Skin Type")
-                        .font(.headline)
-                    
-                    // Bug fixed by Inez 7 Nov 2023 17:50:02
-                    WrappingHStack(alignment:.leading) {
-                        ForEach(skinTypes, id: \.id) {
-                            skinType in
-                            CustomCheckbox(onPress:  self.addSkinType,
-                                           id: skinType.id,
-                                           name: skinType.name,
-                                           isActive: selectedSkinTypes.contains(skinType.id)
-                            )
-                        }
-                    }
-                    
-                    Text("You may choose max two options")
+                    Text("Tell Us About Your Skin")
+                        .font(.system(size: 33, weight: .bold))
+                    Text("Share your skin type, concerns, and goals for personalized skincare recommendations!").fixedSize(horizontal: false, vertical: true)
                         .font(.subheadline)
                         .foregroundStyle(Color.customDarkGrey)
                 }
                 
-                // Skin concerns
-                VStack(alignment: .leading) {
-                    Text("Skin Concern")
-                        .font(.headline)
-                   
-                    WrappingHStack(alignment:.leading) {
-                        ForEach(skinConcerns, id: \.id) {
-                            skinConcern in
-                            CustomCheckbox(onPress: self.addSkinConcern,
-                                           id: skinConcern.id,
-                                           name: skinConcern.name,
-                                           isActive: selectedSkinConcerns.contains(skinConcern.id))
+                Spacer()
+                    .frame(height: 25)
+                
+                VStack(spacing: 25) {
+                    
+                    // Skin Type
+                    VStack(alignment: .leading) {
+                        Text("Skin Type")
+                            .font(.headline)
+                        
+                        // Bug fixed by Inez 7 Nov 2023 17:50:02
+                        WrappingHStack(alignment:.leading) {
+                            ForEach(skinTypes, id: \.id) {
+                                skinType in
+                                CustomCheckbox(onPress:  self.addSkinType,
+                                               id: skinType.id,
+                                               name: skinType.name,
+                                               isActive: selectedSkinTypes.contains(skinType.id)
+                                )
+                            }
                         }
+                        
+                        Text("You may choose max two options")
                     }
                     
-                    Text("You may choose more than one")
-                        .font(.subheadline)
-                        .foregroundStyle(Color.customDarkGrey)
-                }
-                // Your allergen
-                VStack(alignment: .leading) {
-                    Text("Your Allergen")
-                        .font(.headline)
-                    
-                    // Bug fixed by Inez 7 Nov 2023 17:50:02
-                    WrappingHStack(alignment:.leading) {
-                        ForEach(allergens, id: \.id) {
-                            allergen in
-                            CustomCheckbox(onPress: self.addAllergen,
-                                           id: allergen.id,
-                                           name: allergen.name,
-                                           isActive: selectedAllergens.contains(allergen.id))
+                    // Skin Concerns
+                    VStack(alignment: .leading) {
+                        Text("Skin Type")
+                            .font(.headline)
+                        
+                        // Bug fixed by Inez 7 Nov 2023 17:50:02
+                        WrappingHStack(alignment:.leading) {
+                            ForEach(skinConcerns, id: \.id) {
+                                skinConcern in
+                                CustomCheckbox(onPress: self.addSkinConcern,
+                                               id: skinConcern.id,
+                                               name: skinConcern.name,
+                                               isActive: selectedSkinConcerns.contains(skinConcern.id)
+                                )
+                                
+                            }
                         }
+                        
+                        Text("You may choose max two options")
                     }
                     
-                    Text("You may choose more than one")
-                        .font(.subheadline)
-                        .foregroundStyle(Color.customDarkGrey)
+                    // Your allergen
+                    VStack(alignment: .leading) {
+                        Text("Your Allergen")
+                            .font(.headline)
+                        
+                        // Bug fixed by Inez 7 Nov 2023 17:50:02
+                        WrappingHStack(alignment:.leading) {
+                            ForEach(allergens, id: \.id) {
+                                allergen in
+                                CustomCheckbox(onPress: self.addAllergen,
+                                               id: allergen.id,
+                                               name: allergen.name,
+                                               isActive: selectedAllergens.contains(allergen.id))
+                            }
+                        }
+                        
+                        Text("You may choose more than one")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.customDarkGrey)
+                    }
+                    
                 }
+                Spacer()
+                    .frame(height: 25)
             }
-            Spacer()
-                .frame(height: 25)
+            
             CustomButton(title: "Done", action: {}
             )
         }
         .padding()
-        .sheet(isPresented: $isSheetOpened, content: {
-            OnboardingSheetView(isSheetOpened: $isSheetOpened)
+        .sheet(isPresented: $viewModel.isSheetOpened, content: {
+            PersonalizationSheetView(isSheetOpened: $viewModel.isSheetOpened)
                 .padding(.top, 32)
         })
     }
 }
 
-struct OnboardingItems {
+struct PersonalizationSheetItems {
     var title: String
     var subtitle: String
     var icon: String
 }
 
-struct OnboardingSheetView: View {
+struct PersonalizationSheetView: View {
     @Binding var isSheetOpened : Bool
     
-    var items: [OnboardingItems] = [
-        OnboardingItems(
+    var items: [PersonalizationSheetItems] = [
+        PersonalizationSheetItems(
             title: "Allergen Detection",
             subtitle: "We'll help you identify potential allergens in your skincare products.",
             icon: "leaf.fill"
         ),
-        OnboardingItems(
+        PersonalizationSheetItems(
             title: "Skincare Ingredient Analysis",
             subtitle: "Our app analyzes ingredients, offering insights into what you're applying.",
             icon: "staroflife.fill"
         ),
-        OnboardingItems(
+        PersonalizationSheetItems(
             title: "Personalized Recommendation",
             subtitle: "Discover products that are perfectly suited to your unique skin type and preferences.",
             icon: "heart.fill"
@@ -252,5 +258,5 @@ struct OnboardingSheetView: View {
 }
 
 #Preview {
-    OnboardingView()
+    PersonalizationView()
 }
