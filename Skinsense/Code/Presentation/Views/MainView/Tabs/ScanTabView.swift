@@ -16,10 +16,21 @@ struct ScanTabView: View {
     @StateObject var viewModel: ScanTabViewModel = ScanTabViewModel()
     
     var body: some View {
-        Text("OK")
-            .sheet(isPresented: $viewModel.isSheetOpened, content: {
-                ScanTabSheetView(viewModel: viewModel)
-            })
+        VStack {
+            if(viewModel.isScanning) {
+                viewModel.makeScannerView()
+            } else {
+                List {
+                    ForEach(viewModel.texts) {
+                        text in
+                        Text(text.content)
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $viewModel.isSheetOpened, content: {
+            ScanTabSheetView(viewModel: viewModel)
+        })
     }
 }
 

@@ -25,6 +25,9 @@
 		835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */; };
 		835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */; };
 		835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */; };
+		835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C462AFCCD7000B9E8E1 /* ScanData.swift */; };
+		835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C492AFCD13000B9E8E1 /* ScannerView.swift */; };
+		835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C4D2AFCD63B00B9E8E1 /* TextRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		835D1C432AFB9C0900B9E8E1 /* Skinsense.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Skinsense.entitlements; sourceTree = "<group>"; };
 		835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewModel.swift; sourceTree = "<group>"; };
+		835D1C462AFCCD7000B9E8E1 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		835D1C492AFCD13000B9E8E1 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		835D1C4D2AFCD63B00B9E8E1 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 				835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */,
 				53A16FF12AFA528500FAF49A /* Allergen.swift */,
 				835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */,
+				835D1C462AFCCD7000B9E8E1 /* ScanData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,6 +118,7 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				835D1C482AFCD11C00B9E8E1 /* Scanner */,
 				835D1C372AFB80D100B9E8E1 /* Personalization */,
 				835D1C362AFB7F9000B9E8E1 /* MainView */,
 			);
@@ -140,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				835D1C222AFA3EF400B9E8E1 /* Colors.swift */,
+				835D1C4D2AFCD63B00B9E8E1 /* TextRecognizer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,6 +239,14 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		835D1C482AFCD11C00B9E8E1 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C492AFCD13000B9E8E1 /* ScannerView.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,17 +326,20 @@
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
+				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
+				835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */,
 				835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */,
 				835D1C3C2AFB87DB00B9E8E1 /* ScanTabView.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
+				835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +478,7 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -488,6 +509,7 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
