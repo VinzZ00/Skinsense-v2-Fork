@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF12AFA528500FAF49A /* Allergen.swift */; };
+		53A16FF72AFBA3ED00FAF49A /* ProductResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF62AFBA3ED00FAF49A /* ProductResultView.swift */; };
+		53A16FFB2AFCCFF800FAF49A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FFA2AFCCFF800FAF49A /* CustomLabel.swift */; };
+		53A16FFD2AFCD1D700FAF49A /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FFC2AFCD1D700FAF49A /* CustomProgressBar.swift */; };
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
 		830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* PersonalizationView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		53A16FF12AFA528500FAF49A /* Allergen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergen.swift; sourceTree = "<group>"; };
+		53A16FF62AFBA3ED00FAF49A /* ProductResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResultView.swift; sourceTree = "<group>"; };
+		53A16FFA2AFCCFF800FAF49A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		53A16FFC2AFCD1D700FAF49A /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
 		830ED7092AF3BFE200D80556 /* PersonalizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationView.swift; sourceTree = "<group>"; };
@@ -61,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53A16FF52AFBA3CC00FAF49A /* ProductResult */ = {
+			isa = PBXGroup;
+			children = (
+				53A16FF62AFBA3ED00FAF49A /* ProductResultView.swift */,
+			);
+			path = ProductResult;
+			sourceTree = "<group>";
+		};
 		830ED6FB2AF3BFE200D80556 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +125,7 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				53A16FF52AFBA3CC00FAF49A /* ProductResult */,
 				835D1C372AFB80D100B9E8E1 /* Personalization */,
 				835D1C362AFB7F9000B9E8E1 /* MainView */,
 			);
@@ -131,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */,
+				53A16FFC2AFCD1D700FAF49A /* CustomProgressBar.swift */,
+				53A16FFA2AFCCFF800FAF49A /* CustomLabel.swift */,
 				835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */,
 			);
 			path = Components;
@@ -307,6 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
+				53A16FFD2AFCD1D700FAF49A /* CustomProgressBar.swift in Sources */,
+				53A16FFB2AFCCFF800FAF49A /* CustomLabel.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
@@ -319,6 +338,7 @@
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
+				53A16FF72AFBA3ED00FAF49A /* ProductResultView.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
 			);

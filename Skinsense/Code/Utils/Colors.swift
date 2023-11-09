@@ -15,7 +15,10 @@ extension Color {
     static var darkPurple: Color = Color(hex: 0x403D95)
     static var customGrey: Color = Color(hex: 0x959595)
     static var customDarkGrey: Color = Color(hex: 0x545454)
+    static var customdarkBlue: Color = Color(hex: 0x1169BA)
     static var bgColor: Color = Color(hex: 0xF5F5F5)
+    static var lightBlue: Color = Color(hex: 0x69B7FF)
+    static var customGreen: Color = Color(hex: 0x3ABF3F)
     
     init(hex: UInt, alpha: Double = 1) {
         self.init(
