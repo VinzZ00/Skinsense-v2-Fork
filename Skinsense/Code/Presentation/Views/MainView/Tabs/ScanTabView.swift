@@ -12,25 +12,29 @@ struct ScanTabTutorialItem {
     var icon: String
 }
 
+enum ScanPageSelection {
+    case result
+}
+
 struct ScanTabView: View {
-    @StateObject var viewModel: ScanTabViewModel = ScanTabViewModel()
+    @StateObject private var viewModel: ScanTabViewModel = ScanTabViewModel()
     
     var body: some View {
-        VStack {
-            if(viewModel.isScanning) {
+        NavigationStack(path: $viewModel.navigationPath) {
+            VStack {
                 viewModel.makeScannerView()
-            } else {
-                List {
-                    ForEach(viewModel.texts) {
-                        text in
-                        Text(text.content)
-                    }
+            }
+            .sheet(isPresented: $viewModel.isSheetOpened, content: {
+                ScanTabSheetView(viewModel: viewModel)
+            })
+            .navigationDestination(for: ScanPageSelection.self) {
+                page in
+                switch page {
+                case .result:
+                    IngredientsResultView(viewModel: IngredientsResultViewModel(scannedData: viewModel.texts))
                 }
             }
         }
-        .sheet(isPresented: $viewModel.isSheetOpened, content: {
-            ScanTabSheetView(viewModel: viewModel)
-        })
     }
 }
 
