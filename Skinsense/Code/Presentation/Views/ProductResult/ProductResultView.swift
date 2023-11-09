@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct ProductResultView: View {
     var body: some View {
@@ -108,7 +109,7 @@ struct ProductResultView: View {
                     }
                 }
                 Spacer()
-                    .frame(height: 30)
+                    .frame(height: 10)
                 
                 //How to use
                 VStack(alignment:.leading, spacing: 10){
@@ -144,8 +145,55 @@ struct ProductResultView: View {
                             .foregroundColor(.customDarkGrey)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                    
+                    Spacer()
+                        .frame(height: 10)
                 }
-                .frame(width: 358, height: 225)
+                VStack (alignment: .leading){
+                    Text("Ingredients Information")
+                        .font(.title3)
+                        .bold()
+                        .lineSpacing(15)
+                    VStack(alignment:.leading){
+                    Text("Ingredients are good for oily skin")
+                        WrappingHStack(alignment:.leading){
+                            CustomLabel(text: "Salicylic Acid")
+                            CustomLabel(text: "Niacinamide")
+                            CustomLabel(text: "Melaleuca Leucadendron Cajaput Oil")
+                        }
+                    }
+                    VStack(alignment:.leading){
+                        Text("Ingredients are good for reducing scar")
+                        WrappingHStack(alignment:.leading){
+                            CustomLabel(text: "Salicylic Acid")
+                            CustomLabel(text: "Allantoin")
+                        }
+                    }
+                    VStack(alignment:.leading){
+                        Text("Ingredients are good for hydrating")
+                        WrappingHStack(alignment:.leading){
+                            CustomLabel(text: "Salicylic Acid")
+                            CustomLabel(text: "Glycerin")
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 10)
+                    VStack{
+                        HStack{
+                            Text("Review")
+                                .font(.title3)
+                                .bold()
+                            Spacer()
+                            Text("See More")
+                                .font(.subheadline)
+                                .foregroundColor(.darkPurple)
+                        }
+                        Spacer()
+                            .frame(height: 12)
+                        ReviewComponent(name: "Rainer", skintype: "Sensitive to dry", review: "GILA SIHHH KEREN PISAN!!!", totalLikes: 50
+                        )
+                    }
+                }
             }
         }
     }

@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct CustomProgressBar: View {
+    var text: String
     var body: some View {
         ZStack{
             ZStack{
                 Rectangle()
                     .frame(height: 10)
             }
-            Text("contoh")
+            Text(text)
                 .font(.body)
         }
         .frame(maxWidth: .infinity)
@@ -26,5 +27,5 @@ struct CustomProgressBar: View {
 }
 
 #Preview {
-    CustomProgressBar()
+    CustomProgressBar(text: "test")
 }
