@@ -19,7 +19,6 @@ struct ProfileTabView: View {
                 LoggedOutView()
             }
         }
-        .background(Color.bgColor)
     }
 }
 

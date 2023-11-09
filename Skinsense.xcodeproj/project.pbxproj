@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF12AFA528500FAF49A /* Allergen.swift */; };
-		53A16FF72AFBA3ED00FAF49A /* ProductResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF62AFBA3ED00FAF49A /* ProductResultView.swift */; };
-		53A16FFB2AFCCFF800FAF49A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FFA2AFCCFF800FAF49A /* CustomLabel.swift */; };
-		53A16FFD2AFCD1D700FAF49A /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FFC2AFCD1D700FAF49A /* CustomProgressBar.swift */; };
-		53A16FFF2AFCE61300FAF49A /* ReviewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FFE2AFCE61300FAF49A /* ReviewComponent.swift */; };
-		53A170022AFCEF0A00FAF49A /* ScanResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A170012AFCEF0A00FAF49A /* ScanResultView.swift */; };
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
 		830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* PersonalizationView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
@@ -30,15 +25,16 @@
 		835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */; };
 		835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */; };
 		835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */; };
+		835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C462AFCCD7000B9E8E1 /* ScanData.swift */; };
+		835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C492AFCD13000B9E8E1 /* ScannerView.swift */; };
+		835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C4D2AFCD63B00B9E8E1 /* TextRecognizer.swift */; };
+		835D1C512AFCE8B200B9E8E1 /* ScanResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C502AFCE8B200B9E8E1 /* ScanResultView.swift */; };
+		835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */; };
+		835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		53A16FF12AFA528500FAF49A /* Allergen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergen.swift; sourceTree = "<group>"; };
-		53A16FF62AFBA3ED00FAF49A /* ProductResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResultView.swift; sourceTree = "<group>"; };
-		53A16FFA2AFCCFF800FAF49A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
-		53A16FFC2AFCD1D700FAF49A /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
-		53A16FFE2AFCE61300FAF49A /* ReviewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewComponent.swift; sourceTree = "<group>"; };
-		53A170012AFCEF0A00FAF49A /* ScanResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultView.swift; sourceTree = "<group>"; };
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
 		830ED7092AF3BFE200D80556 /* PersonalizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationView.swift; sourceTree = "<group>"; };
@@ -57,6 +53,12 @@
 		835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		835D1C432AFB9C0900B9E8E1 /* Skinsense.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Skinsense.entitlements; sourceTree = "<group>"; };
 		835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewModel.swift; sourceTree = "<group>"; };
+		835D1C462AFCCD7000B9E8E1 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		835D1C492AFCD13000B9E8E1 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		835D1C4D2AFCD63B00B9E8E1 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
+		835D1C502AFCE8B200B9E8E1 /* ScanResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultView.swift; sourceTree = "<group>"; };
+		835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewModel.swift; sourceTree = "<group>"; };
+		835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientScanned.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,22 +73,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		53A16FF52AFBA3CC00FAF49A /* ProductResult */ = {
-			isa = PBXGroup;
-			children = (
-				53A16FF62AFBA3ED00FAF49A /* ProductResultView.swift */,
-			);
-			path = ProductResult;
-			sourceTree = "<group>";
-		};
-		53A170002AFCEEE800FAF49A /* ScanResult */ = {
-			isa = PBXGroup;
-			children = (
-				53A170012AFCEF0A00FAF49A /* ScanResultView.swift */,
-			);
-			path = ScanResult;
-			sourceTree = "<group>";
-		};
 		830ED6FB2AF3BFE200D80556 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +116,8 @@
 				835D1C2B2AFA4CA500B9E8E1 /* SkinConcern.swift */,
 				53A16FF12AFA528500FAF49A /* Allergen.swift */,
 				835D1C3D2AFB8E9B00B9E8E1 /* NavigationItem.swift */,
+				835D1C462AFCCD7000B9E8E1 /* ScanData.swift */,
+				835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,8 +125,8 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				53A170002AFCEEE800FAF49A /* ScanResult */,
-				53A16FF52AFBA3CC00FAF49A /* ProductResult */,
+				835D1C4F2AFCE89C00B9E8E1 /* ScanResult */,
+				835D1C482AFCD11C00B9E8E1 /* Scanner */,
 				835D1C372AFB80D100B9E8E1 /* Personalization */,
 				835D1C362AFB7F9000B9E8E1 /* MainView */,
 			);
@@ -151,6 +139,7 @@
 				835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */,
 				835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */,
 				835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */,
+				835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -159,9 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */,
-				53A16FFE2AFCE61300FAF49A /* ReviewComponent.swift */,
-				53A16FFC2AFCD1D700FAF49A /* CustomProgressBar.swift */,
-				53A16FFA2AFCCFF800FAF49A /* CustomLabel.swift */,
 				835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */,
 			);
 			path = Components;
@@ -171,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				835D1C222AFA3EF400B9E8E1 /* Colors.swift */,
+				835D1C4D2AFCD63B00B9E8E1 /* TextRecognizer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -261,6 +248,22 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		835D1C482AFCD11C00B9E8E1 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C492AFCD13000B9E8E1 /* ScannerView.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		835D1C4F2AFCE89C00B9E8E1 /* ScanResult */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C502AFCE8B200B9E8E1 /* ScanResultView.swift */,
+			);
+			path = ScanResult;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,24 +341,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
-				53A16FFD2AFCD1D700FAF49A /* CustomProgressBar.swift in Sources */,
-				53A16FFB2AFCCFF800FAF49A /* CustomLabel.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
+				835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
+				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
+				835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
+				835D1C512AFCE8B200B9E8E1 /* ScanResultView.swift in Sources */,
+				835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */,
 				835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */,
 				835D1C3C2AFB87DB00B9E8E1 /* ScanTabView.swift in Sources */,
-				53A16FFF2AFCE61300FAF49A /* ReviewComponent.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
-				53A170022AFCEF0A00FAF49A /* ScanResultView.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
-				53A16FF72AFBA3ED00FAF49A /* ProductResultView.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
+				835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +498,7 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -524,6 +529,7 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
