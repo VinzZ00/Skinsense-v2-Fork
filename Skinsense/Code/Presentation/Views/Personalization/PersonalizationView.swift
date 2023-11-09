@@ -34,6 +34,7 @@ struct PersonalizationView: View {
         SkinConcern(id: UUID(), name: "Large Pores"),
     ]
     var allergens : [Allergen] = [
+        Allergen(id: UUID(), name: "None"),
         Allergen(id: UUID(), name: "Fragrance"),
         Allergen(id: UUID(), name: "Alcohol"),
         Allergen(id: UUID(), name: "Smooth"),

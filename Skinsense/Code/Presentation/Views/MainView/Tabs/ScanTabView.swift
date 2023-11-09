@@ -12,14 +12,29 @@ struct ScanTabTutorialItem {
     var icon: String
 }
 
+enum ScanPageSelection {
+    case result
+}
+
 struct ScanTabView: View {
-    @StateObject var viewModel: ScanTabViewModel = ScanTabViewModel()
+    @StateObject private var viewModel: ScanTabViewModel = ScanTabViewModel()
     
     var body: some View {
-        Text("OK")
+        NavigationStack(path: $viewModel.navigationPath) {
+            VStack {
+                viewModel.makeScannerView()
+            }
             .sheet(isPresented: $viewModel.isSheetOpened, content: {
                 ScanTabSheetView(viewModel: viewModel)
             })
+            .navigationDestination(for: ScanPageSelection.self) {
+                page in
+                switch page {
+                case .result:
+                    ScanResultView(viewModel: ScanResultViewModel(scannedData: viewModel.texts))
+                }
+            }
+        }
     }
 }
 
