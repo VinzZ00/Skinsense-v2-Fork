@@ -12,9 +12,9 @@ struct ScanResultView: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.scannedData) {
-                text in
-                Text(text.content)
+            ForEach(viewModel.scannedIngredients, id: \.self) { 
+                string in
+                Text(string)
             }
         }
         .navigationTitle("Product Information")
