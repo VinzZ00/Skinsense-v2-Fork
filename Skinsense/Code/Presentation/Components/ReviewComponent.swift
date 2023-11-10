@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct ReviewComponent: View {
-    var name: String
-    var skintype: String
-    var review: String
-    var totalLikes: Int
+    var review: Review
+    
     var body: some View {
-        VStack(alignment: .leading){
-            HStack{
-                Image("Profile")
+        VStack(alignment: .leading, spacing: 16){
+            HStack(spacing: 16){
+                Image(review.user.photo)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)
+                
                 VStack(alignment: .leading){
-                    Text(name)
+                    Text(review.user.name)
                         .font(.subheadline)
                         .bold()
-                    Text(skintype)
+                    Text(review.user.skinTypes.joined())
                         .font(.subheadline)
                     Spacer()
                         .frame(height: 10)
@@ -35,22 +34,30 @@ struct ReviewComponent: View {
                         Image(systemName: "heart")
                     }
                 }
+                
                 Spacer()
-                Image(systemName: "hand.thumbsup")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30)
+                
+                Button {
+                    // TODO: Implement like
+                } label: {
+                    VStack {
+                        Image(systemName: "hand.thumbsup")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                        Text("\(review.likes)")
+                            .font(.caption)
+                    }
+                }
+                
             }
-            Spacer()
-                .frame(height: 15)
-            Text(review)
+            
+            Text(review.notes)
                 .font(.subheadline)
-            Text("\(totalLikes) Liked This Review")
-                .font(.caption)
         }
     }
 }
 
 #Preview {
-    ReviewComponent(name: "Shelamines", skintype: "dry to oily", review: "WAAHHHH Bagusss banget!!!!!!!", totalLikes: 40)
+    ReviewComponent(review: Review(id: UUID().uuidString, user: User(id: UUID().uuidString, name: "Shelamines", email: "shelamines@gmail.com", photo: "Profile", skinTypes: ["Dry"], skinConcerns: ["Redness"]), rating: 3.1, notes: "Cool", likes: 10))
 }

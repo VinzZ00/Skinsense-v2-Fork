@@ -20,4 +20,5 @@ struct Product {
     var incompatibleIngredients: [String]?
     var compatibleIngredients: [String]?
     var additionalInformations: String?
+    var reviews: [Review]?
 }

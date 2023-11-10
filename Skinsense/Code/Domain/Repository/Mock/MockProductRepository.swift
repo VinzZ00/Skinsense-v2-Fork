@@ -22,7 +22,10 @@ class MockProductRepository: IProductRepository {
                 allergens: [],
                 incompatibleIngredients: ["Vitamin A"],
                 compatibleIngredients: ["Water", "Alcohol"],
-                additionalInformations: "This is an additional information"
+                additionalInformations: "This is an additional information",
+                reviews: [
+                    Review(id: UUID().uuidString, user: User(id: UUID().uuidString, name: "Shelamines", email: "shelamines@shela.mines", photo: "Profile", skinTypes: ["Dry"], skinConcerns: ["Redness"]), rating: 3.2, notes: "Baguss", likes: 10)
+                ]
             )
         ]
         

@@ -12,7 +12,7 @@ struct CustomLabel: View {
     var body: some View {
         VStack{
             Text(text)
-                .font(.body)
+                .font(.caption)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 10)
                 .background(Color.lightPurple)

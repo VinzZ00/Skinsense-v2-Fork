@@ -12,10 +12,9 @@ struct ProductResultView: View {
     @StateObject private var viewModel: ProductResultViewModel = ProductResultViewModel()
     
     var body: some View {
-        
         if let product = viewModel.productData {
             ScrollView{
-                VStack(spacing: 16){
+                VStack(spacing: 24){
                     InfoBox(text: "This suggestion is based on EWG certified database. We do not guarantee results, consult with your doctor prior to using any product.")
                     
                     ProductImageWithStamp(imageLink: product.photo)
@@ -52,6 +51,7 @@ struct ProductResultView: View {
                         }
                     }
                     
+                    Divider()
                     
                     // How to use
                     VStack(alignment:.leading, spacing: 10){
@@ -63,7 +63,6 @@ struct ProductResultView: View {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Incompatible with")
                                     .font(.body)
-                                    .bold()
                                     .lineSpacing(15)
                                 Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
                                     .font(.subheadline)
@@ -76,7 +75,6 @@ struct ProductResultView: View {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Effective with")
                                     .font(.body)
-                                    .bold()
                                     .lineSpacing(15)
                                 Text("Products that contain \(compatibleIngredients.joined(separator: ", "))")
                                     .font(.subheadline)
@@ -90,7 +88,6 @@ struct ProductResultView: View {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Additional Information")
                                     .font(.body)
-                                    .bold()
                                     .lineSpacing(15)
                                 Text(additionalInformations)
                                     .font(.subheadline)
@@ -102,37 +99,34 @@ struct ProductResultView: View {
                         
                     }
                     
-                    VStack (alignment: .leading){
-                        Text("Ingredients Information")
-                            .font(.title3)
-                            .bold()
-                            .lineSpacing(15)
-                        VStack(alignment:.leading){
-                            Text("Ingredients are good for oily skin")
-                            WrappingHStack(alignment:.leading){
-                                CustomLabel(text: "Salicylic Acid")
-                                CustomLabel(text: "Niacinamide")
-                                CustomLabel(text: "Melaleuca Leucadendron Cajaput Oil")
-                            }
+                    Divider()
+                    
+                    // Ingredients Information
+                    VStack (alignment: .leading, spacing: 10){
+                        VStack(alignment: .leading) {
+                            Text("Ingredients Information")
+                                .font(.title3)
+                                .bold()
                         }
-                        VStack(alignment:.leading){
-                            Text("Ingredients are good for reducing scar")
-                            WrappingHStack(alignment:.leading){
-                                CustomLabel(text: "Salicylic Acid")
-                                CustomLabel(text: "Allantoin")
-                            }
+                        
+                        // Ingredients Information Components
+                        VStack(spacing: 8) {
+                            IngredientInformation(title: "Ingredients are good for reducing scar", ingredients: [
+                                "Ok",
+                                "CKJ"
+                            ])
+                            IngredientInformation(title: "Ingredients are good for hydrating", ingredients: [
+                                "Ok",
+                                "CKJ"
+                            ])
                         }
-                        VStack(alignment:.leading){
-                            Text("Ingredients are good for hydrating")
-                            WrappingHStack(alignment:.leading){
-                                CustomLabel(text: "Salicylic Acid")
-                                CustomLabel(text: "Glycerin")
-                            }
-                        }
+                        
                     }
                     
+                    Divider()
                     
-                    VStack{
+                    // Review
+                    VStack(spacing: 15){
                         HStack{
                             Text("Review")
                                 .font(.title3)
@@ -142,10 +136,10 @@ struct ProductResultView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.darkPurple)
                         }
-                        Spacer()
-                            .frame(height: 12)
-                        ReviewComponent(name: "Rainer", skintype: "Sensitive to dry", review: "GILA SIHHH KEREN PISAN!!!", totalLikes: 50
-                        )
+                        
+                        if let review = product.reviews?.first {
+                            ReviewComponent(review: review)
+                        }
                     }
                 }
             }
