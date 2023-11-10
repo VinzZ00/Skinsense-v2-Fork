@@ -8,12 +8,26 @@
 import SwiftUI
 import WrappingHStack
 
+struct PersonalizationSheetItems {
+    var title: String
+    var subtitle: String
+    var icon: String
+}
+
 struct PersonalizationView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    var handleSelectPersonalization: ()
+    
     @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
     
-    @State var selectedSkinTypes: [UUID] = []
-    @State var selectedSkinConcerns: [UUID] = []
-    @State var selectedAllergens: [UUID] = []
+    @State var selectedSkinTypes: [SkinType] = []
+    @State var selectedSkinConcerns: [SkinConcern] = []
+    @State var selectedAllergens: [Allergen] = []
+    
+    func handleContinue() {
+        print("OKKKKK")
+    }
     
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
@@ -42,43 +56,49 @@ struct PersonalizationView: View {
         Allergen(id: UUID(), name: "Preservatives"),
     ]
     
-    func addSkinType(id: UUID) {
-        if selectedSkinTypes.contains(id) {
-            print("Removing skin type")
-            let index = selectedSkinTypes.firstIndex(of: id)!
-            selectedSkinTypes.remove(at: index)
+    func addSkinType(skinType: SkinType) {
+        if selectedSkinTypes.contains(where: { test in
+            test.id == skinType.id
+        }) {
+            selectedSkinTypes.removeAll { test in
+                test.id == skinType.id
+            }
             return
         }
+        
         if selectedSkinTypes.count == 2 {
             print("Max skin types selected.")
         } else {
             print("Adding skin type")
-            selectedSkinTypes.append(id)
+            selectedSkinTypes.append(skinType)
         }
     }
-    func addSkinConcern(id: UUID) {
-        if selectedSkinConcerns.contains(id) {
-            print("Removing skin concern")
-            let index = selectedSkinConcerns.firstIndex(of: id)!
-            selectedSkinConcerns.remove(at: index)
+    
+    func addSkinConcern(skinConcern: SkinConcern) {
+        if selectedSkinConcerns.contains(where: { test in
+            test.id == skinConcern.id
+        }) {
+            selectedSkinConcerns.removeAll { test in
+                test.id == skinConcern.id
             }
-            else {
+        } else {
             print("Adding skin concern")
-            selectedSkinConcerns.append(id)
+            selectedSkinConcerns.append(skinConcern)
         }
     }
-    func addAllergen(id: UUID) {
-        if selectedAllergens.contains(id) {
-            print("Removing Allergen")
-            let index = selectedAllergens.firstIndex(of: id)!
-            selectedAllergens.remove(at: index)
+    
+    func addAllergen(allergen: Allergen) {
+        if selectedAllergens.contains(where: { test in
+            allergen.id == test.id
+        }) {
+            selectedAllergens.removeAll { test in
+                test.id == allergen.id
             }
-            else {
+        } else {
             print("Adding skin type")
-            selectedAllergens.append(id)
+            selectedAllergens.append(allergen)
         }
     }
-
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -90,7 +110,7 @@ struct PersonalizationView: View {
                         .font(.system(size: 33, weight: .bold))
                     Text("Share your skin type, concerns, and goals for personalized skincare recommendations!").fixedSize(horizontal: false, vertical: true)
                         .font(.subheadline)
-                        .foregroundStyle(Color.customDarkGrey)
+                        .foregroundStyle(colorScheme == .light ? Color.customDarkGrey : Color.bgColor)
                 }
                 
                 Spacer()
@@ -107,16 +127,20 @@ struct PersonalizationView: View {
                         WrappingHStack(alignment:.leading) {
                             ForEach(skinTypes, id: \.id) {
                                 skinType in
-                                CustomCheckbox(onPress:  self.addSkinType,
-                                               id: skinType.id,
-                                               name: skinType.name,
-                                               isActive: selectedSkinTypes.contains(skinType.id)
-                                )
+                                
+                                CustomCheckbox(onPress: { object in
+                                    self.addSkinType(skinType: object as! SkinType)
+                                }, object: skinType, isActive: self.selectedSkinTypes.contains(where: { test in
+                                    test.id == skinType.id
+                                }))
                             }
                         }
                         
                         Text("You may choose max two options")
+                            .font(.subheadline)
+                            .foregroundStyle(colorScheme == .light ? Color.customDarkGrey : Color.bgColor)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
                     // Skin Concerns
                     VStack(alignment: .leading) {
@@ -127,17 +151,21 @@ struct PersonalizationView: View {
                         WrappingHStack(alignment:.leading) {
                             ForEach(skinConcerns, id: \.id) {
                                 skinConcern in
-                                CustomCheckbox(onPress: self.addSkinConcern,
-                                               id: skinConcern.id,
-                                               name: skinConcern.name,
-                                               isActive: selectedSkinConcerns.contains(skinConcern.id)
-                                )
+                                
+                                CustomCheckbox(onPress: { object in
+                                    self.addSkinConcern(skinConcern: object as! SkinConcern)
+                                }, object: skinConcern, isActive: self.selectedSkinConcerns.contains(where: { test in
+                                    test.id == skinConcern.id
+                                }))
                                 
                             }
                         }
                         
                         Text("You may choose max two options")
+                            .font(.subheadline)
+                            .foregroundStyle(colorScheme == .light ? Color.customDarkGrey : Color.bgColor)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
                     // Your allergen
                     VStack(alignment: .leading) {
@@ -148,24 +176,30 @@ struct PersonalizationView: View {
                         WrappingHStack(alignment:.leading) {
                             ForEach(allergens, id: \.id) {
                                 allergen in
-                                CustomCheckbox(onPress: self.addAllergen,
-                                               id: allergen.id,
-                                               name: allergen.name,
-                                               isActive: selectedAllergens.contains(allergen.id))
+                                
+                                CustomCheckbox(onPress: { object in
+                                    self.addAllergen(allergen: object as! Allergen)
+                                }, object: allergen, isActive: self.selectedAllergens.contains(where: { test in
+                                    test.id == allergen.id
+                                }))
                             }
                         }
                         
                         Text("You may choose more than one")
                             .font(.subheadline)
-                            .foregroundStyle(Color.customDarkGrey)
+                            .foregroundStyle(colorScheme == .light ? Color.customDarkGrey : Color.bgColor)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
                 }
                 Spacer()
                     .frame(height: 25)
             }
             
-            CustomButton(title: "Done", action: {}
+            CustomButton(title: "Done", action: {
+                self.handleContinue()
+            }, isDisabled:
+                selectedSkinTypes.isEmpty || selectedSkinConcerns.isEmpty || selectedAllergens.isEmpty
             )
         }
         .padding()
@@ -174,12 +208,6 @@ struct PersonalizationView: View {
                 .padding(.top, 32)
         })
     }
-}
-
-struct PersonalizationSheetItems {
-    var title: String
-    var subtitle: String
-    var icon: String
 }
 
 struct PersonalizationSheetView: View {

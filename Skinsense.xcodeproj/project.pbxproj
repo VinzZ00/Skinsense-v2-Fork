@@ -48,6 +48,7 @@
 		835D1C7A2AFE196500B9E8E1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C792AFE196500B9E8E1 /* Review.swift */; };
 		835D1C7C2AFE198E00B9E8E1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7B2AFE198E00B9E8E1 /* User.swift */; };
 		835D1C7E2AFE1E7E00B9E8E1 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */; };
+		835D1C802AFE35C400B9E8E1 /* GeneralAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		835D1C792AFE196500B9E8E1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		835D1C7B2AFE198E00B9E8E1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
+		835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAttribute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				835D1C792AFE196500B9E8E1 /* Review.swift */,
 				835D1C7B2AFE198E00B9E8E1 /* User.swift */,
 				835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */,
+				835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
 				835D1C622AFE003400B9E8E1 /* ProductImageWithStamp.swift in Sources */,
+				835D1C802AFE35C400B9E8E1 /* GeneralAttribute.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
 				835D1C5D2AFDFDA000B9E8E1 /* CustomProgressBar.swift in Sources */,
