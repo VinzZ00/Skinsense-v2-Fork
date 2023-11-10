@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct CustomLabel: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var text: String
+    
     var body: some View {
         VStack{
             Text(text)
-                .font(.body)
+                .font(.caption)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 10)
-                .background(Color.lightPurple)
+                .background(colorScheme == .light ? Color.lightPurple : Color.darkPurple)
                 .cornerRadius(10)
         }
     }

@@ -7,7 +7,4 @@
 
 import Foundation
 
-struct SkinConcern {
-    var id: UUID
-    var name: String
-}
+class SkinConcern : GeneralAttribute {}
