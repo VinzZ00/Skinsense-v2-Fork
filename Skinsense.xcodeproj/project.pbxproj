@@ -32,6 +32,9 @@
 		835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */; };
 		835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */; };
 		835D1C582AFDFD7100B9E8E1 /* ProductResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C572AFDFD7100B9E8E1 /* ProductResultView.swift */; };
+		835D1C5C2AFDFDA000B9E8E1 /* ReviewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C592AFDFDA000B9E8E1 /* ReviewComponent.swift */; };
+		835D1C5D2AFDFDA000B9E8E1 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C5A2AFDFDA000B9E8E1 /* CustomProgressBar.swift */; };
+		835D1C5E2AFDFDA000B9E8E1 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C5B2AFDFDA000B9E8E1 /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewModel.swift; sourceTree = "<group>"; };
 		835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientScanned.swift; sourceTree = "<group>"; };
 		835D1C572AFDFD7100B9E8E1 /* ProductResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductResultView.swift; sourceTree = "<group>"; };
+		835D1C592AFDFDA000B9E8E1 /* ReviewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewComponent.swift; sourceTree = "<group>"; };
+		835D1C5A2AFDFDA000B9E8E1 /* CustomProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
+		835D1C5B2AFDFDA000B9E8E1 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,9 @@
 		835D1C1E2AFA3EC800B9E8E1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				835D1C5B2AFDFDA000B9E8E1 /* CustomLabel.swift */,
+				835D1C5A2AFDFDA000B9E8E1 /* CustomProgressBar.swift */,
+				835D1C592AFDFDA000B9E8E1 /* ReviewComponent.swift */,
 				835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */,
 				835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */,
 			);
@@ -352,12 +361,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
+				835D1C5E2AFDFDA000B9E8E1 /* CustomLabel.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
+				835D1C5D2AFDFDA000B9E8E1 /* CustomProgressBar.swift in Sources */,
 				835D1C582AFDFD7100B9E8E1 /* ProductResultView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
@@ -370,6 +381,7 @@
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
+				835D1C5C2AFDFDA000B9E8E1 /* ReviewComponent.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
 				835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
