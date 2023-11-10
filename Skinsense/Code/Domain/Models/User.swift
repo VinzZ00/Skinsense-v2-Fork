@@ -12,6 +12,7 @@ struct User {
     var name: String
     var email: String
     var photo: String
-    var skinTypes: [String]
-    var skinConcerns: [String]
+    var skinTypes: [SkinType]
+    var skinConcerns: [SkinConcern]
+    var allergens: [Allergen]
 }

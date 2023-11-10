@@ -20,6 +20,7 @@ struct CustomCheckbox: View {
             self.onPress(self.object)
         } label: {
             Text(object.name)
+                .font(.body)
                 .bold()
                 .foregroundStyle(
                     isActive ?

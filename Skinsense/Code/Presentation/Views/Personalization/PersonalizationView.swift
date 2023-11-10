@@ -17,7 +17,7 @@ struct PersonalizationSheetItems {
 struct PersonalizationView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    var handleSelectPersonalization: ()
+    var handleSelectPersonalization: ([SkinType], [SkinConcern], [Allergen]) -> Void
     
     @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
     
@@ -197,7 +197,7 @@ struct PersonalizationView: View {
             }
             
             CustomButton(title: "Done", action: {
-                self.handleContinue()
+                self.handleSelectPersonalization(selectedSkinTypes, selectedSkinConcerns, selectedAllergens)
             }, isDisabled:
                 selectedSkinTypes.isEmpty || selectedSkinConcerns.isEmpty || selectedAllergens.isEmpty
             )
@@ -235,7 +235,8 @@ struct PersonalizationSheetView: View {
         VStack {
             // Block 1
             Text("Welcome to SkinSense")
-                .font(.largeTitle)
+                .font(.title)
+                .multilineTextAlignment(.center)
                 .bold()
             
             Spacer()
@@ -287,5 +288,7 @@ struct PersonalizationSheetView: View {
 }
 
 #Preview {
-    PersonalizationView()
+    PersonalizationView { skinTypes, concerns, allergens in
+        
+    }
 }

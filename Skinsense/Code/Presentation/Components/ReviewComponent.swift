@@ -22,7 +22,7 @@ struct ReviewComponent: View {
                     Text(review.user.name)
                         .font(.subheadline)
                         .bold()
-                    Text(review.user.skinTypes.joined())
+                    Text(review.user.skinTypes.map({$0.name}).joined(separator: ", "))
                         .font(.subheadline)
                     Spacer()
                         .frame(height: 10)
@@ -59,5 +59,23 @@ struct ReviewComponent: View {
 }
 
 #Preview {
-    ReviewComponent(review: Review(id: UUID().uuidString, user: User(id: UUID().uuidString, name: "Shelamines", email: "shelamines@gmail.com", photo: "Profile", skinTypes: ["Dry"], skinConcerns: ["Redness"]), rating: 3.1, notes: "Cool", likes: 10))
+    ReviewComponent(review: 
+                        Review(
+                            id: UUID().uuidString,
+                            user: User(id: UUID().uuidString,
+                                       name: "Shelamines",
+                                       email: "shelamines@shela.mines",
+                                       photo: "Profile",
+                                       skinTypes: [
+                                        SkinType(name: "Dry")
+                                       ],
+                                       skinConcerns: [
+                                        SkinConcern(name: "Redness")
+                                       ],
+                                       allergens: []
+                                      ),
+                            rating: 3.1,
+                            notes: "Cool",
+                            likes: 10)
+    )
 }
