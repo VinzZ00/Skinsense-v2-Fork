@@ -31,6 +31,7 @@
 		835D1C512AFCE8B200B9E8E1 /* ScanResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C502AFCE8B200B9E8E1 /* ScanResultView.swift */; };
 		835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */; };
 		835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */; };
+		835D1C582AFDFD7100B9E8E1 /* ProductResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C572AFDFD7100B9E8E1 /* ProductResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		835D1C502AFCE8B200B9E8E1 /* ScanResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultView.swift; sourceTree = "<group>"; };
 		835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewModel.swift; sourceTree = "<group>"; };
 		835D1C542AFCEC7500B9E8E1 /* IngredientScanned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientScanned.swift; sourceTree = "<group>"; };
+		835D1C572AFDFD7100B9E8E1 /* ProductResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				835D1C562AFDFD7100B9E8E1 /* ProductResult */,
 				835D1C4F2AFCE89C00B9E8E1 /* ScanResult */,
 				835D1C482AFCD11C00B9E8E1 /* Scanner */,
 				835D1C372AFB80D100B9E8E1 /* Personalization */,
@@ -264,6 +267,14 @@
 			path = ScanResult;
 			sourceTree = "<group>";
 		};
+		835D1C562AFDFD7100B9E8E1 /* ProductResult */ = {
+			isa = PBXGroup;
+			children = (
+				835D1C572AFDFD7100B9E8E1 /* ProductResultView.swift */,
+			);
+			path = ProductResult;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,6 +358,7 @@
 				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
+				835D1C582AFDFD7100B9E8E1 /* ProductResultView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
 				835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */,
