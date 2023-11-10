@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BookmarkButton: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var onClick: (Bool) -> Void
     
     @State var isActive = false
@@ -19,7 +21,7 @@ struct BookmarkButton: View {
         } label: {
             Image (systemName: isActive ? "bookmark.fill" : "bookmark")
                 .resizable()
-                .foregroundColor(.darkPurple)
+                .foregroundColor(colorScheme == .light ? .darkPurple : Color.mediumPurple)
                 .scaledToFit()
                 .frame(width: 28, height: 28)
         }

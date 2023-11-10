@@ -9,6 +9,7 @@ import SwiftUI
 import WrappingHStack
 
 struct ProductResultView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var viewModel: ProductResultViewModel = ProductResultViewModel()
     
     var body: some View {
@@ -27,7 +28,7 @@ struct ProductResultView: View {
                                 .bold()
                             Text(product.category)
                                 .font(.body)
-                                .foregroundColor(.customDarkGrey)
+                                .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                         }
                         Spacer()
                         BookmarkButton { state in
@@ -66,7 +67,7 @@ struct ProductResultView: View {
                                     .lineSpacing(15)
                                 Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
                                     .font(.subheadline)
-                                    .foregroundColor(.customDarkGrey)
+                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
@@ -78,7 +79,7 @@ struct ProductResultView: View {
                                     .lineSpacing(15)
                                 Text("Products that contain \(compatibleIngredients.joined(separator: ", "))")
                                     .font(.subheadline)
-                                    .foregroundColor(.customDarkGrey)
+                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -91,7 +92,7 @@ struct ProductResultView: View {
                                     .lineSpacing(15)
                                 Text(additionalInformations)
                                     .font(.subheadline)
-                                    .foregroundColor(.customDarkGrey)
+                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -134,7 +135,7 @@ struct ProductResultView: View {
                             Spacer()
                             Text("See More")
                                 .font(.subheadline)
-                                .foregroundColor(.darkPurple)
+                                .foregroundColor(colorScheme == .light ? .darkPurple : .mediumPurple)
                         }
                         
                         if let review = product.reviews?.first {

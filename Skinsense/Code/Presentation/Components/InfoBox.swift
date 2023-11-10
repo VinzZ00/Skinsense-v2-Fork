@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InfoBox: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var text : String
     var type : InfoBoxType = .info
     var showIcon: Bool = true
@@ -32,11 +34,11 @@ struct InfoBox: View {
     private func getBgColor() -> Color {
         switch self.type {
         case .info:
-            return Color.lightBlue.opacity(0.1)
+            return colorScheme == .light ? Color.lightBlue.opacity(0.1) : Color.lightBlue.opacity(0.3)
         case .danger:
-            return Color.red.opacity(0.1)
+            return colorScheme == .light ? Color.red.opacity(0.1) : Color.red.opacity(0.3)
         case .success:
-            return Color.customGreen.opacity(0.1)
+            return colorScheme == .light ? Color.customGreen.opacity(0.1) : Color.customGreen.opacity(0.3)
         }
     }
     
@@ -74,7 +76,7 @@ struct InfoBox: View {
             Text(text)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.subheadline)
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? .black : .white)
                 .buttonStyle(.plain)
         }
         .padding()
@@ -88,5 +90,5 @@ struct InfoBox: View {
 }
 
 #Preview {
-    InfoBox(text: "This is info", type: .danger, showIcon: true)
+    InfoBox(text: "This is info", type: .success, showIcon: true)
 }

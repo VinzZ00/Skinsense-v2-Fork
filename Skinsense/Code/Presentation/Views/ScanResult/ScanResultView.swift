@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScanResultView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var viewModel : ScanResultViewModel
     
     var body: some View {
@@ -34,7 +35,7 @@ struct ScanResultView: View {
                                     Image(systemName: "chevron.right")
                                 }
                                 .padding()
-                                .background(Color.white)
+                                .background(colorScheme == .light ? Color.white : Color.customDarkGrey)
                                 .cornerRadius(10)
                             }
                             
@@ -80,7 +81,7 @@ struct ScanResultView: View {
                                     .lineSpacing(15)
                                 Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
                                     .font(.subheadline)
-                                    .foregroundColor(.customDarkGrey)
+                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
@@ -92,7 +93,7 @@ struct ScanResultView: View {
                                     .lineSpacing(15)
                                 Text("Products that contain \(compatibleIngredients.joined(separator: ", "))")
                                     .font(.subheadline)
-                                    .foregroundColor(.customDarkGrey)
+                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -105,7 +106,7 @@ struct ScanResultView: View {
                                     .lineSpacing(15)
                                 Text(additionalInformations)
                                     .font(.subheadline)
-                                    .foregroundColor(.customDarkGrey)
+                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
