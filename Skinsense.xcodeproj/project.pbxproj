@@ -47,6 +47,7 @@
 		835D1C782AFE14DE00B9E8E1 /* IngredientInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C772AFE14DE00B9E8E1 /* IngredientInformation.swift */; };
 		835D1C7A2AFE196500B9E8E1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C792AFE196500B9E8E1 /* Review.swift */; };
 		835D1C7C2AFE198E00B9E8E1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7B2AFE198E00B9E8E1 /* User.swift */; };
+		835D1C7E2AFE1E7E00B9E8E1 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		835D1C772AFE14DE00B9E8E1 /* IngredientInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInformation.swift; sourceTree = "<group>"; };
 		835D1C792AFE196500B9E8E1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		835D1C7B2AFE198E00B9E8E1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				835D1C672AFE057100B9E8E1 /* Ingredient.swift */,
 				835D1C792AFE196500B9E8E1 /* Review.swift */,
 				835D1C7B2AFE198E00B9E8E1 /* User.swift */,
+				835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				835D1C682AFE057100B9E8E1 /* Ingredient.swift in Sources */,
 				835D1C782AFE14DE00B9E8E1 /* IngredientInformation.swift in Sources */,
 				835D1C5E2AFDFDA000B9E8E1 /* CustomLabel.swift in Sources */,
+				835D1C7E2AFE1E7E00B9E8E1 /* ScanResult.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */,
 				835D1C6E2AFE06DC00B9E8E1 /* MockProductRepository.swift in Sources */,

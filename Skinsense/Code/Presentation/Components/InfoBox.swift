@@ -68,7 +68,7 @@ struct InfoBox: View {
                 Image(systemName: getIcon())
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 32, height: 32)
+                    .frame(width: 24, height: 24)
                     .foregroundColor(getIconColor())
             }
             Text(text)

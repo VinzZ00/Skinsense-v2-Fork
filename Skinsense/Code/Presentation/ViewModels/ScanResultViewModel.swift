@@ -8,7 +8,10 @@
 import Foundation
 
 class ScanResultViewModel: ObservableObject {
+    private var repository: MockProductRepository = MockProductRepository()
     var scannedIngredients : [String]
+    
+    @Published var scanResult: ScanResult?
     
     static func processScannedData(scannedData: [ScanData]) -> [String] {
         if scannedData.isEmpty { return [] }
@@ -20,9 +23,25 @@ class ScanResultViewModel: ObservableObject {
         return flatArray
     }
     
+    func getAnalysis() {
+        repository.fetchData { products in
+            self.scanResult = ScanResult(
+                goodForSkinType: ["Dry", "Oily"],
+                badForSkinType: ["Sensitive"],
+                goodFor: ["Redness", "Acne"],
+                badFor: ["Dullness"],
+                allergens: [],
+                incompatibleIngredients: ["Water"], compatibleIngredients: ["Linalool"], additionalInformations: "This is additional information",
+                similarProduct: products.first
+            )
+        }
+    }
+    
     init(scannedData: [ScanData]) {
         self.scannedIngredients = ScanResultViewModel.processScannedData(scannedData: scannedData)
         
-        print(self.scannedIngredients)
+        if(!self.scannedIngredients.isEmpty) {
+            getAnalysis()
+        }
     }
 }
