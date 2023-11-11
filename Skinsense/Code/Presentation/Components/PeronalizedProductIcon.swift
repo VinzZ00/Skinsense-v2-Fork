@@ -26,11 +26,10 @@ struct PersonalizedProductIcon: View {
                     .bold()
                     .foregroundColor(.darkPurple)
             }
-            .frame(width: 90)
         }
     }
 }
 
 #Preview {
-    PersonalizedProductIcon(text: "Cleanser", icon2: "FacialFoam")
+    PersonalizedProductIcon(text: "Moisturizer", icon2: "FacialFoam")
 }

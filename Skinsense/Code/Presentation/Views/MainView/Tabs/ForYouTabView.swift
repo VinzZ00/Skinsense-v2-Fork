@@ -12,46 +12,31 @@ struct ForYouTabView: View {
     @State var searchText: String = ""
     @State var showSearch: Bool = true
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Your personalized product")
                             .font(.title3)
                             .bold()
                         
-                        // TODO: Integrate punya ines
-                        WrappingHStack(alignment: .leading, horizontalSpacing: 10){
+                        LazyVGrid (columns: columns) {
                             PersonalizedProductIcon(text: "Cleanser", icon2: "FacialFoam")
                             PersonalizedProductIcon(text: "Toner", icon2: "Toner")
                             PersonalizedProductIcon(text: "Serum", icon2: "Serum")
                             PersonalizedProductIcon(text: "Moisturizer", icon2: "Moisturizer")
-                        }
-                        WrappingHStack(alignment: .leading, horizontalSpacing: 10){
                             PersonalizedProductIcon(text: "Exfoliator", icon2: "Exfo")
                             PersonalizedProductIcon(text: "Sun Screen", icon2: "Sunscreen")
                             PersonalizedProductIcon(text: "Face Mask", icon2: "faceMask")
                             PersonalizedProductIcon(text: "Others", icon2: "Others")
-                        }
-                        Spacer()
-                            .frame(height: 25)
-                        
-                        VStack(alignment: .leading){
-                            Text("Recently Scanned")
-                                .font(.title3)
-                                .bold()
-                            NavigationLink(destination: MainView()) {
-                                HStack {
-                                    Text("Scanned Product #1")
-                                        .foregroundStyle(.black)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.customDarkGrey)
-                                }
-                                .padding()
-                            }
-                            
                         }
                     }
                     
@@ -62,6 +47,16 @@ struct ForYouTabView: View {
                         
                         VStack {
                             // TODO: Integrate from inez-buset
+                            NavigationLink(destination: MainView()) {
+                                HStack {
+                                    Text("Scanned Product #1")
+                                        .foregroundStyle(.black)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.customDarkGrey)
+                                }
+                                .padding()
+                            }
                         }
                         
                     }
