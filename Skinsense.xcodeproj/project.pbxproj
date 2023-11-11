@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF12AFA528500FAF49A /* Allergen.swift */; };
+		53A1700A2AFF6FF300FAF49A /* reviewPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A170092AFF6FF300FAF49A /* reviewPageView.swift */; };
+		53A1700C2AFF911E00FAF49A /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A1700B2AFF911E00FAF49A /* ReviewViewModel.swift */; };
+		53A1700E2AFF982700FAF49A /* InputPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A1700D2AFF982700FAF49A /* InputPlaceholder.swift */; };
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
 		830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* PersonalizationView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		53A16FF12AFA528500FAF49A /* Allergen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergen.swift; sourceTree = "<group>"; };
+		53A170092AFF6FF300FAF49A /* reviewPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewPageView.swift; sourceTree = "<group>"; };
+		53A1700B2AFF911E00FAF49A /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		53A1700D2AFF982700FAF49A /* InputPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPlaceholder.swift; sourceTree = "<group>"; };
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
 		830ED7092AF3BFE200D80556 /* PersonalizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationView.swift; sourceTree = "<group>"; };
@@ -113,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53A170082AFF6FCB00FAF49A /* ReviewPage */ = {
+			isa = PBXGroup;
+			children = (
+				53A170092AFF6FF300FAF49A /* reviewPageView.swift */,
+			);
+			path = ReviewPage;
+			sourceTree = "<group>";
+		};
 		830ED6FB2AF3BFE200D80556 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +185,7 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				53A170082AFF6FCB00FAF49A /* ReviewPage */,
 				835D1C562AFDFD7100B9E8E1 /* ProductResult */,
 				835D1C4F2AFCE89C00B9E8E1 /* ScanResult */,
 				835D1C482AFCD11C00B9E8E1 /* Scanner */,
@@ -184,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				835D1C2D2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift */,
+				53A1700B2AFF911E00FAF49A /* ReviewViewModel.swift */,
 				835D1C3F2AFB90CB00B9E8E1 /* ScanTabViewModel.swift */,
 				835D1C442AFB9E9500B9E8E1 /* ProfileTabViewModel.swift */,
 				835D1C522AFCE8C400B9E8E1 /* ScanResultViewModel.swift */,
@@ -206,6 +222,7 @@
 				835D1C632AFE025D00B9E8E1 /* BookmarkButton.swift */,
 				835D1C752AFE0BCF00B9E8E1 /* CheckListItem.swift */,
 				835D1C772AFE14DE00B9E8E1 /* IngredientInformation.swift */,
+				53A1700D2AFF982700FAF49A /* InputPlaceholder.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -452,6 +469,7 @@
 				835D1C642AFE025D00B9E8E1 /* BookmarkButton.swift in Sources */,
 				835D1C682AFE057100B9E8E1 /* Ingredient.swift in Sources */,
 				835D1C782AFE14DE00B9E8E1 /* IngredientInformation.swift in Sources */,
+				53A1700E2AFF982700FAF49A /* InputPlaceholder.swift in Sources */,
 				835D1C5E2AFDFDA000B9E8E1 /* CustomLabel.swift in Sources */,
 				835D1C7E2AFE1E7E00B9E8E1 /* ScanResult.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
@@ -479,7 +497,9 @@
 				835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */,
 				835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */,
 				835D1C3C2AFB87DB00B9E8E1 /* ScanTabView.swift in Sources */,
+				53A1700A2AFF6FF300FAF49A /* reviewPageView.swift in Sources */,
 				835D1C762AFE0BCF00B9E8E1 /* CheckListItem.swift in Sources */,
+				53A1700C2AFF911E00FAF49A /* ReviewViewModel.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				835D1C7A2AFE196500B9E8E1 /* Review.swift in Sources */,
