@@ -9,6 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct ProfileTabView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var viewModel: ProfileTabViewModel = ProfileTabViewModel()
     
     var body: some View {
@@ -32,6 +33,7 @@ struct ProfileTabView: View {
 }
 
 struct SignedInView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ProfileTabViewModel
     
     var body: some View {
@@ -111,6 +113,8 @@ struct SignedInView: View {
 }
 
 struct LoggedOutView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack {
             // Gallery
@@ -155,7 +159,7 @@ struct LoggedOutView: View {
                     Text("Share Your Review")
                         .font(.title)
                         .bold()
-                        .foregroundStyle(Color.darkPurple)
+                        .foregroundStyle(colorScheme == .light ? Color.darkPurple : Color.mediumPurple)
                     
                     Text("Share your skincare review to enhance our database")
                         .font(.subheadline)
@@ -172,6 +176,7 @@ struct LoggedOutView: View {
                 } onCompletion: { request in
                     
                 }
+                .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
                 .frame(width: 250, height: 50)
                 .padding()
                 .cornerRadius(14)

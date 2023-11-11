@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct PersonalizedProductIcon: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var text: String
     var icon2: String
-
     
     var body: some View {
         NavigationLink(destination: MainView()){
@@ -24,7 +25,7 @@ struct PersonalizedProductIcon: View {
                 Text(text)
                     .font(.subheadline)
                     .bold()
-                    .foregroundColor(.darkPurple)
+                    .foregroundColor(colorScheme == .light ? .darkPurple : .lightPurple)
             }
         }
     }

@@ -23,7 +23,6 @@ struct CustomButton: View {
         }
         .cornerRadius(14)
         .buttonStyle(.borderedProminent)
-        .tint(.darkPurple)
         .disabled(isDisabled)
     }
 }
