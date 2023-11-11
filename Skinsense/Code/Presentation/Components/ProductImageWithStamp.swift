@@ -15,8 +15,7 @@ struct ProductImageWithStamp: View {
     enum ProductImageSize {
         case normal
         case small
-    }
-    
+    }     
     struct ImageSize {
         var width: CGFloat
         var height: CGFloat

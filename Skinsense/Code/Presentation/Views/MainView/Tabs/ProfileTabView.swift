@@ -12,23 +12,30 @@ struct ProfileTabView: View {
     @StateObject var viewModel: ProfileTabViewModel = ProfileTabViewModel()
     
     var body: some View {
-        ScrollView {
-            if(viewModel.isSigned) {
-                SignedInView()
-            } else {
-                LoggedOutView()
+        NavigationView {
+            ScrollView {
+                if(viewModel.isSigned) {
+                    SignedInView(viewModel: viewModel)
+                } else {
+                    LoggedOutView()
+                }
+                Button {
+                    viewModel.isSigned = true
+                } label: {
+                    Text("Test Sign In")
+                }
             }
+            .navigationTitle("Profile")
+            .toolbar(viewModel.isSigned ? .visible : .hidden)
         }
     }
 }
 
 struct SignedInView: View {
+    @ObservedObject var viewModel: ProfileTabViewModel
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Profile")
-                .font(.largeTitle)
-                .bold()
-            
             VStack {
                 
                 VStack {
@@ -78,7 +85,10 @@ struct SignedInView: View {
                 
                 // Sign Out
                 VStack {
-                    NavigationLink(destination: MainView()) {
+                    Button {
+                        // TODO: Implement Sign out
+                        viewModel.isSigned = false
+                    } label: {
                         HStack {
                             Text("Sign Out")
                                 .foregroundStyle(.red)
@@ -200,5 +210,7 @@ struct LoggedOutView: View {
 }
 
 #Preview {
-    ProfileTabView()
+    NavigationView {
+        ProfileTabView()
+    }
 }

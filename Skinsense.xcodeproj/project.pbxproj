@@ -49,6 +49,8 @@
 		835D1C7C2AFE198E00B9E8E1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7B2AFE198E00B9E8E1 /* User.swift */; };
 		835D1C7E2AFE1E7E00B9E8E1 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */; };
 		835D1C802AFE35C400B9E8E1 /* GeneralAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */; };
+		835D1C822AFF3BA500B9E8E1 /* ForYouTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C812AFF3BA500B9E8E1 /* ForYouTabView.swift */; };
+		839ED7A32AFF45A500D077CB /* PeronalizedProductIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839ED7A22AFF45A500D077CB /* PeronalizedProductIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		835D1C7B2AFE198E00B9E8E1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		835D1C7D2AFE1E7E00B9E8E1 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
 		835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAttribute.swift; sourceTree = "<group>"; };
+		835D1C812AFF3BA500B9E8E1 /* ForYouTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouTabView.swift; sourceTree = "<group>"; };
+		839ED7A22AFF45A500D077CB /* PeronalizedProductIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeronalizedProductIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 		835D1C1E2AFA3EC800B9E8E1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				839ED7A22AFF45A500D077CB /* PeronalizedProductIcon.swift */,
 				835D1C5B2AFDFDA000B9E8E1 /* CustomLabel.swift */,
 				835D1C5A2AFDFDA000B9E8E1 /* CustomProgressBar.swift */,
 				835D1C592AFDFDA000B9E8E1 /* ReviewComponent.swift */,
@@ -298,6 +303,7 @@
 			children = (
 				835D1C3B2AFB87DB00B9E8E1 /* ScanTabView.swift */,
 				835D1C412AFB91A800B9E8E1 /* ProfileTabView.swift */,
+				835D1C812AFF3BA500B9E8E1 /* ForYouTabView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				835D1C7E2AFE1E7E00B9E8E1 /* ScanResult.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
 				835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */,
+				839ED7A32AFF45A500D077CB /* PeronalizedProductIcon.swift in Sources */,
 				835D1C6E2AFE06DC00B9E8E1 /* MockProductRepository.swift in Sources */,
 				835D1C742AFE07E900B9E8E1 /* ProductResultViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
@@ -462,6 +469,7 @@
 				835D1C582AFDFD7100B9E8E1 /* ProductResultView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
 				835D1C402AFB90CB00B9E8E1 /* ScanTabViewModel.swift in Sources */,
+				835D1C822AFF3BA500B9E8E1 /* ForYouTabView.swift in Sources */,
 				835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */,
 				835D1C662AFE04DE00B9E8E1 /* Product.swift in Sources */,
 				835D1C602AFDFE5200B9E8E1 /* InfoBox.swift in Sources */,
