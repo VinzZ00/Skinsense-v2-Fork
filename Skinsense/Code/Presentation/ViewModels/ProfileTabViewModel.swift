@@ -8,5 +8,5 @@
 import Foundation
 
 class ProfileTabViewModel: ObservableObject {
-    @Published var isSigned : Bool = true
+    @Published var isSigned : Bool = false
 }
