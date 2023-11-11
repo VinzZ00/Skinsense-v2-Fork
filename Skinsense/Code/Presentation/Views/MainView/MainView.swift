@@ -10,8 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        NavigationView {
-            TabView {
+        TabView {
                 Text("For You")
                     .tabItem {
                         Label("For You", systemImage: "heart.fill")
@@ -24,7 +23,6 @@ struct MainView: View {
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
                     }
-            }
         }
     }
 }
