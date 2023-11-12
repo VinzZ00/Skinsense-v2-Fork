@@ -100,16 +100,22 @@ struct ScanResultView: View {
                             }
                         }
                         
-                        if let additionalInformations = scanResult.additionalInformations {
+                        if let additionalDescriptions = scanResult.additionalDescriptions{
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Additional Information")
                                     .font(.body)
                                     .lineSpacing(15)
-                                Text(additionalInformations)
-                                    .font(.subheadline)
-                                    .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                ForEach(additionalDescriptions, id: \.self) {
+                                    information in
+                                    
+                                    Text(information)
+                                        .font(.subheadline)
+                                        .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                
                             }
                         }
                         

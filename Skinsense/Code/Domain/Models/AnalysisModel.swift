@@ -23,7 +23,7 @@ struct AnalysisModel: Decodable {
     var allergens: [Ingredient]?
     var incompatibleIngredients: [String]?
     var compatibleIngredients: [String]?
-    var additionalInformations: String?
+    var additionalDescriptions: [String]?
 }
 
 // MARK: - Effect
