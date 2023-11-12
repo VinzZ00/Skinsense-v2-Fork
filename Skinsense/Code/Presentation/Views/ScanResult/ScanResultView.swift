@@ -44,7 +44,7 @@ struct ScanResultView: View {
                     
                     // Name
                     HStack(spacing: 20) {
-                        Text("Scan result \(scanResult.id)")
+                        Text("Scan result")
                             .font(.title2)
                             .bold()
                         Spacer()
@@ -54,11 +54,12 @@ struct ScanResultView: View {
                     }
                     
                     // Effectiveness
-                    InfoBox(text: "Based on your personalization, the product's effectiveness level is 70.3%", type: .success, showIcon: false)
+                    InfoBox(text: "Based on your personalization, the product's effectiveness level is \(scanResult.percentage ?? 0)%", type: .success, showIcon: false)
                     
                     // Points
                     VStack(alignment:.leading, spacing: 10){
-                        CheckListItem(isTrue: false, text: "Bad for your \(scanResult.badForSkinType.joined(separator: ", "))")
+                        // TODO: Personalize this
+                        CheckListItem(isTrue: false, text: "Bad for  \(scanResult.badForSkinType.joined(separator: ", ")) skin")
                         CheckListItem(isTrue: false, text: "Bad for \(scanResult.badFor.joined(separator: ", "))")
                         CheckListItem(text: "Effective for your \(scanResult.goodForSkinType.joined(separator: ", ")) Skin")
                         if let allergens = scanResult.allergens {

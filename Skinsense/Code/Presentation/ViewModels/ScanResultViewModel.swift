@@ -9,6 +9,8 @@ import Foundation
 
 class ScanResultViewModel: ObservableObject {
     private var repository: MockProductRepository = MockProductRepository()
+    private var analyzerRepository: AnalyzerRepository = AnalyzerRepository()
+    
     var scannedIngredients : [String]
     
     @Published var scanResult: AnalysisModel?
@@ -24,14 +26,15 @@ class ScanResultViewModel: ObservableObject {
     }
     
     func getAnalysis() {
-        repository.fetchData { products in
-            self.scanResult = AnalysisModel(
-                similarProducts: products,
-                goodForSkinType: ["Dry", "Oily"],
-                badForSkinType: ["Sensitive"],
-                goodFor: ["Acne", "Redness"],
-                badFor: ["Oiliness"]
-            )
+        let request: AnalysisRequest = AnalysisRequest(ingredients: scannedIngredients.joined(separator: ","), concerns: ["Redness"], skinTypes: ["Dry"])
+        
+        analyzerRepository.getAnalysis(request: request) { response in
+            switch response {
+            case .success(let data):
+                self.scanResult = data
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

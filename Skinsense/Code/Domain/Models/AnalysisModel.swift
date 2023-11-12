@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - AnalysisModel
-struct AnalysisModel: Codable {
-    var id = UUID()
-    var score, denominator: Int?
+struct AnalysisModel: Decodable {
+    var id: String?
+    var score, denominator: Double?
     var percentage: Double?
     var negEffects, posEffects: [Effect]?
     var ingredients: [Ingredient]?

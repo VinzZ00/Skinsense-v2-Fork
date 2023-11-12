@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "277f1ab2c6664b19b4a412e32b094b201e2d5757",
+        "version" : "7.10.0"
+      }
+    },
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke",
+      "state" : {
+        "revision" : "3f666f120b63ea7de57d42e9a7c9b47f8e7a290b",
+        "version" : "12.1.6"
+      }
+    },
+    {
       "identity" : "wrappinghstack",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ksemianov/WrappingHStack",
