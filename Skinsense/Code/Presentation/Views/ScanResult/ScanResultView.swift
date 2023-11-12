@@ -17,7 +17,7 @@ struct ScanResultView: View {
                 VStack(alignment:.leading, spacing: 15) {
                     InfoBox(text: "This suggestion is based on EWG certified database. We do not guarantee results, consult with your doctor prior to using any product.")
                     
-                    if let similarProduct = scanResult.similarProduct {
+                    if let similarProduct = scanResult.similarProducts?.first {
                         // Is this your product
                         VStack(alignment: .leading) {
                             Text("Is this your product?")
@@ -26,9 +26,9 @@ struct ScanResultView: View {
                             
                             NavigationLink(destination: ProductResultView()) {
                                 HStack {
-                                    ProductImageWithStamp(imageLink: similarProduct.photo, imageSize:.small)
+                                    ProductImageWithStamp(imageLink: similarProduct.photo ?? "placeholder", imageSize:.small)
                                     
-                                    Text(similarProduct.name)
+                                    Text(similarProduct.name ?? "Product Name")
                                     
                                     Spacer()
                                     
@@ -158,5 +158,10 @@ struct ScanResultView: View {
 }
 
 #Preview {
-    ScanResultView(viewModel: ScanResultViewModel(scannedData: [ScanData(content: "Glycerin"), ScanData(content: "Salycylic Acid")]))
+    ScanResultView(viewModel: ScanResultViewModel(scannedData: [
+        ScanData(content: "Salicylic Acid"),
+        ScanData(content: "Melaleuca Alternifolia Leaf Oil"),
+        ScanData(content: "Calophyllum Inophyllum Seed Oil"),
+        ScanData(content: "Tocopherol")
+    ]))
 }

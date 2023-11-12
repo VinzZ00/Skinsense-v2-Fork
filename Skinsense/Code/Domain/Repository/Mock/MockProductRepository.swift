@@ -14,7 +14,7 @@ class MockProductRepository: IProductRepository {
                 id: UUID().uuidString,
                 name: "Product 1",
                 photo: "skincare_product1",
-                category: "Face Cleanser",
+                categoryID: "Face Cleanser",
                 goodForSkinType: ["Dry", "Oily"],
                 badForSkinType: ["Sensitive"],
                 goodFor: ["Acne"],

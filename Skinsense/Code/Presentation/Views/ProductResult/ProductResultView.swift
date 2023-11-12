@@ -18,15 +18,15 @@ struct ProductResultView: View {
                 VStack(spacing: 24){
                     InfoBox(text: "This suggestion is based on EWG certified database. We do not guarantee results, consult with your doctor prior to using any product.")
                     
-                    ProductImageWithStamp(imageLink: product.photo)
+                    ProductImageWithStamp(imageLink: product.photo ?? "image")
                     
                     // nama product
                     HStack(spacing: 50) {
                         VStack(alignment: .leading) {
-                            Text(product.name)
+                            Text(product.name ?? "Product Name")
                                 .font(.title2)
                                 .bold()
-                            Text(product.category)
+                            Text(product.categoryName ?? "{CATEGORY}")
                                 .font(.body)
                                 .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                         }
@@ -44,9 +44,18 @@ struct ProductResultView: View {
                     
                     // Point-point
                     VStack(alignment:.leading, spacing: 10){
-                        CheckListItem(isTrue: false, text: "Bad for your \(product.badForSkinType.joined(separator: ", "))")
-                        CheckListItem(isTrue: false, text: "Bad for \(product.badFor.joined(separator: ", "))")
-                        CheckListItem(text: "Effective for your \(product.goodForSkinType.joined(separator: ", ")) Skin")
+                        if let badForSkinType = product.badForSkinType {
+                            CheckListItem(isTrue: false, text: "Bad for your \(badForSkinType.joined(separator: ", "))")
+                        }
+                        
+                        if let badFor = product.badFor {
+                            CheckListItem(isTrue: false, text: "Bad for \(badFor.joined(separator: ", "))")
+                        }
+                        
+                        if let goodForSkinType = product.goodForSkinType {
+                            CheckListItem(text: "Effective for your \(goodForSkinType.joined(separator: ", ")) Skin")
+                        }
+                        
                         if let allergens = product.allergens {
                             CheckListItem(isTrue: false, text: "We have found \(allergens.count) allergens that might not suitable for your skin")
                         }

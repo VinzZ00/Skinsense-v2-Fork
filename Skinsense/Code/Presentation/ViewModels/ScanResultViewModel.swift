@@ -11,7 +11,7 @@ class ScanResultViewModel: ObservableObject {
     private var repository: MockProductRepository = MockProductRepository()
     var scannedIngredients : [String]
     
-    @Published var scanResult: ScanResult?
+    @Published var scanResult: AnalysisModel?
     
     static func processScannedData(scannedData: [ScanData]) -> [String] {
         if scannedData.isEmpty { return [] }
@@ -25,14 +25,12 @@ class ScanResultViewModel: ObservableObject {
     
     func getAnalysis() {
         repository.fetchData { products in
-            self.scanResult = ScanResult(
+            self.scanResult = AnalysisModel(
+                similarProducts: products,
                 goodForSkinType: ["Dry", "Oily"],
                 badForSkinType: ["Sensitive"],
-                goodFor: ["Redness", "Acne"],
-                badFor: ["Dullness"],
-                allergens: [],
-                incompatibleIngredients: ["Water"], compatibleIngredients: ["Linalool"], additionalInformations: "This is additional information",
-                similarProduct: products.first
+                goodFor: ["Acne", "Redness"],
+                badFor: ["Oiliness"]
             )
         }
     }
