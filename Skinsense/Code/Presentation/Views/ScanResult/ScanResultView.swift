@@ -59,7 +59,8 @@ struct ScanResultView: View {
                     }
                     
                     // Effectiveness
-                    InfoBox(text: "Based on your personalization, the product's effectiveness level is \(scanResult.percentage ?? 0)%", type: .success, showIcon: false)
+                    InfoBox(text: "Based on your personalization, the product's effectiveness level is \(scanResult.percentage ?? 0)%",
+                            type: (scanResult.percentage ?? 0) < 60 ? .danger : .success, showIcon: false)
                     
                     // Points
                     VStack(alignment:.leading, spacing: 10){
