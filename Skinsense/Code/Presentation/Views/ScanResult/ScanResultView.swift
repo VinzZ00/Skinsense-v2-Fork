@@ -44,9 +44,14 @@ struct ScanResultView: View {
                     
                     // Name
                     HStack(spacing: 20) {
-                        Text("Scan result")
-                            .font(.title2)
-                            .bold()
+                        VStack {
+                            Text("Scan result")
+                                .font(.title2)
+                                .bold()
+                            Text("ID: \(scanResult.id ?? 0)")
+                                .font(.caption)
+                                .foregroundStyle(Color.gray)
+                        }
                         Spacer()
                         BookmarkButton { state in
                             print(state)
@@ -133,14 +138,19 @@ struct ScanResultView: View {
                         
                         // Ingredients Information Components
                         VStack(spacing: 8) {
-                            IngredientInformation(title: "Ingredients are good for reducing scar", ingredients: [
-                                "Ok",
-                                "CKJ"
-                            ])
-                            IngredientInformation(title: "Ingredients are good for hydrating", ingredients: [
-                                "Ok",
-                                "CKJ"
-                            ])
+                            ForEach(viewModel.scanRequest.concerns, id:\.self) {
+                                concern in
+                                IngredientInformation(
+                                    title: "Ingredients are good for reducing \(concern)",
+                                    ingredients: viewModel.scanResult?.ingredients?.filter({ ing in
+                                        ing.getIngredientGoodFor().contains { test in
+                                            test == concern
+                                        }
+                                    }).map({ el in
+                                        el.name
+                                    }) as! [String]
+                                )
+                            }
                         }
                         
                     }
@@ -165,10 +175,12 @@ struct ScanResultView: View {
 }
 
 #Preview {
-    ScanResultView(viewModel: ScanResultViewModel(scannedData: [
-        ScanData(content: "Salicylic Acid"),
-        ScanData(content: "Melaleuca Alternifolia Leaf Oil"),
-        ScanData(content: "Calophyllum Inophyllum Seed Oil"),
-        ScanData(content: "Tocopherol")
-    ]))
+    ScanResultView(viewModel: ScanResultViewModel(
+        scannedData: [
+            ScanData(content: "Salicylic Acid"),
+            ScanData(content: "Melaleuca Alternifolia Leaf Oil"),
+            ScanData(content: "Calophyllum Inophyllum Seed Oil"),
+            ScanData(content: "Tocopherol")
+        ]
+    ))
 }

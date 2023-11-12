@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - AnalysisModel
 struct AnalysisModel: Decodable {
-    var id: String?
+    var id: Int?
     var score, denominator: Double?
     var percentage: Double?
     var negEffects, posEffects: [Effect]?

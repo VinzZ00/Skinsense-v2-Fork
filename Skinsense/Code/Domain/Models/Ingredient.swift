@@ -42,4 +42,16 @@ struct Ingredient: Codable {
         case additionalDescription = "additional_description"
         case name
     }
+    
+    func getIngredientGoodFor() -> [String] {
+        guard let goodFor = self.goodFor else {
+            return []
+        }
+        
+        let splitted = goodFor.components(separatedBy: ",").map { test in
+            test.trimmingCharacters(in: .whitespaces)
+        }
+        
+        return splitted
+    }
 }

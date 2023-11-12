@@ -13,6 +13,7 @@ class ScanResultViewModel: ObservableObject {
     
     var scannedIngredients : [String]
     
+    @Published var scanRequest: AnalysisRequest
     @Published var scanResult: AnalysisModel?
     
     static func processScannedData(scannedData: [ScanData]) -> [String] {
@@ -26,9 +27,7 @@ class ScanResultViewModel: ObservableObject {
     }
     
     func getAnalysis() {
-        let request: AnalysisRequest = AnalysisRequest(ingredients: scannedIngredients.joined(separator: ","), concerns: ["Redness"], skinTypes: ["Dry"])
-        
-        analyzerRepository.getAnalysis(request: request) { response in
+        analyzerRepository.getAnalysis(request: self.scanRequest) { response in
             switch response {
             case .success(let data):
                 self.scanResult = data
@@ -40,6 +39,9 @@ class ScanResultViewModel: ObservableObject {
     
     init(scannedData: [ScanData]) {
         self.scannedIngredients = ScanResultViewModel.processScannedData(scannedData: scannedData)
+        self.scanRequest = AnalysisRequest(
+            ingredients: self.scannedIngredients.joined(separator: ","),
+            concerns: ["Redness"], skinTypes: ["Dry"])
         
         if(!self.scannedIngredients.isEmpty) {
             getAnalysis()
