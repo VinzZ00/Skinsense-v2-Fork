@@ -13,7 +13,7 @@ class ScanResultViewModel: ObservableObject {
     
     var scannedIngredients : [String]
     
-    @Published var scanRequest: AnalysisRequest
+    @Published var scanRequest: AnalysisRequest?
     @Published var scanResult: AnalysisModel?
     
     static func processScannedData(scannedData: [ScanData]) -> [String] {
@@ -27,24 +27,37 @@ class ScanResultViewModel: ObservableObject {
     }
     
     func getAnalysis() {
-        analyzerRepository.getAnalysis(request: self.scanRequest) { response in
+        guard let scanRequest = self.scanRequest else {return }
+        analyzerRepository.getAnalysis(request: scanRequest) { response in
             switch response {
             case .success(let data):
                 self.scanResult = data
             case .failure(let error):
                 print(error)
+                print(response)
             }
         }
     }
     
     init(scannedData: [ScanData]) {
         self.scannedIngredients = ScanResultViewModel.processScannedData(scannedData: scannedData)
-        self.scanRequest = AnalysisRequest(
-            ingredients: self.scannedIngredients.joined(separator: ","),
-            concerns: ["Redness"], skinTypes: ["Dry"])
         
-        if(!self.scannedIngredients.isEmpty) {
-            getAnalysis()
+        if let userData = CoreDataManager.shared.fetchUserData().first {
+            let skinConcerns = userData.skinConcerns?.allObjects as [PersonalizationData]
+            let skinTypes = userData.skinTypes?.allObjects as [PersonalizationData]
+            let allergens = userData.allergens?.allObjects as [PersonalizationData]
+            
+            self.scanRequest = AnalysisRequest(
+                ingredients: self.scannedIngredients.joined(separator: ","),
+                concerns: skinConcerns.map({$0.name ?? ""}),
+                skinTypes: ["Dry"]
+            )
+            
+            print(scanRequest)
+            
+            if(!self.scannedIngredients.isEmpty) {
+                getAnalysis()
+            }
         }
     }
 }

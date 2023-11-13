@@ -138,19 +138,21 @@ struct ScanResultView: View {
                         }
                         
                         // Ingredients Information Components
-                        VStack(spacing: 8) {
-                            ForEach(viewModel.scanRequest.concerns, id:\.self) {
-                                concern in
-                                IngredientInformation(
-                                    title: "Ingredients are good for reducing \(concern)",
-                                    ingredients: viewModel.scanResult?.ingredients?.filter({ ing in
-                                        ing.getIngredientGoodFor().contains { test in
-                                            test == concern
-                                        }
-                                    }).map({ el in
-                                        el.name
-                                    }) as! [String]
-                                )
+                        if let concerns = viewModel.scanRequest?.concerns {
+                            VStack(spacing: 8) {
+                                ForEach(concerns, id:\.self) {
+                                    concern in
+                                    IngredientInformation(
+                                        title: "Ingredients are good for reducing \(concern)",
+                                        ingredients: viewModel.scanResult?.ingredients?.filter({ ing in
+                                            ing.getIngredientGoodFor().contains { test in
+                                                test == concern
+                                            }
+                                        }).map({ el in
+                                            el.name
+                                        }) as! [String]
+                                    )
+                                }
                             }
                         }
                         

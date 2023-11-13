@@ -14,22 +14,23 @@ class PersonalizationViewModel: ObservableObject {
     @Published var selectedAllergens: [Allergen] = []
     
     var skinTypes : [SkinType] = [
-        SkinType(id: UUID(), name: "Combination Skin"),
-        SkinType(id: UUID(), name: "Dry Skin"),
-        SkinType(id: UUID(), name: "Normal Skin"),
-        SkinType(id: UUID(), name: "Sensitive Skin")
+        SkinType(id: UUID(), name: "Combination"),
+        SkinType(id: UUID(), name: "Dry"),
+        SkinType(id: UUID(), name: "Normal"),
+        SkinType(id: UUID(), name: "Sensitive")
     ]
     var skinConcerns : [SkinConcern] = [
         SkinConcern(id: UUID(), name: "Acne"),
-        SkinConcern(id: UUID(), name: "Anti-Aging"),
-        SkinConcern(id: UUID(), name: "Eczema"),
-        SkinConcern(id: UUID(), name: "Dark Sports"),
-        SkinConcern(id: UUID(), name: "Fungal Acne"),
-        SkinConcern(id: UUID(), name: "Reduces Irritations"),
-        SkinConcern(id: UUID(), name: "Rocasea"),
-        SkinConcern(id: UUID(), name: "Scar Healing"),
+        SkinConcern(id: UUID(), name: "Oiliness"),
+        SkinConcern(id: UUID(), name: "Hormonal Acne"),
         SkinConcern(id: UUID(), name: "Texture"),
-        SkinConcern(id: UUID(), name: "Large Pores"),
+        SkinConcern(id: UUID(), name: "Dryness"),
+        SkinConcern(id: UUID(), name: "Fungal Acne"),
+        SkinConcern(id: UUID(), name: "Redness"),
+        SkinConcern(id: UUID(), name: "Sensitivity"),
+        SkinConcern(id: UUID(), name: "Fine Lines"),
+        SkinConcern(id: UUID(), name: "Wrinkles"),
+        SkinConcern(id: UUID(), name: "Dullness"),
     ]
     var allergens : [Allergen] = [
         Allergen(id: UUID(), name: "None"),
