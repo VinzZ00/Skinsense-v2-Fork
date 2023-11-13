@@ -216,7 +216,7 @@ struct ScanResultView: View {
                     
                 }
                 .padding()
-                .navigationTitle("Product Information")
+                .navigationTitle("Scan Result")
             }
         } else {
             VStack(spacing: 15) {
