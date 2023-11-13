@@ -15,7 +15,7 @@ class ConfigurationManager {
     func apiBaseUrl() -> String {
         // Logic to read the base URL from a file or another source
 //        return "http://localhost:3005/"
-        return "https://e89c-103-136-59-166.ngrok-free.app/"
-//        return "https://api.skinsense.exacode.io/"
+//        return "https://e89c-103-136-59-166.ngrok-free.app/"
+        return "https://api.skinsense.exacode.io/"
     }
 }
