@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct User {
-    var id: String
-    var name: String
-    var email: String
-    var photo: String
-    var skinTypes: [SkinType]
-    var skinConcerns: [SkinConcern]
-    var allergens: [Allergen]
-}
+//struct User {
+//    var id: String
+//    var name: String
+//    var email: String
+//    var photo: String
+//    var skinTypes: [SkinType]
+//    var skinConcerns: [SkinConcern]
+//    var allergens: [Allergen]
+//}

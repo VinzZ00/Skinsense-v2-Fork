@@ -16,18 +16,13 @@ struct PersonalizationSheetItems {
 
 struct PersonalizationView: View {
     @Environment(\.colorScheme) var colorScheme
-    
-    var handleSelectPersonalization: ([SkinType], [SkinConcern], [Allergen]) -> Void
+    @Environment(\.managedObjectContext) var moc
     
     @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
     
     @State var selectedSkinTypes: [SkinType] = []
     @State var selectedSkinConcerns: [SkinConcern] = []
     @State var selectedAllergens: [Allergen] = []
-    
-    func handleContinue() {
-        print("OKKKKK")
-    }
     
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination Skin"),
@@ -98,6 +93,10 @@ struct PersonalizationView: View {
             print("Adding skin type")
             selectedAllergens.append(allergen)
         }
+    }
+    
+    func handleUpdate(skinTypes: [SkinType], skinConcers: [SkinConcern], allergens: [Allergen]) {
+        CoreDataManager.shared.saveUserData(email: "Email", name: "Name", photo: "Photo", skinConcerns: skinConcers, skinTypes: skinTypes, allergens: allergens)
     }
     
     var body: some View {
@@ -197,7 +196,7 @@ struct PersonalizationView: View {
             }
             
             CustomButton(title: "Done", action: {
-                self.handleSelectPersonalization(selectedSkinTypes, selectedSkinConcerns, selectedAllergens)
+                self.handleUpdate(skinTypes: selectedSkinTypes, skinConcers: selectedSkinConcerns, allergens: selectedAllergens)
             }, isDisabled:
                 selectedSkinTypes.isEmpty || selectedSkinConcerns.isEmpty || selectedAllergens.isEmpty
             )
@@ -288,7 +287,5 @@ struct PersonalizationSheetView: View {
 }
 
 #Preview {
-    PersonalizationView { skinTypes, concerns, allergens in
-        
-    }
+    PersonalizationView()
 }

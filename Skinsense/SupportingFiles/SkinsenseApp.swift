@@ -6,30 +6,32 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct SkinsenseApp: App {
-    @State var userData: User?
-    
-    var mockScanData: [ScanData] = [
-        ScanData(content: "Salicylic Acid"),
-        ScanData(content: "Melaleuca Alternifolia Leaf Oil"),
-        ScanData(content: "Calophyllum Inophyllum Seed Oil"),
-        ScanData(content: "Tocopherol")
-    ]
-    
-    func handleUpdate(skinTypes: [SkinType], skinConcers: [SkinConcern], allergens: [Allergen]) {
-        self.userData = User(id: UUID().uuidString, name: "Name", email: "Name", photo: "Photo", skinTypes: skinTypes, skinConcerns: skinConcers, allergens: allergens)
-    }
+    let coreDataManager = CoreDataManager.shared
     
     var body: some Scene {
         WindowGroup {
-            ScanResultView(viewModel: ScanResultViewModel(scannedData: mockScanData))
-//            if(userData != nil) {
-//                MainView()
-//            } else {
-//                PersonalizationView(handleSelectPersonalization: handleUpdate)
-//            }
+            ContentView()
+                .environment(\.managedObjectContext, coreDataManager.persistentContainer.viewContext)
+                .onAppear {
+                    let userData = coreDataManager.fetchUserData()
+                    print(userData)
+                }
+        }
+    }
+}
+
+struct ContentView : View {
+    @State var userData: User?
+    
+    var body: some View {
+        if(userData != nil) {
+            MainView()
+        } else {
+            PersonalizationView()
         }
     }
 }

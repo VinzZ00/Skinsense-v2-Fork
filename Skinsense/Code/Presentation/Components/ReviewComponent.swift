@@ -13,17 +13,18 @@ struct ReviewComponent: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16){
             HStack(spacing: 16){
-                Image(review.user.photo)
+                Image(review.user.photo ?? "")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)
                 
                 VStack(alignment: .leading){
-                    Text(review.user.name)
+                    Text(review.user.name ?? "")
                         .font(.subheadline)
                         .bold()
-                    Text(review.user.skinTypes.map({$0.name}).joined(separator: ", "))
-                        .font(.subheadline)
+                    if let skinTypes = review.user.skinTypes {
+                        Text(skinTypes.map({$0.name}).joined(separator: ",")).font(.subheadline)
+                    }
                     Spacer()
                         .frame(height: 10)
                     HStack{
@@ -58,24 +59,23 @@ struct ReviewComponent: View {
     }
 }
 
-#Preview {
-    ReviewComponent(review: 
-                        Review(
-                            id: UUID().uuidString,
-                            user: User(id: UUID().uuidString,
-                                       name: "Shelamines",
-                                       email: "shelamines@shela.mines",
-                                       photo: "Profile",
-                                       skinTypes: [
-                                        SkinType(name: "Dry")
-                                       ],
-                                       skinConcerns: [
-                                        SkinConcern(name: "Redness")
-                                       ],
-                                       allergens: []
-                                      ),
-                            rating: 3.1,
-                            notes: "Cool",
-                            likes: 10)
-    )
-}
+//#Preview {
+//    @Environment(\.managedObjectContext) var moc
+//    
+//    let userData = User()
+//    userData.email = "email"
+//    userData.name = "Name"
+//    userData.photo = "photo"
+//    userData.skinConcerns = [SkinConcern(name: "Redness")]
+//    userData.skinTypes = [SkinType(name: "Dry")]
+//    userData.allergens = [Allergen(name: "Linalool")]
+//    
+//    ReviewComponent(review:
+//                        Review(
+//                            id: UUID().uuidString,
+//                            user: userData,
+//                            rating: 3.1,
+//                            notes: "Cool",
+//                            likes: 10)
+//    )
+//}
