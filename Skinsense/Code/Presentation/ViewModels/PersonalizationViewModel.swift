@@ -31,6 +31,10 @@ class PersonalizationViewModel: ObservableObject {
         SkinConcern(id: UUID(), name: "Fine Lines"),
         SkinConcern(id: UUID(), name: "Wrinkles"),
         SkinConcern(id: UUID(), name: "Dullness"),
+        SkinConcern(id: UUID(), name: "Pores"),
+        SkinConcern(id: UUID(), name: "Irritation"),
+        SkinConcern(id: UUID(), name: "Rosacea"),
+        SkinConcern(id: UUID(), name: "Eczema"),
     ]
     var allergens : [Allergen] = [
         Allergen(id: UUID(), name: "None"),
