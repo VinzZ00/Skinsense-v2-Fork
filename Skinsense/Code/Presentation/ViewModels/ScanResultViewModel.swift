@@ -16,6 +16,9 @@ class ScanResultViewModel: ObservableObject {
     @Published var scanRequest: AnalysisRequest?
     @Published var scanResult: AnalysisModel?
     
+    @Published var skinConcerns: [PersonalizationData]?
+    @Published var skinTypes: [PersonalizationData]?
+    
     static func processScannedData(scannedData: [ScanData]) -> [String] {
         if scannedData.isEmpty { return [] }
         
@@ -46,6 +49,9 @@ class ScanResultViewModel: ObservableObject {
             let skinConcerns = userData.skinConcerns?.allObjects as [PersonalizationData]
             let skinTypes = userData.skinTypes?.allObjects as [PersonalizationData]
             let allergens = userData.allergens?.allObjects as [PersonalizationData]
+            
+            self.skinConcerns = skinConcerns
+            self.skinTypes = skinTypes
             
             self.scanRequest = AnalysisRequest(
                 ingredients: self.scannedIngredients.joined(separator: ","),

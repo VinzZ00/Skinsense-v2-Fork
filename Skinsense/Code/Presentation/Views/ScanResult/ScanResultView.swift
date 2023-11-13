@@ -64,10 +64,63 @@ struct ScanResultView: View {
                     
                     // Points
                     VStack(alignment:.leading, spacing: 10){
-                        // TODO: Personalize this
-                        CheckListItem(isTrue: false, text: "Bad for  \(scanResult.badForSkinType.joined(separator: ", ")) skin")
-                        CheckListItem(isTrue: false, text: "Bad for \(scanResult.badFor.joined(separator: ", "))")
-                        CheckListItem(text: "Effective for your \(scanResult.goodForSkinType.joined(separator: ", ")) Skin")
+                        
+                        if let skinTypes = viewModel.skinTypes {
+                            let intersecting = skinTypes.filter { test in
+                                if let name = test.name {
+                                    return scanResult.goodForSkinType.contains(name)
+                                } else {
+                                    return false
+                                }
+                            }
+                            
+                            if(!intersecting.isEmpty) {
+                                CheckListItem(text: "Effective for your \(intersecting.map({$0.name ?? ""}).joined(separator: ", ")) Skin")
+                            }
+                        }
+                        
+                        if let skinTypes = viewModel.skinTypes {
+                            let intersecting = skinTypes.filter { test in
+                                if let name = test.name {
+                                    return scanResult.badForSkinType.contains(name)
+                                } else {
+                                    return false
+                                }
+                            }
+                            
+                            if(!intersecting.isEmpty) {
+                                CheckListItem(isTrue: false, text: "Bad for your \(intersecting.map({$0.name ?? ""}).joined(separator: ", ")) skin")
+                            }
+                        }
+                        
+                        if let concerns = viewModel.skinConcerns {
+                            let intersecting = concerns.filter { test in
+                                if let name = test.name {
+                                    return scanResult.goodFor.contains(name)
+                                } else {
+                                    return false
+                                }
+                            }
+                            
+                            if(!intersecting.isEmpty) {
+                                CheckListItem(text: "Good for \(intersecting.map({$0.name ?? ""}).joined(separator: ", ")) problems")
+                            }
+                        }
+                        
+                        if let concerns = viewModel.skinConcerns {
+                            let intersecting = concerns.filter { test in
+                                if let name = test.name {
+                                    return scanResult.badFor.contains(name)
+                                } else {
+                                    return false
+                                }
+                            }
+                            
+                            if(!intersecting.isEmpty) {
+                                CheckListItem(isTrue: false, text: "Bad for \(intersecting.map({$0.name ?? ""}).joined(separator: ", ")) problems")
+                            }
+                        }
+                        
                         if let allergens = scanResult.allergens {
                             CheckListItem(isTrue: false, text: "We have found \(allergens.count) allergens that might not suitable for your skin")
                         }
@@ -85,6 +138,7 @@ struct ScanResultView: View {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Incompatible with")
                                     .font(.body)
+                                    .fontWeight(.semibold)
                                     .lineSpacing(15)
                                 Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
                                     .font(.subheadline)
@@ -97,6 +151,7 @@ struct ScanResultView: View {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Effective with")
                                     .font(.body)
+                                    .fontWeight(.semibold)
                                     .lineSpacing(15)
                                 Text("Products that contain \(compatibleIngredients.joined(separator: ", "))")
                                     .font(.subheadline)
@@ -115,7 +170,7 @@ struct ScanResultView: View {
                                 ForEach(additionalDescriptions, id: \.self) {
                                     information in
                                     
-                                    Text(information)
+                                    Text("- \(information)")
                                         .font(.subheadline)
                                         .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                         .fixedSize(horizontal: false, vertical: true)
