@@ -67,6 +67,7 @@
 		83C35BD72B027D85002E9256 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */; };
 		83C35BD82B027D85002E9256 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */; };
 		83C35BDB2B02868C002E9256 /* MainAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BDA2B02868C002E9256 /* MainAppViewModel.swift */; };
+		83C35BDD2B02BBFB002E9256 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83C35BDA2B02868C002E9256 /* MainAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppViewModel.swift; sourceTree = "<group>"; };
+		83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				835D1C332AFA704D00B9E8E1 /* Images */,
+				83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C35BDD2B02BBFB002E9256 /* Launch Screen.storyboard in Resources */,
 				830ED70F2AF3BFE400D80556 /* Preview Assets.xcassets in Resources */,
 				830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */,
 			);
@@ -711,10 +715,11 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} requires camera to scan ingredients";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Skinsense requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -742,10 +747,11 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} requires camera to scan ingredients";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Skinsense requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
