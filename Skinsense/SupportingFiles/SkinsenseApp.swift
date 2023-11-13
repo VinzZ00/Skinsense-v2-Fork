@@ -35,7 +35,7 @@ struct ContentView : View {
             if(viewModel.userData != nil) {
                 MainView()
             } else {
-                PersonalizationView()
+                PersonalizationView(handleFetchUserData: viewModel.fetchUserData)
             }
         }
     }

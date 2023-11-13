@@ -12,6 +12,7 @@ class MainAppViewModel: ObservableObject {
     @Published var isLoading : Bool = true
     
     func fetchUserData() {
+        self.isLoading = true
         let userData = CoreDataManager.shared.fetchUserData()
         if !userData.isEmpty {
             self.userData = userData.first

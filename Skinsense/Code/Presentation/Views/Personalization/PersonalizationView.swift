@@ -15,6 +15,8 @@ struct PersonalizationSheetItems {
 }
 
 struct PersonalizationView: View {
+    var handleFetchUserData : () -> Void
+    
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) var moc
     
@@ -66,6 +68,7 @@ struct PersonalizationView: View {
     
     func handleUpdate(skinTypes: [SkinType], skinConcers: [SkinConcern], allergens: [Allergen]) {
         CoreDataManager.shared.saveUserData(email: "Email", name: "Name", photo: "Photo", skinConcerns: skinConcers, skinTypes: skinTypes, allergens: allergens)
+        self.handleFetchUserData()
     }
     
     var body: some View {
@@ -256,5 +259,7 @@ struct PersonalizationSheetView: View {
 }
 
 #Preview {
-    PersonalizationView()
+    PersonalizationView {
+        // Unimplemented
+    }
 }
