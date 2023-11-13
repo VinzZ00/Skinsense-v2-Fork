@@ -7,4 +7,4 @@
 
 import Foundation
 
-class Allergen : GeneralAttribute {}
+public class Allergen : GeneralAttribute {}

@@ -7,4 +7,4 @@
 
 import Foundation
 
-class SkinType : GeneralAttribute {}
+public class SkinType : GeneralAttribute {}

@@ -31,7 +31,11 @@ struct ScanTabView: View {
                 page in
                 switch page {
                 case .result:
-                    ScanResultView(viewModel: ScanResultViewModel(scannedData: viewModel.texts))
+                    ScanResultView(
+                        viewModel: ScanResultViewModel(
+                            scannedData: viewModel.texts
+                        )
+                    )
                 }
             }
         }

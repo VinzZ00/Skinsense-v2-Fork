@@ -6,21 +6,36 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct SkinsenseApp: App {
-    @State var userData: User?
+    let coreDataManager = CoreDataManager.shared
     
-    func handleUpdate(skinTypes: [SkinType], skinConcers: [SkinConcern], allergens: [Allergen]) {
-        self.userData = User(id: UUID().uuidString, name: "Name", email: "Name", photo: "Photo", skinTypes: skinTypes, skinConcerns: skinConcers, allergens: allergens)
-    }
+    @StateObject var viewModel: MainAppViewModel = MainAppViewModel()
     
     var body: some Scene {
         WindowGroup {
-            if(userData != nil) {
+            ContentView(viewModel: viewModel)
+                .environment(\.managedObjectContext, coreDataManager.persistentContainer.viewContext)
+                .onAppear {
+                    viewModel.fetchUserData()
+                }
+        }
+    }
+}
+
+struct ContentView : View {
+    @ObservedObject var viewModel: MainAppViewModel
+    
+    var body: some View {
+        if viewModel.isLoading {
+            ProgressView()
+        } else {
+            if(viewModel.userData != nil) {
                 MainView()
             } else {
-                PersonalizationView(handleSelectPersonalization: handleUpdate)
+                PersonalizationView(handleFetchUserData: viewModel.fetchUserData)
             }
         }
     }

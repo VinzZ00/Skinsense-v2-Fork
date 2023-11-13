@@ -15,89 +15,60 @@ struct PersonalizationSheetItems {
 }
 
 struct PersonalizationView: View {
-    @Environment(\.colorScheme) var colorScheme
+    var handleFetchUserData : () -> Void
     
-    var handleSelectPersonalization: ([SkinType], [SkinConcern], [Allergen]) -> Void
+    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.managedObjectContext) var moc
     
     @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
     
-    @State var selectedSkinTypes: [SkinType] = []
-    @State var selectedSkinConcerns: [SkinConcern] = []
-    @State var selectedAllergens: [Allergen] = []
-    
-    func handleContinue() {
-        print("OKKKKK")
-    }
-    
-    var skinTypes : [SkinType] = [
-        SkinType(id: UUID(), name: "Combination Skin"),
-        SkinType(id: UUID(), name: "Dry Skin"),
-        SkinType(id: UUID(), name: "Normal Skin"),
-        SkinType(id: UUID(), name: "Sensitive Skin")
-    ]
-    var skinConcerns : [SkinConcern] = [
-        SkinConcern(id: UUID(), name: "Acne"),
-        SkinConcern(id: UUID(), name: "Anti-Aging"),
-        SkinConcern(id: UUID(), name: "Eczema"),
-        SkinConcern(id: UUID(), name: "Dark Sports"),
-        SkinConcern(id: UUID(), name: "Fungal Acne"),
-        SkinConcern(id: UUID(), name: "Reduces Irritations"),
-        SkinConcern(id: UUID(), name: "Rocasea"),
-        SkinConcern(id: UUID(), name: "Scar Healing"),
-        SkinConcern(id: UUID(), name: "Texture"),
-        SkinConcern(id: UUID(), name: "Large Pores"),
-    ]
-    var allergens : [Allergen] = [
-        Allergen(id: UUID(), name: "None"),
-        Allergen(id: UUID(), name: "Fragrance"),
-        Allergen(id: UUID(), name: "Alcohol"),
-        Allergen(id: UUID(), name: "Smooth"),
-        Allergen(id: UUID(), name: "Latex"),
-        Allergen(id: UUID(), name: "Preservatives"),
-    ]
-    
     func addSkinType(skinType: SkinType) {
-        if selectedSkinTypes.contains(where: { test in
+        if viewModel.selectedSkinTypes.contains(where: { test in
             test.id == skinType.id
         }) {
-            selectedSkinTypes.removeAll { test in
+            viewModel.selectedSkinTypes.removeAll { test in
                 test.id == skinType.id
             }
             return
         }
         
-        if selectedSkinTypes.count == 2 {
+        if viewModel.selectedSkinTypes.count == 2 {
             print("Max skin types selected.")
         } else {
-            print("Adding skin type")
-            selectedSkinTypes.append(skinType)
+            print("Adding skin type: \(skinType.name)")
+            viewModel.selectedSkinTypes.append(skinType)
         }
     }
     
     func addSkinConcern(skinConcern: SkinConcern) {
-        if selectedSkinConcerns.contains(where: { test in
+        if viewModel.selectedSkinConcerns.contains(where: { test in
             test.id == skinConcern.id
         }) {
-            selectedSkinConcerns.removeAll { test in
+            viewModel.selectedSkinConcerns.removeAll { test in
                 test.id == skinConcern.id
             }
         } else {
             print("Adding skin concern")
-            selectedSkinConcerns.append(skinConcern)
+            viewModel.selectedSkinConcerns.append(skinConcern)
         }
     }
     
     func addAllergen(allergen: Allergen) {
-        if selectedAllergens.contains(where: { test in
+        if viewModel.selectedAllergens.contains(where: { test in
             allergen.id == test.id
         }) {
-            selectedAllergens.removeAll { test in
+            viewModel.selectedAllergens.removeAll { test in
                 test.id == allergen.id
             }
         } else {
             print("Adding skin type")
-            selectedAllergens.append(allergen)
+            viewModel.selectedAllergens.append(allergen)
         }
+    }
+    
+    func handleUpdate(skinTypes: [SkinType], skinConcers: [SkinConcern], allergens: [Allergen]) {
+        CoreDataManager.shared.saveUserData(email: "Email", name: "Name", photo: "Photo", skinConcerns: skinConcers, skinTypes: skinTypes, allergens: allergens)
+        self.handleFetchUserData()
     }
     
     var body: some View {
@@ -125,12 +96,12 @@ struct PersonalizationView: View {
                         
                         // Bug fixed by Inez 7 Nov 2023 17:50:02
                         WrappingHStack(alignment:.leading) {
-                            ForEach(skinTypes, id: \.id) {
+                            ForEach(viewModel.skinTypes, id: \.id) {
                                 skinType in
                                 
                                 CustomCheckbox(onPress: { object in
                                     self.addSkinType(skinType: object as! SkinType)
-                                }, object: skinType, isActive: self.selectedSkinTypes.contains(where: { test in
+                                }, object: skinType, isActive: self.viewModel.selectedSkinTypes.contains(where: { test in
                                     test.id == skinType.id
                                 }))
                             }
@@ -149,12 +120,12 @@ struct PersonalizationView: View {
                         
                         // Bug fixed by Inez 7 Nov 2023 17:50:02
                         WrappingHStack(alignment:.leading) {
-                            ForEach(skinConcerns, id: \.id) {
+                            ForEach(viewModel.skinConcerns, id: \.id) {
                                 skinConcern in
                                 
                                 CustomCheckbox(onPress: { object in
                                     self.addSkinConcern(skinConcern: object as! SkinConcern)
-                                }, object: skinConcern, isActive: self.selectedSkinConcerns.contains(where: { test in
+                                }, object: skinConcern, isActive: self.viewModel.selectedSkinConcerns.contains(where: { test in
                                     test.id == skinConcern.id
                                 }))
                                 
@@ -174,12 +145,12 @@ struct PersonalizationView: View {
                         
                         // Bug fixed by Inez 7 Nov 2023 17:50:02
                         WrappingHStack(alignment:.leading) {
-                            ForEach(allergens, id: \.id) {
+                            ForEach(viewModel.allergens, id: \.id) {
                                 allergen in
                                 
                                 CustomCheckbox(onPress: { object in
                                     self.addAllergen(allergen: object as! Allergen)
-                                }, object: allergen, isActive: self.selectedAllergens.contains(where: { test in
+                                }, object: allergen, isActive: self.viewModel.selectedAllergens.contains(where: { test in
                                     test.id == allergen.id
                                 }))
                             }
@@ -197,9 +168,9 @@ struct PersonalizationView: View {
             }
             
             CustomButton(title: "Done", action: {
-                self.handleSelectPersonalization(selectedSkinTypes, selectedSkinConcerns, selectedAllergens)
+                self.handleUpdate(skinTypes: viewModel.selectedSkinTypes, skinConcers: viewModel.selectedSkinConcerns, allergens: viewModel.selectedAllergens)
             }, isDisabled:
-                selectedSkinTypes.isEmpty || selectedSkinConcerns.isEmpty || selectedAllergens.isEmpty
+                            viewModel.selectedSkinTypes.isEmpty || viewModel.selectedSkinConcerns.isEmpty || viewModel.selectedAllergens.isEmpty
             )
         }
         .padding()
@@ -288,7 +259,7 @@ struct PersonalizationSheetView: View {
 }
 
 #Preview {
-    PersonalizationView { skinTypes, concerns, allergens in
-        
+    PersonalizationView {
+        // Unimplemented
     }
 }

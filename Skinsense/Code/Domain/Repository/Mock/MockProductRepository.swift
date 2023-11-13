@@ -9,12 +9,20 @@ import Foundation
 
 class MockProductRepository: IProductRepository {
     func fetchData(completion: @escaping ([Product]) -> Void) {
+        let userData = User()
+        userData.email = "email"
+        userData.name = "Name"
+        userData.photo = "photo"
+        userData.skinConcerns = [SkinConcern(name: "Redness")]
+        userData.skinTypes = [SkinType(name: "Dry")]
+        userData.allergens = [Allergen(name: "Linalool")]
+        
         let mockData : [Product] = [
             Product(
                 id: UUID().uuidString,
                 name: "Product 1",
                 photo: "skincare_product1",
-                category: "Face Cleanser",
+                categoryID: "Face Cleanser",
                 goodForSkinType: ["Dry", "Oily"],
                 badForSkinType: ["Sensitive"],
                 goodFor: ["Acne"],
@@ -26,18 +34,7 @@ class MockProductRepository: IProductRepository {
                 reviews: [
                     Review(
                         id: UUID().uuidString,
-                        user: User(id: UUID().uuidString,
-                                   name: "Shelamines",
-                                   email: "shelamines@shela.mines", 
-                                   photo: "Profile",
-                                   skinTypes: [
-                                    SkinType(name: "Dry")
-                                   ],
-                                   skinConcerns: [
-                                    SkinConcern(name: "Redness")
-                                   ],
-                                   allergens: []
-                                  ),
+                        user: userData,
                         rating: 3.2,
                         notes: "Baguss",
                         likes: 10

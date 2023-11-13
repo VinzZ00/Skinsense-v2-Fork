@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProductImageWithStamp: View {
     var isRecommended: Bool = true
@@ -41,7 +42,7 @@ struct ProductImageWithStamp: View {
     
     var body: some View {
         ZStack(alignment:.bottomTrailing){
-            Image(imageLink)
+            KFImage(URL(string: imageLink))
                 .resizable()
                 .scaledToFit()
                 .frame(width: getProductImageSize().width, height: getProductImageSize().height)
