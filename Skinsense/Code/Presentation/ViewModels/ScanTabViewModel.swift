@@ -17,6 +17,7 @@ class ScanTabViewModel: ObservableObject {
     
     func makeScannerView() -> ScannerView {
         ScannerView { textPerPage in
+            // TODO: Multiple product here
             if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines) {
                 let newScanData = ScanData(content: outputText)
                 self.texts.append(newScanData)

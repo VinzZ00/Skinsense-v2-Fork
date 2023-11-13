@@ -13,6 +13,8 @@ class ScanResultViewModel: ObservableObject {
     
     var scannedIngredients : [String]
     
+    @Published var isLoading: Bool = true
+    
     @Published var scanRequest: AnalysisRequest?
     @Published var scanResult: AnalysisModel?
     
@@ -39,6 +41,8 @@ class ScanResultViewModel: ObservableObject {
                 print(error)
                 print(response)
             }
+            
+            self.isLoading = false
         }
     }
     

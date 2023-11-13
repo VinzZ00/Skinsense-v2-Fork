@@ -20,6 +20,14 @@ final class TextRecognizer {
     
     func recognizeText(withCompletionHandler completionHandler: @escaping ([String]) -> Void) {
         queue.async {
+            // TODO: ROADMAP
+            /// Untuk next, bisa melakukan multiple product scanning dengan modify code disini
+            /// Disini kita bisa mendapatkan beberapa page yang sudah di foto oleh user
+            /// // Process the scanned pages
+            /// for pageNumber in 0..<scan.pageCount {
+            ///     let image = scan.imageOfPage(at: pageNumber)
+            /// }
+
             let images = (0..<self.cameraScan.pageCount).compactMap {
                 self.cameraScan.imageOfPage(at: $0).cgImage
             }
