@@ -22,8 +22,8 @@ struct ReviewComponent: View {
                     Text(review.user.name ?? "")
                         .font(.subheadline)
                         .bold()
-                    if let skinTypes = review.user.skinTypes {
-                        Text(skinTypes.map({$0.name}).joined(separator: ",")).font(.subheadline)
+                    if let skinTypes = review.user.skinTypes?.allObjects as? [PersonalizationData] {
+                        Text(skinTypes.map({$0.name ?? ""}).joined(separator: ",")).font(.subheadline)
                     }
                     Spacer()
                         .frame(height: 10)

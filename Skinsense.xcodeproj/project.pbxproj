@@ -63,8 +63,11 @@
 		839ED7BD2B00EACB00D077CB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 839ED7BC2B00EACB00D077CB /* Kingfisher */; };
 		839ED7C12B020E5700D077CB /* LocalUserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 839ED7BF2B020E5700D077CB /* LocalUserData.xcdatamodeld */; };
 		83C35B992B0222AF002E9256 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35B982B0222AF002E9256 /* CoreDataManager.swift */; };
-		83C35BB42B0231C1002E9256 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BB22B0231C1002E9256 /* User+CoreDataClass.swift */; };
-		83C35BB52B0231C1002E9256 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BB32B0231C1002E9256 /* User+CoreDataProperties.swift */; };
+		83C35BC02B027905002E9256 /* AllergenTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BBF2B027905002E9256 /* AllergenTransformer.swift */; };
+		83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */; };
+		83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */; };
+		83C35BD72B027D85002E9256 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */; };
+		83C35BD82B027D85002E9256 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,8 +122,11 @@
 		839ED7B02B00E33300D077CB /* AnalysisRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisRequest.swift; sourceTree = "<group>"; };
 		839ED7C02B020E5700D077CB /* LocalUserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalUserData.xcdatamodel; sourceTree = "<group>"; };
 		83C35B982B0222AF002E9256 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		83C35BB22B0231C1002E9256 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		83C35BB32B0231C1002E9256 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		83C35BBF2B027905002E9256 /* AllergenTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergenTransformer.swift; sourceTree = "<group>"; };
+		83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PersonalizationData+CoreDataClass.swift"; path = "Skinsense/PersonalizationData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PersonalizationData+CoreDataProperties.swift"; path = "Skinsense/PersonalizationData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "Skinsense/User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "Skinsense/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +150,10 @@
 		830ED6FB2AF3BFE200D80556 = {
 			isa = PBXGroup;
 			children = (
-				83C35BB22B0231C1002E9256 /* User+CoreDataClass.swift */,
-				83C35BB32B0231C1002E9256 /* User+CoreDataProperties.swift */,
+				83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */,
+				83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */,
+				83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */,
+				83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */,
 				830ED7062AF3BFE200D80556 /* Skinsense */,
 				830ED7052AF3BFE200D80556 /* Products */,
 			);
@@ -418,10 +426,19 @@
 		839ED7BE2B020DFA00D077CB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				83C35BBE2B0278F4002E9256 /* Transformers */,
 				839ED7BF2B020E5700D077CB /* LocalUserData.xcdatamodeld */,
 				83C35B982B0222AF002E9256 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		83C35BBE2B0278F4002E9256 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				83C35BBF2B027905002E9256 /* AllergenTransformer.swift */,
+			);
+			path = Transformers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,12 +529,14 @@
 				839ED7B12B00E33300D077CB /* AnalysisRequest.swift in Sources */,
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
 				839ED7AF2B00E1DF00D077CB /* AnalyzerRepository.swift in Sources */,
-				83C35BB52B0231C1002E9256 /* User+CoreDataProperties.swift in Sources */,
 				835D1C642AFE025D00B9E8E1 /* BookmarkButton.swift in Sources */,
+				83C35BC02B027905002E9256 /* AllergenTransformer.swift in Sources */,
 				835D1C682AFE057100B9E8E1 /* Ingredient.swift in Sources */,
 				835D1C782AFE14DE00B9E8E1 /* IngredientInformation.swift in Sources */,
 				835D1C5E2AFDFDA000B9E8E1 /* CustomLabel.swift in Sources */,
+				83C35BD72B027D85002E9256 /* User+CoreDataClass.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
+				83C35BD82B027D85002E9256 /* User+CoreDataProperties.swift in Sources */,
 				835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */,
 				839ED7A32AFF45A500D077CB /* PeronalizedProductIcon.swift in Sources */,
 				835D1C6E2AFE06DC00B9E8E1 /* MockProductRepository.swift in Sources */,
@@ -538,6 +557,7 @@
 				835D1C822AFF3BA500B9E8E1 /* ForYouTabView.swift in Sources */,
 				835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */,
 				835D1C662AFE04DE00B9E8E1 /* Product.swift in Sources */,
+				83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */,
 				835D1C602AFDFE5200B9E8E1 /* InfoBox.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
 				835D1C512AFCE8B200B9E8E1 /* ScanResultView.swift in Sources */,
@@ -548,13 +568,13 @@
 				835D1C762AFE0BCF00B9E8E1 /* CheckListItem.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
 				839ED7C12B020E5700D077CB /* LocalUserData.xcdatamodeld in Sources */,
-				83C35BB42B0231C1002E9256 /* User+CoreDataClass.swift in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				839ED7AC2B00E0FD00D077CB /* ConfigurationManager.swift in Sources */,
 				835D1C7A2AFE196500B9E8E1 /* Review.swift in Sources */,
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C5C2AFDFDA000B9E8E1 /* ReviewComponent.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
+				83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */,
 				835D1C722AFE071D00B9E8E1 /* IProductRepository.swift in Sources */,
 				835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,

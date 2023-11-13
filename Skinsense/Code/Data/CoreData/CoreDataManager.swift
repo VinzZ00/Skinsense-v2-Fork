@@ -45,9 +45,24 @@ class CoreDataManager {
             userData.email = "email"
             userData.name = "Name"
             userData.photo = "photo"
-            userData.skinConcerns = skinConcerns
-            userData.skinTypes = skinTypes
-            userData.allergens = allergens
+            
+            for type in skinTypes {
+                let skinType = PersonalizationData(context: viewContext)
+                skinType.name = type.name
+                userData.addToSkinTypes(skinType)
+            }
+            
+            for concern in skinConcerns {
+                let skinConcern = PersonalizationData(context: viewContext)
+                skinConcern.name = concern.name
+                userData.addToSkinConcerns(skinConcern)
+            }
+            
+            for allergen in allergens {
+                let skinAllergen = PersonalizationData(context: viewContext)
+                skinAllergen.name = allergen.name
+                userData.addToAllergens(skinAllergen)
+            }
             
             try viewContext.save()
         } catch {
