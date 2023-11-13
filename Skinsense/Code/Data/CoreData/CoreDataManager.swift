@@ -81,4 +81,20 @@ class CoreDataManager {
             return []
         }
     }
+    
+    func clearPersonalizationData() {
+        // Step 1: Delete all managed objects for the "SavedRoutine" entity
+        let entityName = "User"
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try self.persistentContainer.viewContext.execute(deleteRequest)
+            
+            // Step 2: Save the managed object context to commit the changes
+            try self.persistentContainer.viewContext.save()
+        } catch {
+            print("Error clearing data for entity \(entityName): \(error)")
+        }
+    }
 }

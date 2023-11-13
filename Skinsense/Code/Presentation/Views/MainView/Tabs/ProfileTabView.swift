@@ -25,6 +25,11 @@ struct ProfileTabView: View {
                 } label: {
                     Text("Test Sign In")
                 }
+                Button {
+                    CoreDataManager.shared.clearPersonalizationData()
+                } label: {
+                    Text("Clear personalization data")
+                }
             }
             .navigationTitle("Profile")
             .toolbar(viewModel.isSigned ? .visible : .hidden)

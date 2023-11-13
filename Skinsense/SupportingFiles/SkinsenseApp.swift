@@ -12,26 +12,31 @@ import CoreData
 struct SkinsenseApp: App {
     let coreDataManager = CoreDataManager.shared
     
+    @StateObject var viewModel: MainAppViewModel = MainAppViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
                 .environment(\.managedObjectContext, coreDataManager.persistentContainer.viewContext)
                 .onAppear {
-                    let userData = coreDataManager.fetchUserData()
-                    print(userData)
+                    viewModel.fetchUserData()
                 }
         }
     }
 }
 
 struct ContentView : View {
-    @State var userData: User?
+    @ObservedObject var viewModel: MainAppViewModel
     
     var body: some View {
-        if(userData != nil) {
-            MainView()
+        if viewModel.isLoading {
+            ProgressView()
         } else {
-            PersonalizationView()
+            if(viewModel.userData != nil) {
+                MainView()
+            } else {
+                PersonalizationView()
+            }
         }
     }
 }
