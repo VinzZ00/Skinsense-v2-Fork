@@ -35,7 +35,7 @@ struct PersonalizationView: View {
         if viewModel.selectedSkinTypes.count == 2 {
             print("Max skin types selected.")
         } else {
-            print("Adding skin type")
+            print("Adding skin type: \(skinType.name)")
             viewModel.selectedSkinTypes.append(skinType)
         }
     }

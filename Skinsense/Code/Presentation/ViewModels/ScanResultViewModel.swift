@@ -50,7 +50,7 @@ class ScanResultViewModel: ObservableObject {
             self.scanRequest = AnalysisRequest(
                 ingredients: self.scannedIngredients.joined(separator: ","),
                 concerns: skinConcerns.map({$0.name ?? ""}),
-                skinTypes: ["Dry"]
+                skinTypes: skinTypes.map({$0.name ?? ""})
             )
             
             print(scanRequest)
