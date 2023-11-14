@@ -23,33 +23,37 @@ struct IngredientInformation: View {
     }
     
     var body: some View {
-        VStack(alignment:.leading){
-            ZStack {
-                GeometryReader { geometry in
-                    ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(Color.lightGrey)
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(Color.mediumPurple)
-                            .frame(width: min(max(geometry.size.width * progress, 0), geometry.size.width))
-                            .animation(.easeIn, value: progress)
+        if ingredients.count > 0 {
+            VStack(alignment:.leading){
+                ZStack {
+                    GeometryReader { geometry in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundColor(Color.lightGrey)
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundColor(Color.mediumPurple)
+                                .frame(width: min(max(geometry.size.width * progress, 0), geometry.size.width))
+                                .animation(.easeIn, value: progress)
+                        }
+                    }
+                    .frame(height: 26)
+                    Text("\(ingredients.count) out of \(totalIngredients)")
+                        .font(.subheadline)
+                }
+                Text(title)
+                    .font(.subheadline)
+                WrappingHStack(alignment:.leading){
+                    ForEach(ingredients, id: \.self) {
+                        ing in
+                        CustomLabel(text: ing)
                     }
                 }
-                .frame(height: 26)
-                Text("\(ingredients.count) out of \(totalIngredients)")
-                    .font(.subheadline)
             }
-            Text(title)
-            WrappingHStack(alignment:.leading){
-                ForEach(ingredients, id: \.self) {
-                    ing in
-                    CustomLabel(text: ing)
-                }
+            .padding(.bottom, 8)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            .onAppear() {
+                self.progress = CGFloat((Float(ingredients.count) as Float / Float(totalIngredients) as Float))
             }
-        }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-        .onAppear() {
-            self.progress = CGFloat((Float(ingredients.count) as Float / Float(totalIngredients) as Float))
         }
     }
 }
