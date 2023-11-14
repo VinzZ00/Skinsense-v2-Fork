@@ -28,6 +28,7 @@ struct PersonalizedProductIcon: View {
                     .foregroundColor(colorScheme == .light ? .darkPurple : .lightPurple)
             }
         }
+        .disabled(true)
     }
 }
 
