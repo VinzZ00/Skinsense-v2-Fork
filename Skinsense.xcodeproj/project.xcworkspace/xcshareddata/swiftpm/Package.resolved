@@ -28,6 +28,33 @@
       }
     },
     {
+      "identity" : "progressindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ProgressIndicatorView.git",
+      "state" : {
+        "revision" : "3c33c42939e5bcbd91e20b2ca32ea4fa1b823653",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swift-builders",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davdroman/swift-builders",
+      "state" : {
+        "revision" : "c2f1dc3ac3596732359926a5ef5e3ba7009aac21",
+        "version" : "0.6.0"
+      }
+    },
+    {
+      "identity" : "textbuilder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davdroman/TextBuilder",
+      "state" : {
+        "revision" : "65b7c7bb9b163f4fc2d755c52a89a6f3040300df",
+        "version" : "3.0.1"
+      }
+    },
+    {
       "identity" : "wrappinghstack",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ksemianov/WrappingHStack",

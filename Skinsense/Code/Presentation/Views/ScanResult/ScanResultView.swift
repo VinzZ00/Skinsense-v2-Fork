@@ -226,7 +226,8 @@ struct ScanResultView: View {
                                                     }
                                                 }).map({ el in
                                                     el.name
-                                                }) as! [String]
+                                                }) as! [String],  
+                                                totalIngredients: viewModel.scanResult?.ingredients?.count ?? 0
                                             )
                                         }
                                     }
