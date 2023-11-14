@@ -20,16 +20,16 @@ struct ProfileTabView: View {
                 } else {
                     LoggedOutView()
                 }
-                Button {
-                    viewModel.isSigned = true
-                } label: {
-                    Text("Test Sign In")
-                }
-                Button {
-                    CoreDataManager.shared.clearPersonalizationData()
-                } label: {
-                    Text("Clear personalization data")
-                }
+//                Button {
+//                    viewModel.isSigned = true
+//                } label: {
+//                    Text("Test Sign In")
+//                }
+//                Button {
+//                    CoreDataManager.shared.clearPersonalizationData()
+//                } label: {
+//                    Text("Clear personalization data")
+//                }
             }
             .navigationTitle("Profile")
             .toolbar(viewModel.isSigned ? .visible : .hidden)
@@ -121,7 +121,7 @@ struct LoggedOutView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack {
+        ZStack(alignment: .bottom) {
             // Gallery
             HStack(spacing: 10) {
                 // Left
@@ -214,6 +214,25 @@ struct LoggedOutView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .padding(24)
+            .padding(.top, 50)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: colorScheme == .light ? [
+                            Color.white.opacity(0),
+                            Color.white,
+                            Color.white,
+                            Color.white,
+                            Color.white
+                        ] : [
+                            Color.black.opacity(0),
+                            Color.black.opacity(0.8),
+                            Color.black,
+                            Color.black,
+                            Color.black
+                        ]),
+                startPoint: .top, endPoint: .bottom))
+            .offset(y: 200)
             
         }
     }
