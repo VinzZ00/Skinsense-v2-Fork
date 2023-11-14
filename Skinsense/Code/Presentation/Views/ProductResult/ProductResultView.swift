@@ -22,7 +22,7 @@ struct ProductResultView: View {
                         VStack(spacing: 24){
                             InfoBox(text: "This suggestion is based on EWG certified database. We do not guarantee results, consult with your doctor prior to using any product.")
                             
-                            ProductImageWithStamp(imageLink: product.photo ?? "image")
+                            ProductImageWithStamp(isRecommended: (scanResult.percentage ?? 0) > 60, imageLink: product.photo ?? "image")
                             
                             // nama product
                             HStack(spacing: 50) {
