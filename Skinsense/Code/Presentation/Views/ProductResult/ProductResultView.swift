@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WrappingHStack
+import TextBuilder
 
 struct ProductResultView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -117,6 +118,19 @@ struct ProductResultView: View {
                                     .bold()
                                 
                                 if let incompatibleIngredients = scanResult.incompatibleIngredients {
+                                    
+                                    @TextBuilderWithSpaces
+                                    var text: Text {
+                                        Text("Product that contains")
+                                        Text(separator: ", ") {
+                                            incompatibleIngredients.map { str in
+                                                Text(str)
+                                                    .foregroundStyle(Color.dangerText)
+                                                    .bold()
+                                            }
+                                        }
+                                    }
+                                    
                                     VStack(alignment: .leading, spacing: 5) {
                                         Text("Incompatible with")
                                             .font(.body)
@@ -129,7 +143,7 @@ struct ProductResultView: View {
                                                 .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                         } else {
-                                            Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
+                                            text
                                                 .font(.subheadline)
                                                 .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -138,16 +152,38 @@ struct ProductResultView: View {
                                 }
                                 
                                 if let compatibleIngredients = scanResult.compatibleIngredients {
+                                    
+                                    @TextBuilderWithSpaces
+                                    var text: Text {
+                                        Text("Product that contains")
+                                        Text(separator: ",") {
+                                            compatibleIngredients.map { str in
+                                                Text(str)
+                                                    .foregroundStyle(Color.successText)
+                                                    .bold()
+                                            }
+                                        }
+                                    }
+                                    
                                     VStack(alignment: .leading, spacing: 5) {
                                         Text("Effective with")
                                             .font(.body)
                                             .fontWeight(.semibold)
                                             .lineSpacing(15)
-                                        Text("Products that contain \(compatibleIngredients.joined(separator: ", "))")
-                                            .font(.subheadline)
-                                            .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        
+                                        
+                                        if compatibleIngredients.isEmpty {
+                                            Text("-")
+                                                .font(.subheadline)
+                                                .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        } else {
+                                            text
+                                                .font(.subheadline)
+                                                .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        }
                                     }
                                 }
                                 
