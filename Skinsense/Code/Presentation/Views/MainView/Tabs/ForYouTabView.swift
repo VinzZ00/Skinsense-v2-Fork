@@ -112,6 +112,7 @@ struct ForYouView: View {
                                 }
                                 .padding()
                             }
+                            .disabled(true)
                         }
                         
                     }
