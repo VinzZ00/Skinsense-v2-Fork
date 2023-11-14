@@ -18,6 +18,7 @@ struct ForYouTabView: View {
             ForYouView(viewModel: viewModel)
                 .navigationTitle("For You")
                 .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .autocorrectionDisabled()
                 .onChange(of: viewModel.searchText) { oldValue, newValue in
                     if newValue != "" {
                         viewModel.searchProduct(query: newValue)

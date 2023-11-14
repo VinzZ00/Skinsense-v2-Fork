@@ -22,6 +22,7 @@ struct IngredientInformation: View {
                 }
             }
         }
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
     }
 }
 
