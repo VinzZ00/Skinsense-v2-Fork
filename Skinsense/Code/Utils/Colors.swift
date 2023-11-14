@@ -21,6 +21,7 @@ extension Color {
     static var customGreen: Color = Color(hex: 0x3ABF3F)
     static var successText: Color = Color(hex: 0x4C9930)
     static var dangerText: Color = Color(hex: 0xE02828)
+    static var lightGrey: Color = Color(hex: 0xE8E8E8)
     
     init(hex: UInt, alpha: Double = 1) {
         self.init(

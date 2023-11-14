@@ -28,6 +28,8 @@ struct ProductResultView: View {
                             // nama product
                             HStack(spacing: 50) {
                                 VStack(alignment: .leading) {
+                                    Text(product.brandName ?? "Brand Name")
+                                        .font(.headline)
                                     Text(product.name ?? "Product Name")
                                         .font(.title2)
                                         .bold()
@@ -244,7 +246,7 @@ struct ProductResultView: View {
                                                         }
                                                     }).map({ el in
                                                         el.name
-                                                    }) as! [String]
+                                                    }) as! [String], totalIngredients: viewModel.scanResult?.ingredients?.count ?? 0
                                                 )
                                             }
                                         }
@@ -273,8 +275,8 @@ struct ProductResultView: View {
                                 }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                     .navigationTitle("Product Information")
                     .navigationBarTitleDisplayMode(.inline)
                 }

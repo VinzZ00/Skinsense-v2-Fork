@@ -66,6 +66,7 @@
 		83A164AE2B03C17E007657C7 /* ProductSearchListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164AD2B03C17E007657C7 /* ProductSearchListItem.swift */; };
 		83A164B12B03C406007657C7 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164B02B03C406007657C7 /* CustomEmptyView.swift */; };
 		83A164B42B03E586007657C7 /* TextBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 83A164B32B03E586007657C7 /* TextBuilder */; };
+		83A164B72B04009E007657C7 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 83A164B62B04009E007657C7 /* ProgressIndicatorView */; };
 		83C35B992B0222AF002E9256 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35B982B0222AF002E9256 /* CoreDataManager.swift */; };
 		83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */; };
 		83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */; };
@@ -151,6 +152,7 @@
 				839ED7B42B00E89400D077CB /* Nuke in Frameworks */,
 				839ED7B62B00E89400D077CB /* NukeExtensions in Frameworks */,
 				835D1C282AFA4BBC00B9E8E1 /* WrappingHStack in Frameworks */,
+				83A164B72B04009E007657C7 /* ProgressIndicatorView in Frameworks */,
 				839ED7A62B00D8DE00D077CB /* Alamofire in Frameworks */,
 				83A164B42B03E586007657C7 /* TextBuilder in Frameworks */,
 			);
@@ -499,6 +501,7 @@
 				839ED7B92B00E89400D077CB /* NukeVideo */,
 				839ED7BC2B00EACB00D077CB /* Kingfisher */,
 				83A164B32B03E586007657C7 /* TextBuilder */,
+				83A164B62B04009E007657C7 /* ProgressIndicatorView */,
 			);
 			productName = Skinsense;
 			productReference = 830ED7042AF3BFE200D80556 /* Skinsense.app */;
@@ -534,6 +537,7 @@
 				839ED7B22B00E89400D077CB /* XCRemoteSwiftPackageReference "Nuke" */,
 				839ED7BB2B00EACB00D077CB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				83A164B22B03E586007657C7 /* XCRemoteSwiftPackageReference "TextBuilder" */,
+				83A164B52B04009E007657C7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 			);
 			productRefGroup = 830ED7052AF3BFE200D80556 /* Products */;
 			projectDirPath = "";
@@ -871,6 +875,14 @@
 				minimumVersion = 3.0.1;
 			};
 		};
+		83A164B52B04009E007657C7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ProgressIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -913,6 +925,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 83A164B22B03E586007657C7 /* XCRemoteSwiftPackageReference "TextBuilder" */;
 			productName = TextBuilder;
+		};
+		83A164B62B04009E007657C7 /* ProgressIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83A164B52B04009E007657C7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
+			productName = ProgressIndicatorView;
 		};
 /* End XCSwiftPackageProductDependency section */
 
