@@ -27,7 +27,7 @@ struct ScanResultView: View {
                                     .font(.headline)
                                     .bold()
                                 
-                                NavigationLink(destination: ProductResultView()) {
+                                NavigationLink(destination: ProductResultView(viewModel: ProductResultViewModel(productData: similarProduct))) {
                                     HStack {
                                         ProductImageWithStamp(imageLink: similarProduct.photo ?? "placeholder", imageSize:.small)
                                         
@@ -61,11 +61,11 @@ struct ScanResultView: View {
                             }
                         }
                         
-                        // Effectiveness
+                        // MARK: - Effectiveness
                         InfoBox(text: "Based on your personalization, the product's effectiveness level is \(scanResult.percentage ?? 0)%",
                                 type: (scanResult.percentage ?? 0) < 60 ? .danger : .success, showIcon: false)
                         
-                        // Points
+                        // MARK: -Points
                         VStack(alignment:.leading, spacing: 10){
                             
                             if let skinTypes = viewModel.skinTypes {
@@ -131,7 +131,7 @@ struct ScanResultView: View {
                         
                         Divider()
                         
-                        // How to use
+                        // MARK: - How to use
                         VStack(alignment:.leading, spacing: 10){
                             Text("How To Use")
                                 .font(.title3)
@@ -143,10 +143,17 @@ struct ScanResultView: View {
                                         .font(.body)
                                         .fontWeight(.semibold)
                                         .lineSpacing(15)
-                                    Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
-                                        .font(.subheadline)
-                                        .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    if incompatibleIngredients.isEmpty {
+                                        Text("-")
+                                            .font(.subheadline)
+                                            .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    } else {
+                                        Text("Products that contains \(incompatibleIngredients.joined(separator: ","))")
+                                            .font(.subheadline)
+                                            .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
                                 }
                             }
                             
@@ -170,14 +177,22 @@ struct ScanResultView: View {
                                         .font(.body)
                                         .lineSpacing(15)
                                     
-                                    ForEach(additionalDescriptions, id: \.self) {
-                                        information in
-                                        
-                                        Text("- \(information)")
+                                    if(additionalDescriptions.isEmpty) {
+                                        Text("-")
                                             .font(.subheadline)
                                             .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
                                             .fixedSize(horizontal: false, vertical: true)
                                             .frame(maxWidth: .infinity, alignment: .leading)
+                                    } else {
+                                        ForEach(additionalDescriptions, id: \.self) {
+                                            information in
+                                            
+                                            Text("- \(information)")
+                                                .font(.subheadline)
+                                                .foregroundColor(colorScheme == .light ? .customDarkGrey : .bgColor)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        }
                                     }
                                     
                                 }
@@ -187,7 +202,7 @@ struct ScanResultView: View {
                         
                         Divider()
                         
-                        // Ingredients Information
+                        // MARK: - Ingredients Information
                         VStack (alignment: .leading, spacing: 10){
                             VStack(alignment: .leading) {
                                 Text("Ingredients Information")

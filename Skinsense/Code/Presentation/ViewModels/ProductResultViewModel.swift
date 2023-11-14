@@ -9,16 +9,64 @@ import Foundation
 
 class ProductResultViewModel: ObservableObject {
     private var repository: MockProductRepository = MockProductRepository()
+    private var analyzerRepository: AnalyzerRepository = AnalyzerRepository()
     
-    @Published var productData: Product? = nil
+    @Published var scanRequest: AnalysisRequest?
+    @Published var scanResult: AnalysisModel?
+    @Published var skinConcerns: [PersonalizationData]?
+    @Published var skinTypes: [PersonalizationData]?
     
-    init() {
-        self.fetchProductData()
-    }
+    @Published var productData: Product?
+    @Published var isLoading: Bool = true
     
-    func fetchProductData() {
-        repository.fetchData { products in
-            self.productData = products.first
+    func getAnalysis() {
+        guard let scanRequest = self.scanRequest else { return }
+        analyzerRepository.getAnalysis(request: scanRequest) { response in
+            switch response {
+            case .success(let data):
+                self.scanResult = data
+            case .failure(let error):
+                print(error)
+                print(response)
+            }
+            
+            self.isLoading = false
         }
     }
+    
+    init(productData: Product) {
+        self.productData = productData
+        
+        if let userData = CoreDataManager.shared.fetchUserData().first {
+            let skinConcerns = userData.skinConcerns?.allObjects as! [PersonalizationData]
+            let skinTypes = userData.skinTypes?.allObjects as! [PersonalizationData]
+            let allergens = userData.allergens?.allObjects as! [PersonalizationData]
+            
+            self.skinConcerns = skinConcerns
+            self.skinTypes = skinTypes
+            
+            if let ingredients = self.productData?.ingredients {
+                self.scanRequest = AnalysisRequest(
+                    ingredients: ingredients,
+                    concerns: skinConcerns.map({$0.name ?? ""}),
+                    skinTypes: skinTypes.map({$0.name ?? ""})
+                )
+            }
+            
+            print(scanRequest)
+            
+            if self.scanRequest != nil {
+                getAnalysis()
+            }
+        }
+    }
+//    init() {
+//        self.fetchProductData()
+//    }
+//    
+//    func fetchProductData() {
+//        repository.fetchData { products in
+//            self.productData = products.first
+//        }
+//    }
 }

@@ -19,7 +19,6 @@ class ForYouTabViewModel : ObservableObject {
             switch res {
             case .success(let data):
                 self.searchedProduct = data
-                print(data)
             case .failure(let failure):
                 self.searchedProduct = []
                 print(failure)

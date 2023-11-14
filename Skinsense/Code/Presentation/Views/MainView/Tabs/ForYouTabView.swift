@@ -55,7 +55,6 @@ struct ForYouView: View {
                             }
                         }
                     }
-                    .padding(.top, 16)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }

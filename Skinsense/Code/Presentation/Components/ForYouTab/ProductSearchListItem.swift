@@ -12,15 +12,17 @@ struct ProductSearchListItem: View {
     var product: Product
     
     var body: some View {
-        HStack(spacing: 16) {
-            ProductSearchListImage(photo: product.photo)
-            VStack(alignment:.leading) {
-                Text(product.brandName ?? "-")
-                    .bold()
-                Text(product.name ?? "-")
+        NavigationLink(destination: ProductResultView(viewModel: ProductResultViewModel(productData: product))) {
+            HStack(spacing: 16) {
+                ProductSearchListImage(photo: product.photo)
+                VStack(alignment:.leading) {
+                    Text(product.brandName ?? "-")
+                        .bold()
+                    Text(product.name ?? "-")
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
