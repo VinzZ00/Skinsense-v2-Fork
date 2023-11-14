@@ -84,7 +84,7 @@ struct InfoBox: View {
         .cornerRadius(10)
         .overlay( /// apply a rounded border
             RoundedRectangle(cornerRadius: 10)
-                .stroke(getStrokeColor(), lineWidth: 1)
+                .strokeBorder(getStrokeColor(), lineWidth: 1)
         )
     }
 }

@@ -12,6 +12,7 @@ struct ProductImageWithStamp: View {
     var isRecommended: Bool = true
     var imageLink: String
     var imageSize: ProductImageSize = .normal
+    var showStamp: Bool = true
 
     enum ProductImageSize {
         case normal
@@ -46,11 +47,13 @@ struct ProductImageWithStamp: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: getProductImageSize().width, height: getProductImageSize().height)
-            Image(isRecommended ? "Stamp_Recommended" : "Stamp_Not_Recommended")
-                .resizable()
-                .scaledToFit()
-                .frame(width: getStampImageSize().width, height: getStampImageSize().height)
-                .padding(.trailing, imageSize == .normal ? 40 : 10)
+            if showStamp {
+                Image(isRecommended ? "Stamp_Recommended" : "Stamp_Not_Recommended")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: getStampImageSize().width, height: getStampImageSize().height)
+                    .padding(.trailing, imageSize == .normal ? 40 : 10)
+            }
         }
     }
 }

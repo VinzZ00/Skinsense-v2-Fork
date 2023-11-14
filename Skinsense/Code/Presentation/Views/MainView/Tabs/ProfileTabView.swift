@@ -20,16 +20,16 @@ struct ProfileTabView: View {
                 } else {
                     LoggedOutView()
                 }
-                Button {
-                    viewModel.isSigned = true
-                } label: {
-                    Text("Test Sign In")
-                }
-                Button {
-                    CoreDataManager.shared.clearPersonalizationData()
-                } label: {
-                    Text("Clear personalization data")
-                }
+//                Button {
+//                    viewModel.isSigned = true
+//                } label: {
+//                    Text("Test Sign In")
+//                }
+//                Button {
+//                    CoreDataManager.shared.clearPersonalizationData()
+//                } label: {
+//                    Text("Clear personalization data")
+//                }
             }
             .navigationTitle("Profile")
             .toolbar(viewModel.isSigned ? .visible : .hidden)
@@ -65,7 +65,9 @@ struct SignedInView: View {
                 
                 // Menu
                 VStack {
-                    NavigationLink(destination: MainView()) {
+                    Button {
+                        
+                    } label: {
                         HStack {
                             Text("My Skin Personalization")
                             Spacer()
@@ -73,7 +75,9 @@ struct SignedInView: View {
                         }
                         .padding()
                     }
-                    NavigationLink(destination: MainView()) {
+                    Button {
+                        
+                    } label: {
                         HStack {
                             Text("My Saved Products")
                             Spacer()
@@ -121,31 +125,35 @@ struct LoggedOutView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack {
+        ZStack(alignment: .bottom) {
             // Gallery
             HStack(spacing: 10) {
                 // Left
                 VStack(spacing: 10) {
                     Image("profile_1")
                         .resizable()
-                        .frame(width: 200, height: 200)
-                        .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
+                        .frame(width: 200, height: 200, alignment: .center)
+                        .clipped()
                     Image("profile_4")
                         .resizable()
-                        .frame(width: 200, height: 272)
-                        .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
+                        .frame(width: 200, height: 272, alignment: .center)
+                        .clipped()
                 }
                 
                 // Right
                 VStack(spacing: 10) {
                     Image("profile_2")
                         .resizable()
-                        .frame(width: 200, height: 272)
-                        .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
+                        .frame(width: 200, height: 272, alignment: .center)
+                        .clipped()
                     Image("profile_3")
                         .resizable()
-                        .frame(width: 200, height: 200)
-                        .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
+                        .frame(width: 200, height: 200, alignment: .center)
+                        .clipped()
                 }
             }
             .padding(.vertical, 10)
@@ -185,35 +193,28 @@ struct LoggedOutView: View {
                 .frame(width: 250, height: 50)
                 .padding()
                 .cornerRadius(14)
-                
-                Spacer()
-                    .frame(height: 8)
-                
-                // Menu
-                VStack {
-                    NavigationLink(destination: MainView()) {
-                        HStack {
-                            Text("My Skin Personalization")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                        .padding()
-                    }
-                    NavigationLink(destination: MainView()) {
-                        HStack {
-                            Text("My Saved Products")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                        .padding()
-                    }
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .cornerRadius(20)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
             }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .padding(24)
+            .padding(.top, 50)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: colorScheme == .light ? [
+                            Color.white.opacity(0),
+                            Color.white,
+                            Color.white,
+                            Color.white,
+                            Color.white
+                        ] : [
+                            Color.black.opacity(0),
+                            Color.black.opacity(0.8),
+                            Color.black,
+                            Color.black,
+                            Color.black
+                        ]),
+                startPoint: .top, endPoint: .bottom))
+            .offset(y: 200)
             
         }
     }

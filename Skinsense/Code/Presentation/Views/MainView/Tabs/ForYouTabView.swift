@@ -9,8 +9,28 @@ import SwiftUI
 import WrappingHStack
 
 struct ForYouTabView: View {
-    @State var searchText: String = ""
-    @State var showSearch: Bool = true
+    @Environment(\.isSearching) private var isSearching
+    
+    @StateObject var viewModel: ForYouTabViewModel = ForYouTabViewModel()
+    
+    var body: some View {
+        NavigationView {
+            ForYouView(viewModel: viewModel)
+                .navigationTitle("For You")
+                .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search skincare product")
+                .autocorrectionDisabled()
+                .onChange(of: viewModel.searchText) { oldValue, newValue in
+                    if newValue != "" {
+                        viewModel.searchProduct(query: newValue)
+                    }
+                }
+        }
+    }
+}
+
+struct ForYouView: View {
+    @Environment(\.isSearching) private var isSearching
+    @ObservedObject var viewModel: ForYouTabViewModel
     
     let columns = [
         GridItem(.flexible()),
@@ -20,7 +40,42 @@ struct ForYouTabView: View {
     ]
     
     var body: some View {
-        NavigationView {
+        if (isSearching) {
+            if(viewModel.searchText.isEmpty) {
+                ScrollView {
+                    VStack {
+                        HStack {
+                            Text("Recently viewed Product")
+                                .font(.title3)
+                                .bold()
+                            Spacer()
+                            Button {
+                                // Clear history
+                            } label: {
+                                Text("Clear")
+                            }
+                        }
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            } else  {
+                List {
+                    ForEach(viewModel.searchedProduct, id: \.id) {
+                        product in
+                        ProductSearchListItem(product: product)
+                    }
+                }
+                .listStyle(.plain)
+                .padding(.top, 16)
+                .scrollContentBackground(.hidden)
+                .overlay(Group {
+                    if viewModel.searchedProduct.isEmpty {
+                        CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
+                    }
+                })
+            }
+        } else {
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
                     VStack(alignment: .leading, spacing: 16) {
@@ -57,13 +112,12 @@ struct ForYouTabView: View {
                                 }
                                 .padding()
                             }
+                            .disabled(true)
                         }
                         
                     }
                 }
                 .padding()
-                .navigationTitle("For You")
-                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }

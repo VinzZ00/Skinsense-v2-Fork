@@ -50,9 +50,9 @@ class ScanResultViewModel: ObservableObject {
         self.scannedIngredients = ScanResultViewModel.processScannedData(scannedData: scannedData)
         
         if let userData = CoreDataManager.shared.fetchUserData().first {
-            let skinConcerns = userData.skinConcerns?.allObjects as [PersonalizationData]
-            let skinTypes = userData.skinTypes?.allObjects as [PersonalizationData]
-            let allergens = userData.allergens?.allObjects as [PersonalizationData]
+            let skinConcerns = userData.skinConcerns?.allObjects as! [PersonalizationData]
+            let skinTypes = userData.skinTypes?.allObjects as! [PersonalizationData]
+            let allergens = userData.allergens?.allObjects as! [PersonalizationData]
             
             self.skinConcerns = skinConcerns
             self.skinTypes = skinTypes
@@ -62,8 +62,6 @@ class ScanResultViewModel: ObservableObject {
                 concerns: skinConcerns.map({$0.name ?? ""}),
                 skinTypes: skinTypes.map({$0.name ?? ""})
             )
-            
-            print(scanRequest)
             
             if(!self.scannedIngredients.isEmpty) {
                 getAnalysis()
