@@ -29,7 +29,7 @@ struct ScanResultView: View {
                                 
                                 NavigationLink(destination: ProductResultView(viewModel: ProductResultViewModel(productData: similarProduct))) {
                                     HStack {
-                                        ProductImageWithStamp(imageLink: similarProduct.photo ?? "placeholder", imageSize:.small)
+                                        ProductImageWithStamp(imageLink: similarProduct.photo ?? "placeholder", imageSize:.small, showStamp: false)
                                         
                                         Text(similarProduct.name ?? "Product Name")
                                         
