@@ -222,15 +222,7 @@ struct ScanResultView: View {
                     .navigationTitle("Scan Result")
                 }
             } else {
-                VStack(spacing: 15) {
-                    Image("not_found")
-                    Text("We Couldn't Retrieve the Information")
-                        .font(.title3)
-                        .bold()
-                    Text("Please ensure that you scan skincare ingredients.")
-                        .frame(maxWidth: 200)
-                        .multilineTextAlignment(.center)
-                }
+                CustomEmptyView(title: "We Couldn't Retrieve the Information", subTitle: "Please ensure that you scan skincare ingredients.")
             }
         }
     }

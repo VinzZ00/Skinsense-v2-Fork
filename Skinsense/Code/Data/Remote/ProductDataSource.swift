@@ -1,0 +1,30 @@
+//
+//  ProductDataSource.swift
+//  Skinsense
+//
+//  Created by Rainer Regan on 14/11/23.
+//
+
+import Foundation
+import Alamofire
+
+class ProductDataSource {
+    let APIBASEURL = ConfigurationManager.shared.apiBaseUrl() + "product"
+    
+    func searchProduct(query: String ,completion: @escaping (Result<[Product], Error>) -> Void) {
+        
+        // Define parameters (if any)
+        let parameters: [String: Any] = [
+            "search": query
+        ]
+        
+        AF.request(APIBASEURL, method: .get, parameters: parameters, encoding:URLEncoding(destination: .queryString)).responseDecodable(of: [Product].self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+}

@@ -18,13 +18,17 @@ struct ForYouTabView: View {
             ForYouView(viewModel: viewModel)
                 .navigationTitle("For You")
                 .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .onChange(of: viewModel.searchText) { oldValue, newValue in
+                    if newValue != "" {
+                        viewModel.searchProduct(query: newValue)
+                    }
+                }
         }
     }
 }
 
 struct ForYouView: View {
     @Environment(\.isSearching) private var isSearching
-    
     @ObservedObject var viewModel: ForYouTabViewModel
     
     let columns = [
@@ -57,14 +61,19 @@ struct ForYouView: View {
                 }
             } else  {
                 List {
-                    Text("OK")
-                    Text("OK")
-                    Text("OK")
-                    Text("OK")
+                    ForEach(viewModel.searchedProduct, id: \.id) {
+                        product in
+                        ProductSearchListItem(product: product)
+                    }
                 }
                 .listStyle(.plain)
                 .padding(.top, 16)
                 .scrollContentBackground(.hidden)
+                .overlay(Group {
+                    if viewModel.searchedProduct.isEmpty {
+                        CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
+                    }
+                })
             }
         } else {
             ScrollView {
