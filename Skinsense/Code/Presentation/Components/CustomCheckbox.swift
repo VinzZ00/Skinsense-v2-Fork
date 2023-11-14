@@ -39,7 +39,7 @@ struct CustomCheckbox: View {
         .cornerRadius(10) /// make the background rounded
         .overlay( /// apply a rounded border
             RoundedRectangle(cornerRadius: 10)
-                .stroke(
+                .strokeBorder(
                     isActive ? Color.mediumPurple : Color.customGrey,
                     lineWidth: 2
                 )

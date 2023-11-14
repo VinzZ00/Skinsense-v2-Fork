@@ -115,7 +115,7 @@ struct PersonalizationView: View {
                     
                     // Skin Concerns
                     VStack(alignment: .leading) {
-                        Text("Skin Type")
+                        Text("Skin Concerns")
                             .font(.headline)
                         
                         // Bug fixed by Inez 7 Nov 2023 17:50:02
