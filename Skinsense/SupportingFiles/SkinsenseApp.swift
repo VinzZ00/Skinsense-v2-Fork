@@ -18,6 +18,7 @@ struct SkinsenseApp: App {
         WindowGroup {
             ContentView(viewModel: viewModel)
                 .environment(\.managedObjectContext, coreDataManager.persistentContainer.viewContext)
+                .environmentObject(viewModel)
                 .onAppear {
                     viewModel.fetchUserData()
                 }

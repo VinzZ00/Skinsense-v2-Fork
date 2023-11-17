@@ -10,6 +10,7 @@ import AuthenticationServices
 
 struct ProfileTabView: View {
     @Environment(\.colorScheme) var colorScheme
+    
     @StateObject var viewModel: ProfileTabViewModel = ProfileTabViewModel()
     
     var body: some View {
@@ -20,6 +21,9 @@ struct ProfileTabView: View {
                 } else {
                     LoggedOutView(viewModel: viewModel)
                 }
+            }
+            .onAppear {
+                viewModel.updateState()
             }
             .navigationTitle("Profile")
             .toolbar(viewModel.isSigned ? .visible : .hidden)
