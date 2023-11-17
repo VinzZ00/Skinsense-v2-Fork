@@ -46,7 +46,7 @@ struct SignedInView: View {
                         .clipShape(Circle())
                         .foregroundColor(.green)
                     
-                    Text("Name")
+                    Text(viewModel.userData?.name ?? "User Name")
                         .font(.title2)
                         .bold()
                     
@@ -179,8 +179,9 @@ struct LoggedOutView: View {
                 
                 SignInWithAppleButton(.continue) {
                     request in
-                    print(request)
+                    request.requestedScopes = [.fullName, .email]
                 } onCompletion: { result in
+                    print(result)
                     viewModel.handleAppleSignIn(result: result)
                 }
                 .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
