@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Skinsense
 //
-//  Created by Rainer Regan on 13/11/23.
+//  Created by Rainer Regan on 17/11/23.
 //
 //
 
@@ -20,6 +20,7 @@ extension User {
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var photo: String?
+    @NSManaged public var appleUserId: String?
     @NSManaged public var allergens: NSSet?
     @NSManaged public var skinConcerns: NSSet?
     @NSManaged public var skinTypes: NSSet?
