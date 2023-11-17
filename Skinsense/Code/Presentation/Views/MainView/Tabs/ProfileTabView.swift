@@ -91,8 +91,7 @@ struct SignedInView: View {
                 // Sign Out
                 VStack {
                     Button {
-                        // TODO: Implement Sign out
-                        viewModel.isSigned = false
+                        viewModel.signOut()
                     } label: {
                         HStack {
                             Text("Sign Out")

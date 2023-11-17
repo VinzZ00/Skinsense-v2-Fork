@@ -19,6 +19,11 @@ class ProfileTabViewModel: ObservableObject {
         return userCoreData
     }
     
+    func signOut() {
+        CoreDataManager.shared.clearLoggedInUserData()
+        self.updateState()
+    }
+    
     func updateState() {
         let userCoreData = self.fetchUserData()
         self.isSigned = userCoreData?.appleUserId != nil

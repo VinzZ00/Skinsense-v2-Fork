@@ -82,6 +82,24 @@ class CoreDataManager {
         }
     }
     
+    func clearLoggedInUserData() -> Bool {
+        let userData = self.fetchUserData().first
+        if userData == nil {return false}
+        
+        userData?.appleUserId = nil
+        userData?.email = nil
+        userData?.name = nil
+        userData?.photo = nil
+        
+        do {
+            try self.viewContext.save()
+            return true
+        } catch {
+            print(error)
+            return false
+        }
+    }
+    
     func clearPersonalizationData() {
         // Step 1: Delete all managed objects for the "SavedRoutine" entity
         let entityName = "User"
