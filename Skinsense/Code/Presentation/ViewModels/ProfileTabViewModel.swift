@@ -18,13 +18,10 @@ class ProfileTabViewModel: ObservableObject {
         case .success(let auth):
             switch auth.credential {
             case let credential as ASAuthorizationAppleIDCredential:
-                
                 let email = credential.email
                 let firstName = credential.fullName?.givenName
-                
                 let lastName = credential.fullName?.familyName
                 let userId = credential.user
-                
                 let userData = APIUser(id: userId, name: firstName, email: email)
                 
                 repository.auth(userData: userData) { result in
