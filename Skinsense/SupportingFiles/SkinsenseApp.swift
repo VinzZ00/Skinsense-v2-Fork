@@ -35,8 +35,10 @@ struct ContentView : View {
         } else {
             if(viewModel.userData != nil) {
                 MainView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
             } else {
                 PersonalizationView(handleFetchUserData: viewModel.fetchUserData)
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
             }
         }
     }
