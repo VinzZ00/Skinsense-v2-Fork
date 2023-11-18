@@ -30,7 +30,7 @@ class ProfileTabViewModel: ObservableObject {
         self.userData = userCoreData
     }
     
-    func updateUserData(newUserData: APIUser) -> User?{
+    func updateLocalUserData(newUserData: APIUser) -> User?{
         let userCoreData = self.fetchUserData()
         
         if(userCoreData == nil) { return nil }
@@ -49,20 +49,28 @@ class ProfileTabViewModel: ObservableObject {
     }
     
     func handleAppleSignIn(result: Result<ASAuthorization, any Error>) {
+        let savedPersonalization: User? = CoreDataManager.shared.fetchUserData().first
         switch result {
         case .success(let auth):
             switch auth.credential {
             case let credential as ASAuthorizationAppleIDCredential:
-                let email = credential.email
-                let firstName = credential.fullName?.givenName
-                let lastName = credential.fullName?.familyName
-                let userId = credential.user
-                let userData = APIUser(id: userId, name: firstName, email: email)
+                let skinTypes : [PersonalizationData] = savedPersonalization?.skinTypes?.allObjects as? [PersonalizationData] ?? []
+                let skinConcerns : [PersonalizationData] = savedPersonalization?.skinConcerns?.allObjects as? [PersonalizationData] ?? []
+                let allergens : [PersonalizationData] = savedPersonalization?.allergens?.allObjects as? [PersonalizationData] ?? []
+                
+                let userData: APIUser = APIUser(
+                    id: credential.user,
+                    name: credential.fullName?.givenName,
+                    email: credential.email,
+                    skinTypes: skinTypes.map({$0.name ?? ""}).joined(separator: ","),
+                    skinConcerns: skinConcerns.map({$0.name ?? ""}).joined(separator: ", "),
+                    allergens: allergens.map({$0.name ?? ""}).joined(separator: ", ")
+                )
                 
                 repository.auth(userData: userData) { result in
                     switch result {
                     case .success(let user):
-                        let userData = self.updateUserData(newUserData: user)
+                        self.updateLocalUserData(newUserData: user)
                         self.updateState()
                     case .failure(let error):
                         print(error)

@@ -17,7 +17,10 @@ class AuthDataSource {
         let parameters: [String: Any] = [
             "id": userData.id,
             "name": userData.name,
-            "email": userData.email
+            "email": userData.email,
+            "skin_types": userData.skinTypes,
+            "skin_concerns": userData.skinConcerns,
+            "allergens": userData.allergens
         ]
         
         AF.request(APIBASEURL, method: .post, parameters: parameters, encoding:JSONEncoding.default).responseDecodable(of: APIUser.self) { response in
