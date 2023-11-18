@@ -37,7 +37,7 @@ class CoreDataManager {
         }
     }
     
-    func saveUserData(email: String, name: String, photo: String, skinConcerns: [SkinConcern], skinTypes: [SkinType], allergens: [Allergen]) {
+    func saveUserData(email: String, name: String, photo: String, skinConcerns: [SkinConcern], skinTypes: [SkinType], allergens: [Allergen]) -> User? {
         do {
             let userData = User(context: viewContext)
             
@@ -65,8 +65,42 @@ class CoreDataManager {
             }
             
             try viewContext.save()
+            return userData
         } catch {
             print("Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    func updateUserData(userData: User, skinConcerns: [SkinConcern], skinTypes: [SkinType], allergens: [Allergen]) -> User?{
+        do {
+            userData.skinTypes = nil
+            userData.skinConcerns = nil
+            userData.allergens = nil
+            
+            for type in skinTypes {
+                let skinType = PersonalizationData(context: viewContext)
+                skinType.name = type.name
+                userData.addToSkinTypes(skinType)
+            }
+            
+            for concern in skinConcerns {
+                let skinConcern = PersonalizationData(context: viewContext)
+                skinConcern.name = concern.name
+                userData.addToSkinConcerns(skinConcern)
+            }
+            
+            for allergen in allergens {
+                let skinAllergen = PersonalizationData(context: viewContext)
+                skinAllergen.name = allergen.name
+                userData.addToAllergens(skinAllergen)
+            }
+            
+            try viewContext.save()
+            return userData
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
         }
     }
     

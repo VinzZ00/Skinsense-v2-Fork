@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF12AFA528500FAF49A /* Allergen.swift */; };
+		8306E9942B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E9922B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift */; };
+		8306E9952B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E9932B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift */; };
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
 		830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* PersonalizationView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
@@ -73,8 +75,6 @@
 		83A164C12B077AA6007657C7 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164C02B077AA6007657C7 /* AuthRepository.swift */; };
 		83A164C32B077E6A007657C7 /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164C22B077E6A007657C7 /* APIUser.swift */; };
 		83C35B992B0222AF002E9256 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35B982B0222AF002E9256 /* CoreDataManager.swift */; };
-		83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */; };
-		83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */; };
 		83C35BDB2B02868C002E9256 /* MainAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BDA2B02868C002E9256 /* MainAppViewModel.swift */; };
 		83C35BDD2B02BBFB002E9256 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */; };
 		83C35BE02B039805002E9256 /* ForYouTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BDF2B039805002E9256 /* ForYouTabViewModel.swift */; };
@@ -82,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		53A16FF12AFA528500FAF49A /* Allergen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergen.swift; sourceTree = "<group>"; };
+		8306E9922B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8306E9932B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
 		830ED7092AF3BFE200D80556 /* PersonalizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationView.swift; sourceTree = "<group>"; };
@@ -140,8 +142,6 @@
 		83A164C02B077AA6007657C7 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		83A164C22B077E6A007657C7 /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
 		83C35B982B0222AF002E9256 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83C35BDA2B02868C002E9256 /* MainAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppViewModel.swift; sourceTree = "<group>"; };
 		83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		83C35BDF2B039805002E9256 /* ForYouTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouTabViewModel.swift; sourceTree = "<group>"; };
@@ -479,8 +479,8 @@
 			children = (
 				83A164BC2B076F53007657C7 /* User+CoreDataClass.swift */,
 				83A164BD2B076F53007657C7 /* User+CoreDataProperties.swift */,
-				83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */,
-				83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */,
+				8306E9922B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift */,
+				8306E9932B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -577,6 +577,7 @@
 			files = (
 				839ED7B12B00E33300D077CB /* AnalysisRequest.swift in Sources */,
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
+				8306E9952B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift in Sources */,
 				839ED7AF2B00E1DF00D077CB /* AnalyzerRepository.swift in Sources */,
 				835D1C642AFE025D00B9E8E1 /* BookmarkButton.swift in Sources */,
 				835D1C682AFE057100B9E8E1 /* Ingredient.swift in Sources */,
@@ -591,6 +592,7 @@
 				835D1C742AFE07E900B9E8E1 /* ProductResultViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
+				8306E9942B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift in Sources */,
 				835D1C622AFE003400B9E8E1 /* ProductImageWithStamp.swift in Sources */,
 				835D1C802AFE35C400B9E8E1 /* GeneralAttribute.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
@@ -610,7 +612,6 @@
 				83C35BE02B039805002E9256 /* ForYouTabViewModel.swift in Sources */,
 				83A164B92B076C48007657C7 /* AuthDataSource.swift in Sources */,
 				83A164C32B077E6A007657C7 /* APIUser.swift in Sources */,
-				83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */,
 				835D1C602AFDFE5200B9E8E1 /* InfoBox.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
 				83A164C12B077AA6007657C7 /* AuthRepository.swift in Sources */,
@@ -629,7 +630,6 @@
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C5C2AFDFDA000B9E8E1 /* ReviewComponent.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
-				83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */,
 				835D1C722AFE071D00B9E8E1 /* IProductRepository.swift in Sources */,
 				835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,

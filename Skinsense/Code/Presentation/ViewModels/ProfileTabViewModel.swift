@@ -8,9 +8,19 @@
 import Foundation
 import AuthenticationServices
 
+enum ActiveSheet: Identifiable {
+    case skinPersonalization, savedProducts
+    
+    var id: Int {
+        hashValue
+    }
+}
+
 class ProfileTabViewModel: ObservableObject {
     @Published var isSigned : Bool = false
     @Published var userData : User?
+    @Published var showBottomSheet: Bool = false
+    @Published var activeSheet: ActiveSheet = .skinPersonalization
     
     var repository : AuthRepository = AuthRepository()
     

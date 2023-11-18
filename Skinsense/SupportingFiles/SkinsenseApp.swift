@@ -37,8 +37,10 @@ struct ContentView : View {
                 MainView()
                     .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
             } else {
-                PersonalizationView(handleFetchUserData: viewModel.fetchUserData)
-                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                PersonalizationView(callback: { user in
+                    print(user)
+                    viewModel.fetchUserData()
+                }).transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
             }
         }
     }
