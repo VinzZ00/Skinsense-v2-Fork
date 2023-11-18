@@ -179,11 +179,12 @@ struct PersonalizationSheetView: View {
                             .foregroundColor(.mediumPurple)
                         
                         VStack(alignment:.leading) {
-                            Text("Allergen Detection")
+                            Text(item.title)
                                 .font(.headline)
-                            Text("We'll help you identify potential allergens in your skincare products.")
+                            Text(item.subtitle)
                                 .font(.subheadline)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
             }
