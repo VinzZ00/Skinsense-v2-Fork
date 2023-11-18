@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A16FF12AFA528500FAF49A /* Allergen.swift */; };
+		8306E9942B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E9922B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift */; };
+		8306E9952B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E9932B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift */; };
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
 		830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* PersonalizationView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
@@ -67,11 +69,12 @@
 		83A164B12B03C406007657C7 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164B02B03C406007657C7 /* CustomEmptyView.swift */; };
 		83A164B42B03E586007657C7 /* TextBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 83A164B32B03E586007657C7 /* TextBuilder */; };
 		83A164B72B04009E007657C7 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 83A164B62B04009E007657C7 /* ProgressIndicatorView */; };
+		83A164B92B076C48007657C7 /* AuthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164B82B076C48007657C7 /* AuthDataSource.swift */; };
+		83A164BE2B076F53007657C7 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164BC2B076F53007657C7 /* User+CoreDataClass.swift */; };
+		83A164BF2B076F53007657C7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164BD2B076F53007657C7 /* User+CoreDataProperties.swift */; };
+		83A164C12B077AA6007657C7 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164C02B077AA6007657C7 /* AuthRepository.swift */; };
+		83A164C32B077E6A007657C7 /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A164C22B077E6A007657C7 /* APIUser.swift */; };
 		83C35B992B0222AF002E9256 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35B982B0222AF002E9256 /* CoreDataManager.swift */; };
-		83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */; };
-		83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */; };
-		83C35BD72B027D85002E9256 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */; };
-		83C35BD82B027D85002E9256 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */; };
 		83C35BDB2B02868C002E9256 /* MainAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BDA2B02868C002E9256 /* MainAppViewModel.swift */; };
 		83C35BDD2B02BBFB002E9256 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */; };
 		83C35BE02B039805002E9256 /* ForYouTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C35BDF2B039805002E9256 /* ForYouTabViewModel.swift */; };
@@ -79,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		53A16FF12AFA528500FAF49A /* Allergen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergen.swift; sourceTree = "<group>"; };
+		8306E9922B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8306E9932B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
 		830ED7092AF3BFE200D80556 /* PersonalizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationView.swift; sourceTree = "<group>"; };
@@ -131,11 +136,12 @@
 		83A164AA2B03BEAB007657C7 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		83A164AD2B03C17E007657C7 /* ProductSearchListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchListItem.swift; sourceTree = "<group>"; };
 		83A164B02B03C406007657C7 /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		83A164B82B076C48007657C7 /* AuthDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataSource.swift; sourceTree = "<group>"; };
+		83A164BC2B076F53007657C7 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		83A164BD2B076F53007657C7 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		83A164C02B077AA6007657C7 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		83A164C22B077E6A007657C7 /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
 		83C35B982B0222AF002E9256 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalizationData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83C35BDA2B02868C002E9256 /* MainAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppViewModel.swift; sourceTree = "<group>"; };
 		83C35BDC2B02BBFB002E9256 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		83C35BDF2B039805002E9256 /* ForYouTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouTabViewModel.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 				835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */,
 				839ED7A92B00D92600D077CB /* AnalysisModel.swift */,
 				839ED7B02B00E33300D077CB /* AnalysisRequest.swift */,
+				83A164C22B077E6A007657C7 /* APIUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 			children = (
 				839ED7A72B00D8FC00D077CB /* AnalyzerDataSource.swift */,
 				83A164A82B03BCB1007657C7 /* ProductDataSource.swift */,
+				83A164B82B076C48007657C7 /* AuthDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -409,6 +417,8 @@
 		835D1C6B2AFE06B000B9E8E1 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				83A164C02B077AA6007657C7 /* AuthRepository.swift */,
+				83A164AA2B03BEAB007657C7 /* ProductRepository.swift */,
 				839ED7AD2B00E1D200D077CB /* Analyzer */,
 			);
 			path = Remote;
@@ -434,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				839ED7AE2B00E1DF00D077CB /* AnalyzerRepository.swift */,
-				83A164AA2B03BEAB007657C7 /* ProductRepository.swift */,
 			);
 			path = Analyzer;
 			sourceTree = "<group>";
@@ -468,10 +477,10 @@
 		83C35BD92B02811B002E9256 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				83C35BD12B027D85002E9256 /* PersonalizationData+CoreDataClass.swift */,
-				83C35BD22B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift */,
-				83C35BD32B027D85002E9256 /* User+CoreDataClass.swift */,
-				83C35BD42B027D85002E9256 /* User+CoreDataProperties.swift */,
+				83A164BC2B076F53007657C7 /* User+CoreDataClass.swift */,
+				83A164BD2B076F53007657C7 /* User+CoreDataProperties.swift */,
+				8306E9922B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift */,
+				8306E9932B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -568,14 +577,14 @@
 			files = (
 				839ED7B12B00E33300D077CB /* AnalysisRequest.swift in Sources */,
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
+				8306E9952B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift in Sources */,
 				839ED7AF2B00E1DF00D077CB /* AnalyzerRepository.swift in Sources */,
 				835D1C642AFE025D00B9E8E1 /* BookmarkButton.swift in Sources */,
 				835D1C682AFE057100B9E8E1 /* Ingredient.swift in Sources */,
 				835D1C782AFE14DE00B9E8E1 /* IngredientInformation.swift in Sources */,
+				83A164BE2B076F53007657C7 /* User+CoreDataClass.swift in Sources */,
 				835D1C5E2AFDFDA000B9E8E1 /* CustomLabel.swift in Sources */,
-				83C35BD72B027D85002E9256 /* User+CoreDataClass.swift in Sources */,
 				835D1C2E2AFA6F5100B9E8E1 /* PersonalizationViewModel.swift in Sources */,
-				83C35BD82B027D85002E9256 /* User+CoreDataProperties.swift in Sources */,
 				835D1C552AFCEC7500B9E8E1 /* IngredientScanned.swift in Sources */,
 				839ED7A32AFF45A500D077CB /* PeronalizedProductIcon.swift in Sources */,
 				835D1C6E2AFE06DC00B9E8E1 /* MockProductRepository.swift in Sources */,
@@ -583,6 +592,7 @@
 				835D1C742AFE07E900B9E8E1 /* ProductResultViewModel.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
+				8306E9942B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift in Sources */,
 				835D1C622AFE003400B9E8E1 /* ProductImageWithStamp.swift in Sources */,
 				835D1C802AFE35C400B9E8E1 /* GeneralAttribute.swift in Sources */,
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
@@ -596,12 +606,15 @@
 				839ED7AA2B00D92600D077CB /* AnalysisModel.swift in Sources */,
 				835D1C822AFF3BA500B9E8E1 /* ForYouTabView.swift in Sources */,
 				835D1C532AFCE8C400B9E8E1 /* ScanResultViewModel.swift in Sources */,
+				83A164BF2B076F53007657C7 /* User+CoreDataProperties.swift in Sources */,
 				83A164AB2B03BEAB007657C7 /* ProductRepository.swift in Sources */,
 				835D1C662AFE04DE00B9E8E1 /* Product.swift in Sources */,
 				83C35BE02B039805002E9256 /* ForYouTabViewModel.swift in Sources */,
-				83C35BD52B027D85002E9256 /* PersonalizationData+CoreDataClass.swift in Sources */,
+				83A164B92B076C48007657C7 /* AuthDataSource.swift in Sources */,
+				83A164C32B077E6A007657C7 /* APIUser.swift in Sources */,
 				835D1C602AFDFE5200B9E8E1 /* InfoBox.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
+				83A164C12B077AA6007657C7 /* AuthRepository.swift in Sources */,
 				835D1C512AFCE8B200B9E8E1 /* ScanResultView.swift in Sources */,
 				835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */,
 				835D1C3E2AFB8E9B00B9E8E1 /* NavigationItem.swift in Sources */,
@@ -617,7 +630,6 @@
 				835D1C2C2AFA4CA500B9E8E1 /* SkinConcern.swift in Sources */,
 				835D1C5C2AFDFDA000B9E8E1 /* ReviewComponent.swift in Sources */,
 				835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */,
-				83C35BD62B027D85002E9256 /* PersonalizationData+CoreDataProperties.swift in Sources */,
 				835D1C722AFE071D00B9E8E1 /* IProductRepository.swift in Sources */,
 				835D1C4E2AFCD63B00B9E8E1 /* TextRecognizer.swift in Sources */,
 				835D1C452AFB9E9500B9E8E1 /* ProfileTabViewModel.swift in Sources */,
@@ -759,18 +771,20 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Skinsense;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Skinsense requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.exacode.Skinsense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -791,18 +805,20 @@
 				DEVELOPMENT_TEAM = 8B7DH7AN2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Skinsense;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Skinsense requires camera to scan ingredients";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.exacode.Skinsense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import Kingfisher
 
 struct ProfileTabView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -17,22 +18,25 @@ struct ProfileTabView: View {
             ScrollView {
                 if(viewModel.isSigned) {
                     SignedInView(viewModel: viewModel)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
                 } else {
-                    LoggedOutView()
+                    LoggedOutView(viewModel: viewModel)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
                 }
-//                Button {
-//                    viewModel.isSigned = true
-//                } label: {
-//                    Text("Test Sign In")
-//                }
-//                Button {
-//                    CoreDataManager.shared.clearPersonalizationData()
-//                } label: {
-//                    Text("Clear personalization data")
-//                }
+            }
+            .onAppear {
+                viewModel.updateState()
             }
             .navigationTitle("Profile")
             .toolbar(viewModel.isSigned ? .visible : .hidden)
+            .sheet(isPresented: $viewModel.showBottomSheet, content: {
+                switch viewModel.activeSheet {
+                case .skinPersonalization:
+                    SkinPersonalizationSheetView(viewModel: viewModel)
+                case .savedProducts:
+                    Text("Saved Products")
+                }
+            })
         }
     }
 }
@@ -45,75 +49,29 @@ struct SignedInView: View {
         VStack(alignment: .leading) {
             VStack {
                 
-                VStack {
-                    Image("profile_1")
-                        .resizable()
-                        .frame(width: 106, height: 106)
-                        .clipShape(Circle())
-                        .foregroundColor(.green)
-                    
-                    Text("Name")
-                        .font(.title2)
-                        .bold()
-                    
-                    Text("Email")
-                        .font(.subheadline)
+                if let userData = viewModel.userData {
+                    VStack {
+                        KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId)?d=identicon"))
+                            .resizable()
+                            .frame(width: 106, height: 106)
+                            .clipShape(Circle())
+                            .foregroundColor(.green)
+                        
+                        Text(userData.name ?? "User Name")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text((userData.email ?? userData.appleUserId) ?? "Email")
+                            .font(.subheadline)
+                            .multilineTextAlignment(.center)
+                    }
                 }
                 
                 Spacer()
                     .frame(height: 25)
                 
                 // Menu
-                VStack {
-                    Button {
-                        
-                    } label: {
-                        HStack {
-                            Text("My Skin Personalization")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                        .padding()
-                    }
-                    Button {
-                        
-                    } label: {
-                        HStack {
-                            Text("My Saved Products")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                        .padding()
-                    }
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .cornerRadius(20)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                
-                Spacer()
-                    .frame(height: 25)
-                
-                // Sign Out
-                VStack {
-                    Button {
-                        // TODO: Implement Sign out
-                        viewModel.isSigned = false
-                    } label: {
-                        HStack {
-                            Text("Sign Out")
-                                .foregroundStyle(.red)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }
-                        .padding()
-                    }
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .cornerRadius(20)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                
+                ProfileMenuView(viewModel: viewModel)
             }
         }
         .padding()
@@ -123,9 +81,10 @@ struct SignedInView: View {
 
 struct LoggedOutView: View {
     @Environment(\.colorScheme) var colorScheme
+    @ObservedObject var viewModel : ProfileTabViewModel
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        VStack {
             // Gallery
             HStack(spacing: 10) {
                 // Left
@@ -133,12 +92,12 @@ struct LoggedOutView: View {
                     Image("profile_1")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 200, height: 200, alignment: .center)
+                        .frame(width: 180, height: 170, alignment: .center)
                         .clipped()
                     Image("profile_4")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 200, height: 272, alignment: .center)
+                        .frame(width: 180, height: 200, alignment: .center)
                         .clipped()
                 }
                 
@@ -147,16 +106,16 @@ struct LoggedOutView: View {
                     Image("profile_2")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 200, height: 272, alignment: .center)
+                        .frame(width: 180, height: 200, alignment: .center)
                         .clipped()
                     Image("profile_3")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 200, height: 200, alignment: .center)
+                        .frame(width: 180, height: 170, alignment: .center)
                         .clipped()
                 }
             }
-            .padding(.vertical, 10)
+            .padding(10)
             .background(Color.lightPurple)
             .frame(maxWidth: .infinity)
             
@@ -185,9 +144,10 @@ struct LoggedOutView: View {
                 
                 SignInWithAppleButton(.continue) {
                     request in
-                    
-                } onCompletion: { request in
-                    
+                    request.requestedScopes = [.fullName, .email]
+                } onCompletion: { result in
+                    print(result)
+                    viewModel.handleAppleSignIn(result: result)
                 }
                 .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
                 .frame(width: 250, height: 50)
@@ -196,7 +156,6 @@ struct LoggedOutView: View {
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .padding(24)
-            .padding(.top, 50)
             .background(
                 LinearGradient(
                     gradient: Gradient(
@@ -213,9 +172,103 @@ struct LoggedOutView: View {
                             Color.black,
                             Color.black
                         ]),
-                startPoint: .top, endPoint: .bottom))
-            .offset(y: 200)
+                    startPoint: .top, endPoint: .bottom)
+            )
             
+            // Menu
+            ProfileMenuView(viewModel: viewModel)
+                .padding()
+        }
+    }
+}
+
+struct ProfileMenuView : View {
+    @ObservedObject var viewModel: ProfileTabViewModel
+    
+    var body: some View {
+        
+        // Menu
+        VStack {
+            VStack {
+                Button {
+                    viewModel.activeSheet = .skinPersonalization
+                    viewModel.showBottomSheet.toggle()
+                } label: {
+                    HStack {
+                        Text("My Skin Personalization")
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    }
+                    .padding()
+                }
+                
+                Button {
+                    viewModel.activeSheet = .savedProducts
+                    viewModel.showBottomSheet.toggle()
+                } label: {
+                    HStack {
+                        Text("My Saved Products")
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    }
+                    .padding()
+                }
+            }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .cornerRadius(20)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            
+            if viewModel.isSigned {
+                Spacer()
+                    .frame(height: 25)
+                
+                // Sign Out
+                VStack {
+                    Button {
+                        viewModel.signOut()
+                    } label: {
+                        HStack {
+                            Text("Sign Out")
+                                .foregroundStyle(.red)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                        .padding()
+                    }
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .cornerRadius(20)
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+        }
+    }
+}
+
+struct SkinPersonalizationSheetView: View {
+    var personalizationViewModel: PersonalizationViewModel = PersonalizationViewModel(isSheetOpened: false)
+    @ObservedObject var viewModel: ProfileTabViewModel
+    
+    var body: some View {
+        NavigationView {
+            PersonalizationView(callback: { user in print(user) }, showButton: false, viewModel: personalizationViewModel)
+                .navigationTitle("My Skin Personalization")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            personalizationViewModel.handleUpdate { user in
+                                print(user)
+                                if user != nil {
+                                    viewModel.showBottomSheet.toggle()
+                                }
+                            }
+                        } label: {
+                            Text("Done")
+                        }
+                    }
+                })
         }
     }
 }

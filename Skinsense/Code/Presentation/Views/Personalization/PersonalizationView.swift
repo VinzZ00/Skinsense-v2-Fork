@@ -15,61 +15,13 @@ struct PersonalizationSheetItems {
 }
 
 struct PersonalizationView: View {
-    var handleFetchUserData : () -> Void
+    var callback : (User?) -> Void
+    var showButton: Bool = true
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) var moc
     
-    @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
-    
-    func addSkinType(skinType: SkinType) {
-        if viewModel.selectedSkinTypes.contains(where: { test in
-            test.id == skinType.id
-        }) {
-            viewModel.selectedSkinTypes.removeAll { test in
-                test.id == skinType.id
-            }
-            return
-        }
-        
-        if viewModel.selectedSkinTypes.count == 2 {
-            print("Max skin types selected.")
-        } else {
-            print("Adding skin type: \(skinType.name)")
-            viewModel.selectedSkinTypes.append(skinType)
-        }
-    }
-    
-    func addSkinConcern(skinConcern: SkinConcern) {
-        if viewModel.selectedSkinConcerns.contains(where: { test in
-            test.id == skinConcern.id
-        }) {
-            viewModel.selectedSkinConcerns.removeAll { test in
-                test.id == skinConcern.id
-            }
-        } else {
-            print("Adding skin concern")
-            viewModel.selectedSkinConcerns.append(skinConcern)
-        }
-    }
-    
-    func addAllergen(allergen: Allergen) {
-        if viewModel.selectedAllergens.contains(where: { test in
-            allergen.id == test.id
-        }) {
-            viewModel.selectedAllergens.removeAll { test in
-                test.id == allergen.id
-            }
-        } else {
-            print("Adding skin type")
-            viewModel.selectedAllergens.append(allergen)
-        }
-    }
-    
-    func handleUpdate(skinTypes: [SkinType], skinConcers: [SkinConcern], allergens: [Allergen]) {
-        CoreDataManager.shared.saveUserData(email: "Email", name: "Name", photo: "Photo", skinConcerns: skinConcers, skinTypes: skinTypes, allergens: allergens)
-        self.handleFetchUserData()
-    }
+    @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel(isSheetOpened: true)
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -100,7 +52,7 @@ struct PersonalizationView: View {
                                 skinType in
                                 
                                 CustomCheckbox(onPress: { object in
-                                    self.addSkinType(skinType: object as! SkinType)
+                                    viewModel.addSkinType(skinType: object as! SkinType)
                                 }, object: skinType, isActive: self.viewModel.selectedSkinTypes.contains(where: { test in
                                     test.id == skinType.id
                                 }))
@@ -124,7 +76,7 @@ struct PersonalizationView: View {
                                 skinConcern in
                                 
                                 CustomCheckbox(onPress: { object in
-                                    self.addSkinConcern(skinConcern: object as! SkinConcern)
+                                    viewModel.addSkinConcern(skinConcern: object as! SkinConcern)
                                 }, object: skinConcern, isActive: self.viewModel.selectedSkinConcerns.contains(where: { test in
                                     test.id == skinConcern.id
                                 }))
@@ -149,7 +101,7 @@ struct PersonalizationView: View {
                                 allergen in
                                 
                                 CustomCheckbox(onPress: { object in
-                                    self.addAllergen(allergen: object as! Allergen)
+                                    viewModel.addAllergen(allergen: object as! Allergen)
                                 }, object: allergen, isActive: self.viewModel.selectedAllergens.contains(where: { test in
                                     test.id == allergen.id
                                 }))
@@ -167,11 +119,13 @@ struct PersonalizationView: View {
                     .frame(height: 25)
             }
             
-            CustomButton(title: "Done", action: {
-                self.handleUpdate(skinTypes: viewModel.selectedSkinTypes, skinConcers: viewModel.selectedSkinConcerns, allergens: viewModel.selectedAllergens)
-            }, isDisabled:
-                            viewModel.selectedSkinTypes.isEmpty || viewModel.selectedSkinConcerns.isEmpty || viewModel.selectedAllergens.isEmpty
-            )
+            if showButton {
+                CustomButton(title: "Done", action: {
+                    viewModel.handleUpdate(callback: self.callback)
+                }, isDisabled:
+                                viewModel.selectedSkinTypes.isEmpty || viewModel.selectedSkinConcerns.isEmpty || viewModel.selectedAllergens.isEmpty
+                )
+            }
         }
         .padding()
         .sheet(isPresented: $viewModel.isSheetOpened, content: {
@@ -225,11 +179,12 @@ struct PersonalizationSheetView: View {
                             .foregroundColor(.mediumPurple)
                         
                         VStack(alignment:.leading) {
-                            Text("Allergen Detection")
+                            Text(item.title)
                                 .font(.headline)
-                            Text("We'll help you identify potential allergens in your skincare products.")
+                            Text(item.subtitle)
                                 .font(.subheadline)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
             }
@@ -259,7 +214,7 @@ struct PersonalizationSheetView: View {
 }
 
 #Preview {
-    PersonalizationView {
+    PersonalizationView {_ in 
         // Unimplemented
     }
 }

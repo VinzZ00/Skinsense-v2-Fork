@@ -19,7 +19,7 @@ struct ForYouTabView: View {
                 .navigationTitle("For You")
                 .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search skincare product")
                 .autocorrectionDisabled()
-                .onChange(of: viewModel.searchText) { oldValue, newValue in
+                .onChange(of: viewModel.searchText) { newValue in
                     if newValue != "" {
                         viewModel.searchProduct(query: newValue)
                     }
@@ -114,6 +114,8 @@ struct ForYouView: View {
                             }
                             .disabled(true)
                         }
+                        .background(.white)
+                        .cornerRadius(10)
                         
                     }
                 }
