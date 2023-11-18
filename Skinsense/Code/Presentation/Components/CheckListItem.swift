@@ -12,7 +12,7 @@ struct CheckListItem: View {
     var text: String
     
     var body: some View {
-        HStack{
+        HStack(alignment:.top){
             Image(systemName: isTrue ? "checkmark.circle.fill" : "xmark.circle.fill")
                 .foregroundColor(isTrue ? .customGreen : .red)
             Text(text)
@@ -22,5 +22,5 @@ struct CheckListItem: View {
 }
 
 #Preview {
-    CheckListItem(isTrue: false, text: "Text")
+    CheckListItem(isTrue: false, text: "TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText")
 }
