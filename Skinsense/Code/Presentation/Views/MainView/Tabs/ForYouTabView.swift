@@ -114,6 +114,8 @@ struct ForYouView: View {
                             }
                             .disabled(true)
                         }
+                        .background(.white)
+                        .cornerRadius(10)
                         
                     }
                 }
