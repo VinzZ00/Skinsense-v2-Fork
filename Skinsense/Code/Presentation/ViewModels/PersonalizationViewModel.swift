@@ -118,6 +118,14 @@ class PersonalizationViewModel: ObservableObject {
             }
         } else {
             print("Adding skin type")
+            if allergen.name == "None" {
+                self.selectedAllergens.removeAll()
+            } else {
+                self.selectedAllergens.removeAll { test in
+                    test.name == "None"
+                }
+            }
+            
             self.selectedAllergens.append(allergen)
         }
     }
