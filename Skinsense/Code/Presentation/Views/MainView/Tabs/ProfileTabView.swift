@@ -49,7 +49,6 @@ struct SignedInView: View {
         VStack(alignment: .leading) {
             VStack {
                 
-                    Image("profile_1")
                 if let userData = viewModel.userData {
                     VStack {
                         KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId)?d=identicon"))
