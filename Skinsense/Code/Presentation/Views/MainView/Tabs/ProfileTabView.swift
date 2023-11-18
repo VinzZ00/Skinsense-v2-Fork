@@ -18,8 +18,10 @@ struct ProfileTabView: View {
             ScrollView {
                 if(viewModel.isSigned) {
                     SignedInView(viewModel: viewModel)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
                 } else {
                     LoggedOutView(viewModel: viewModel)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
                 }
             }
             .onAppear {
