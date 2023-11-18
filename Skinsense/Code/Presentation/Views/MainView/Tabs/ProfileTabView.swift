@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import Kingfisher
 
 struct ProfileTabView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -48,19 +49,23 @@ struct SignedInView: View {
         VStack(alignment: .leading) {
             VStack {
                 
-                VStack {
                     Image("profile_1")
-                        .resizable()
-                        .frame(width: 106, height: 106)
-                        .clipShape(Circle())
-                        .foregroundColor(.green)
-                    
-                    Text(viewModel.userData?.name ?? "User Name")
-                        .font(.title2)
-                        .bold()
-                    
-                    Text("Email")
-                        .font(.subheadline)
+                if let userData = viewModel.userData {
+                    VStack {
+                        KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId)?d=identicon"))
+                            .resizable()
+                            .frame(width: 106, height: 106)
+                            .clipShape(Circle())
+                            .foregroundColor(.green)
+                        
+                        Text(userData.name ?? "User Name")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text((userData.email ?? userData.appleUserId) ?? "Email")
+                            .font(.subheadline)
+                            .multilineTextAlignment(.center)
+                    }
                 }
                 
                 Spacer()
