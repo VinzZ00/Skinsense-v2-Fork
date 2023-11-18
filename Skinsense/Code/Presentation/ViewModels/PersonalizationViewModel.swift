@@ -13,6 +13,10 @@ class PersonalizationViewModel: ObservableObject {
     @Published var selectedSkinConcerns: [SkinConcern] = []
     @Published var selectedAllergens: [Allergen] = []
     
+    init() {
+        self.fetchUserData()
+    }
+    
     var skinTypes : [SkinType] = [
         SkinType(id: UUID(), name: "Combination"),
         SkinType(id: UUID(), name: "Dry"),
@@ -46,6 +50,32 @@ class PersonalizationViewModel: ObservableObject {
         Allergen(id: UUID(), name: "Latex"),
         Allergen(id: UUID(), name: "Preservatives"),
     ]
+    
+    func fetchUserData() {
+        if let userData = CoreDataManager.shared.fetchUserData().first {
+            let skinConcerns : [PersonalizationData] = userData.skinConcerns?.allObjects as? [PersonalizationData] ?? []
+            let skinTypes : [PersonalizationData] = userData.skinTypes?.allObjects as? [PersonalizationData] ?? []
+            let allergens : [PersonalizationData] = userData.allergens?.allObjects as? [PersonalizationData] ?? []
+            
+            let skinConcernsArr = skinConcerns.map({$0.name})
+            let skinTypesArr = skinTypes.map({$0.name})
+            let allergensArr = allergens.map({$0.name})
+            
+            let selectedConcerns = self.skinConcerns.filter { test in
+                skinConcernsArr.contains(test.name)
+            }
+            let selectedTypes = self.skinTypes.filter { test in
+                skinTypesArr.contains(test.name)
+            }
+            let selectedAllergens = self.allergens.filter { test in
+                allergensArr.contains(test.name)
+            }
+            
+            self.selectedAllergens = selectedAllergens
+            self.selectedSkinTypes = selectedTypes
+            self.selectedSkinConcerns = selectedConcerns
+        }
+    }
     
     func addSkinType(skinType: SkinType) {
         if self.selectedSkinTypes.contains(where: { test in
