@@ -127,7 +127,8 @@ struct ProductResultView: View {
                                         Text(separator: ", ") {
                                             incompatibleIngredients.map { str in
                                                 Text(str)
-                                                    .foregroundStyle(Color.dangerText)
+//                                                    .foregroundStyle(Color.dangerText)
+                                                    .foregroundColor(Color.dangerText)
                                                     .bold()
                                             }
                                         }
@@ -161,7 +162,7 @@ struct ProductResultView: View {
                                         Text(separator: ",") {
                                             compatibleIngredients.map { str in
                                                 Text(str)
-                                                    .foregroundStyle(Color.successText)
+                                                    .foregroundColor(Color.successText)
                                                     .bold()
                                             }
                                         }
