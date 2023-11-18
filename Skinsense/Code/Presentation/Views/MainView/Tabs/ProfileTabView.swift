@@ -243,12 +243,12 @@ struct ProfileMenuView : View {
 }
 
 struct SkinPersonalizationSheetView: View {
-    var personalizationViewModel: PersonalizationViewModel = PersonalizationViewModel()
+    var personalizationViewModel: PersonalizationViewModel = PersonalizationViewModel(isSheetOpened: false)
     @ObservedObject var viewModel: ProfileTabViewModel
     
     var body: some View {
         NavigationView {
-            PersonalizationView(callback: { user in print(user) }, viewModel: personalizationViewModel)
+            PersonalizationView(callback: { user in print(user) }, showButton: false, viewModel: personalizationViewModel)
                 .navigationTitle("My Skin Personalization")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(content: {

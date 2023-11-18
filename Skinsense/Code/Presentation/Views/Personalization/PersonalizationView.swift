@@ -16,11 +16,12 @@ struct PersonalizationSheetItems {
 
 struct PersonalizationView: View {
     var callback : (User?) -> Void
+    var showButton: Bool = true
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) var moc
     
-    @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel()
+    @StateObject var viewModel: PersonalizationViewModel = PersonalizationViewModel(isSheetOpened: true)
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -118,11 +119,13 @@ struct PersonalizationView: View {
                     .frame(height: 25)
             }
             
-            CustomButton(title: "Done", action: {
-                viewModel.handleUpdate(callback: self.callback)
-            }, isDisabled:
-                            viewModel.selectedSkinTypes.isEmpty || viewModel.selectedSkinConcerns.isEmpty || viewModel.selectedAllergens.isEmpty
-            )
+            if showButton {
+                CustomButton(title: "Done", action: {
+                    viewModel.handleUpdate(callback: self.callback)
+                }, isDisabled:
+                                viewModel.selectedSkinTypes.isEmpty || viewModel.selectedSkinConcerns.isEmpty || viewModel.selectedAllergens.isEmpty
+                )
+            }
         }
         .padding()
         .sheet(isPresented: $viewModel.isSheetOpened, content: {

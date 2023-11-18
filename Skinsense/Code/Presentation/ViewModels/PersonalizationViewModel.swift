@@ -13,8 +13,9 @@ class PersonalizationViewModel: ObservableObject {
     @Published var selectedSkinConcerns: [SkinConcern] = []
     @Published var selectedAllergens: [Allergen] = []
     
-    init() {
+    init(isSheetOpened: Bool) {
         self.fetchUserData()
+        self.isSheetOpened = isSheetOpened
     }
     
     var skinTypes : [SkinType] = [
