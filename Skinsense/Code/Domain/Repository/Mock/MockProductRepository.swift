@@ -36,7 +36,7 @@ class MockProductRepository: IProductRepository {
                         id: UUID().uuidString,
                         rating: 3.2,
                         comment: "OK",
-//                        likes: 10,
+                        totalLikes: 10,
                         user: APIUser(id: UUID().uuidString)
                     )
                 ]

@@ -19,14 +19,17 @@ struct ReviewComponent: View {
                     .clipShape(Circle())
                     .frame(width: 60, height: 60)
                 
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 8){
                     Text(review.user.name ?? "")
                         .font(.subheadline)
                         .bold()
                     
-                    Text((review.user.skinTypes ?? "") + ", " + (review.user.skinConcerns ?? "")).font(.subheadline)
-                    Spacer()
-                        .frame(height: 10)
+                    VStack(alignment: .leading) {
+                        Text("Skin Type: \(review.user.skinTypes ?? "-")")
+                            .font(.caption2)
+                        Text("Skin Concerns: \(review.user.skinConcerns ?? "-")")
+                            .font(.caption2)
+                    }
                     RatingsView(value: review.rating)
                 }
                 
@@ -40,8 +43,8 @@ struct ReviewComponent: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24, height: 24)
-//                        Text("\(review.likes)")
-//                            .font(.caption)
+                        Text("\(review.totalLikes)")
+                            .font(.caption)
                     }
                 }
                 
@@ -54,5 +57,5 @@ struct ReviewComponent: View {
 }
 
 #Preview {
-    ReviewComponent(review: Review(id: UUID().uuidString, rating: 4.3, comment: "This is review", user: APIUser(id: UUID().uuidString, name: "User Name", skinTypes: "Dry", skinConcerns: "Redness, Acne")))
+    ReviewComponent(review: Review(id: UUID().uuidString, rating: 4.3, comment: "This is review", totalLikes: 10, user: APIUser(id: UUID().uuidString, name: "User Name", skinTypes: "Dry", skinConcerns: "Redness, Acne")))
 }

@@ -18,7 +18,7 @@ struct RatingsView: View {
                 Image(systemName: imageName(for: index, value: value))
             }
         }
-        .foregroundColor(.yellow)
+        .foregroundColor(Color.mediumPurple)
     }
     
     func imageName(for starIndex: Int, value: Double) -> String {
@@ -34,10 +34,10 @@ struct RatingsView: View {
         }
         
         // Version B
-        switch value - Double(starIndex) {
-        case ..<0.5: return "heart"
-        case 0.5..<1.0: return "heart.leadinghalf.filled"
-        default: return "heart.fill"
-        }
+//        switch value - Double(starIndex) {
+//        case ..<0.5: return "heart"
+//        case 0.5..<1.0: return "heart.leadinghalf.filled"
+//        default: return "heart.fill"
+//        }
     }
 }

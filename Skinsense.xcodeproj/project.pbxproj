@@ -14,6 +14,7 @@
 		8306E99A2B0B6AB800F72306 /* ReviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E9992B0B6AB800F72306 /* ReviewDataSource.swift */; };
 		8306E99C2B0B6FD400F72306 /* ReviewViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E99B2B0B6FD400F72306 /* ReviewViewViewModel.swift */; };
 		8306E99E2B0B789C00F72306 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E99D2B0B789C00F72306 /* RatingView.swift */; };
+		8306E9A02B0CAEE200F72306 /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306E99F2B0CAEE200F72306 /* ReviewRepository.swift */; };
 		830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */; };
 		830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ED7092AF3BFE200D80556 /* PersonalizationView.swift */; };
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
@@ -54,6 +55,8 @@
 		835D1C7A2AFE196500B9E8E1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C792AFE196500B9E8E1 /* Review.swift */; };
 		835D1C802AFE35C400B9E8E1 /* GeneralAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */; };
 		835D1C822AFF3BA500B9E8E1 /* ForYouTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C812AFF3BA500B9E8E1 /* ForYouTabView.swift */; };
+		8369D7D32B0CB1BB00EE327E /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D7D22B0CB1BB00EE327E /* UserDataSource.swift */; };
+		8369D7D52B0CB20900EE327E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D7D42B0CB20900EE327E /* UserRepository.swift */; };
 		839ED7A32AFF45A500D077CB /* PeronalizedProductIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839ED7A22AFF45A500D077CB /* PeronalizedProductIcon.swift */; };
 		839ED7A62B00D8DE00D077CB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 839ED7A52B00D8DE00D077CB /* Alamofire */; };
 		839ED7A82B00D8FC00D077CB /* AnalyzerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839ED7A72B00D8FC00D077CB /* AnalyzerDataSource.swift */; };
@@ -92,6 +95,7 @@
 		8306E9992B0B6AB800F72306 /* ReviewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDataSource.swift; sourceTree = "<group>"; };
 		8306E99B2B0B6FD400F72306 /* ReviewViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewViewModel.swift; sourceTree = "<group>"; };
 		8306E99D2B0B789C00F72306 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		8306E99F2B0CAEE200F72306 /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
 		830ED7042AF3BFE200D80556 /* Skinsense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skinsense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ED7072AF3BFE200D80556 /* SkinsenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsenseApp.swift; sourceTree = "<group>"; };
 		830ED7092AF3BFE200D80556 /* PersonalizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizationView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		835D1C792AFE196500B9E8E1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		835D1C7F2AFE35C400B9E8E1 /* GeneralAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAttribute.swift; sourceTree = "<group>"; };
 		835D1C812AFF3BA500B9E8E1 /* ForYouTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouTabView.swift; sourceTree = "<group>"; };
+		8369D7D22B0CB1BB00EE327E /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
+		8369D7D42B0CB20900EE327E /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		839ED7A22AFF45A500D077CB /* PeronalizedProductIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeronalizedProductIcon.swift; sourceTree = "<group>"; };
 		839ED7A72B00D8FC00D077CB /* AnalyzerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzerDataSource.swift; sourceTree = "<group>"; };
 		839ED7A92B00D92600D077CB /* AnalysisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisModel.swift; sourceTree = "<group>"; };
@@ -420,6 +426,7 @@
 				83A164A82B03BCB1007657C7 /* ProductDataSource.swift */,
 				83A164B82B076C48007657C7 /* AuthDataSource.swift */,
 				8306E9992B0B6AB800F72306 /* ReviewDataSource.swift */,
+				8369D7D22B0CB1BB00EE327E /* UserDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -440,6 +447,8 @@
 				83A164C02B077AA6007657C7 /* AuthRepository.swift */,
 				83A164AA2B03BEAB007657C7 /* ProductRepository.swift */,
 				839ED7AD2B00E1D200D077CB /* Analyzer */,
+				8306E99F2B0CAEE200F72306 /* ReviewRepository.swift */,
+				8369D7D42B0CB20900EE327E /* UserRepository.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -618,6 +627,7 @@
 				830ED70A2AF3BFE200D80556 /* PersonalizationView.swift in Sources */,
 				83C35B992B0222AF002E9256 /* CoreDataManager.swift in Sources */,
 				835D1C392AFB80F900B9E8E1 /* MainView.swift in Sources */,
+				8369D7D32B0CB1BB00EE327E /* UserDataSource.swift in Sources */,
 				835D1C5D2AFDFDA000B9E8E1 /* CustomProgressBar.swift in Sources */,
 				835D1C582AFDFD7100B9E8E1 /* ProductResultView.swift in Sources */,
 				830ED7082AF3BFE200D80556 /* SkinsenseApp.swift in Sources */,
@@ -630,6 +640,7 @@
 				83A164BF2B076F53007657C7 /* User+CoreDataProperties.swift in Sources */,
 				8306E99A2B0B6AB800F72306 /* ReviewDataSource.swift in Sources */,
 				83A164AB2B03BEAB007657C7 /* ProductRepository.swift in Sources */,
+				8306E9A02B0CAEE200F72306 /* ReviewRepository.swift in Sources */,
 				835D1C662AFE04DE00B9E8E1 /* Product.swift in Sources */,
 				83C35BE02B039805002E9256 /* ForYouTabViewModel.swift in Sources */,
 				83A164B92B076C48007657C7 /* AuthDataSource.swift in Sources */,
@@ -637,6 +648,7 @@
 				835D1C602AFDFE5200B9E8E1 /* InfoBox.swift in Sources */,
 				53A16FF22AFA528500FAF49A /* Allergen.swift in Sources */,
 				83A164C12B077AA6007657C7 /* AuthRepository.swift in Sources */,
+				8369D7D52B0CB20900EE327E /* UserRepository.swift in Sources */,
 				8306E9982B0B62D500F72306 /* ReviewView.swift in Sources */,
 				835D1C512AFCE8B200B9E8E1 /* ScanResultView.swift in Sources */,
 				835D1C472AFCCD7000B9E8E1 /* ScanData.swift in Sources */,
