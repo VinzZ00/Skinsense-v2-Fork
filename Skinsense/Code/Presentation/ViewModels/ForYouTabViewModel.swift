@@ -12,6 +12,7 @@ class ForYouTabViewModel : ObservableObject {
     @Published var showSearch: Bool = true
     @Published var isLoading: Bool = false
     @Published var searchedProduct: [Product] = []
+    @Published var productHistory: [ProductHistory]?
     
     private var productRepository: ProductRepository = ProductRepository()
     
@@ -27,5 +28,10 @@ class ForYouTabViewModel : ObservableObject {
             }
             self.isLoading = false
         }
+    }
+    
+    func fetchProductHistory() {
+        let productHistory = CoreDataManager.shared.fetchProductHistory()
+        self.productHistory = productHistory
     }
 }

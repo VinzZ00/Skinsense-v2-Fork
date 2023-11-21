@@ -72,6 +72,23 @@ class CoreDataManager {
         }
     }
     
+    func saveProductHistory(productData: Product) -> ProductHistory? {
+        do {
+            let productHistory = ProductHistory(context: viewContext)
+            
+            productHistory.id = UUID()
+            productHistory.productId = productData.id
+            productHistory.productName = productData.name
+            productHistory.productPhoto = productData.photo
+            
+            try viewContext.save()
+            return productHistory
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     func updateUserData(userData: User, skinConcerns: [SkinConcern], skinTypes: [SkinType], allergens: [Allergen]) -> User?{
         do {
             userData.skinTypes = nil
@@ -111,7 +128,19 @@ class CoreDataManager {
             let userData = try self.viewContext.fetch(fetchRequest)
             return userData
         } catch {
-            print("Error fetching saved routines: \(error)")
+            print("Error fetching user data: \(error)")
+            return []
+        }
+    }
+    
+    func fetchProductHistory() -> [ProductHistory] {
+        let fetchRequest: NSFetchRequest<ProductHistory> = ProductHistory.fetchRequest()
+        
+        do {
+            let productHistoryData = try self.viewContext.fetch(fetchRequest)
+            return productHistoryData
+        } catch {
+            print("Error fetching product history data: \(error)")
             return []
         }
     }

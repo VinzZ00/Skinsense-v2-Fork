@@ -55,6 +55,20 @@ struct ForYouView: View {
                                 Text("Clear")
                             }
                         }
+                        .onAppear {
+                            viewModel.fetchProductHistory()
+                        }
+                        
+                        VStack {
+                            if let productHistory = viewModel.productHistory {
+                                ForEach(productHistory) {
+                                    history in
+                                    ProductHistoryItem(productHistory: history)
+                                }
+                            } else {
+                                Text("No history")
+                            }
+                        }
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -67,20 +81,19 @@ struct ForYouView: View {
                             .font(.caption)
                     }
                 } else {
-                    List {
-                        ForEach(viewModel.searchedProduct, id: \.id) {
-                            product in
-                            ProductSearchListItem(product: product)
+                    if viewModel.searchedProduct.isEmpty {
+                        CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
+                    } else {
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(viewModel.searchedProduct, id: \.id) {
+                                    product in
+                                    ProductSearchListItem(product: product)
+                                }
+                            }
                         }
+                        .padding()
                     }
-                    .listStyle(.plain)
-                    .padding(.top, 16)
-                    .scrollContentBackground(.hidden)
-                    .overlay(Group {
-                        if viewModel.searchedProduct.isEmpty {
-                            CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
-                        }
-                    })
                 }
             }
         } else {

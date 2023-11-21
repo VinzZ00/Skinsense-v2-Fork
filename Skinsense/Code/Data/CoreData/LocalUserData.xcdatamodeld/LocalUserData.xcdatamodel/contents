@@ -5,6 +5,12 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User"/>
     </entity>
+    <entity name="ProductHistory" representedClassName=".ProductHistory" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="productId" optional="YES" attributeType="String"/>
+        <attribute name="productName" optional="YES" attributeType="String"/>
+        <attribute name="productPhoto" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="appleUserId" optional="YES" attributeType="String"/>
         <attribute name="email" optional="YES" attributeType="String"/>

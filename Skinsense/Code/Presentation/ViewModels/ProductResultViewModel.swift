@@ -16,10 +16,8 @@ class ProductResultViewModel: ObservableObject {
     @Published var scanResult: AnalysisModel?
     @Published var skinConcerns: [PersonalizationData]?
     @Published var skinTypes: [PersonalizationData]?
-    
     @Published var productData: Product?
     @Published var isLoading: Bool = true
-    
     @Published var reviews: [Review]?
     
     func getAnalysis() {
@@ -69,11 +67,12 @@ class ProductResultViewModel: ObservableObject {
                 )
             }
             
-            print(scanRequest)
-            
             if self.scanRequest != nil {
                 getAnalysis()
                 fetchReviews()
+                
+                // Save history
+                let savedData = CoreDataManager.shared.saveProductHistory(productData: productData)
             }
         }
     }
