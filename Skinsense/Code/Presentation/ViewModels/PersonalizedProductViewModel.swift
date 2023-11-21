@@ -12,7 +12,7 @@ class PersonalizedProductViewModel: ObservableObject {
     
     @Published var products: [Product]?
     
-    func fetchProducts(category: String) {
+    func fetchProducts(categories: [String]) {
         let userData = CoreDataManager.shared.fetchUserData().first
         
         if let userData = userData {
@@ -22,7 +22,7 @@ class PersonalizedProductViewModel: ObservableObject {
             let skinTypesArr = skinTypes.map({$0.name ?? ""})
             let concernsArr = concerns.map({$0.name ?? ""})
             
-            productRepository.getRecommended(category: category, skinTypes: skinTypesArr, concerns: concernsArr) { result in
+            productRepository.getRecommended(categories: categories, skinTypes: skinTypesArr, concerns: concernsArr) { result in
                 switch result {
                 case .success(let success):
                     self.products = success

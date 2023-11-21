@@ -10,11 +10,11 @@ import SwiftUI
 struct PersonalizedProductIcon: View {
     @Environment(\.colorScheme) var colorScheme
     
-    var category: String
+    var categoryGroup: CategoryGroup
     var icon: String
     
     var body: some View {
-        NavigationLink(destination: PersonalizedProductView(category: category)){
+        NavigationLink(destination: PersonalizedProductView(categoryGroup: categoryGroup)){
             VStack(alignment: .center, spacing: 5){
                 ZStack{
                     Image("bgICON")
@@ -22,7 +22,7 @@ struct PersonalizedProductIcon: View {
                     Image(icon)
                         .frame(width: 42, height: 42)
                 }
-                Text(category)
+                Text(categoryGroup.name)
                     .font(.subheadline)
                     .bold()
                     .foregroundColor(colorScheme == .light ? .darkPurple : .lightPurple)
@@ -32,5 +32,5 @@ struct PersonalizedProductIcon: View {
 }
 
 #Preview {
-    PersonalizedProductIcon(category: "Moisturizer", icon: "FacialFoam")
+    PersonalizedProductIcon(categoryGroup: CategoryGroup(id: "Category", name: "Category", categories: []), icon: "FacialFoam")
 }

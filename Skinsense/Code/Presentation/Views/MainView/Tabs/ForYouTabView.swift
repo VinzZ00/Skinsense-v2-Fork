@@ -111,14 +111,11 @@ struct ForYouView: View {
                             .bold()
                         
                         LazyVGrid (columns: columns) {
-                            PersonalizedProductIcon(category: "Cleanser", icon: "FacialFoam")
-                            PersonalizedProductIcon(category: "Toner", icon: "Toner")
-                            PersonalizedProductIcon(category: "Serum", icon: "Serum")
-                            PersonalizedProductIcon(category: "Moisturizer", icon: "Moisturizer")
-                            PersonalizedProductIcon(category: "Exfoliator", icon: "Exfo")
-                            PersonalizedProductIcon(category: "Sun Screen", icon: "Sunscreen")
-                            PersonalizedProductIcon(category: "Face Mask", icon: "faceMask")
-                            PersonalizedProductIcon(category: "Others", icon: "Others")
+                            ForEach(AppConstants.categoryGroups, id: \.id) {
+                                group in
+                                PersonalizedProductIcon(categoryGroup: group, icon: group.icon ?? "Others")
+                            }
+                            
                         }
                     }
                     

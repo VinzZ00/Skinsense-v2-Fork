@@ -7,21 +7,16 @@
 
 import SwiftUI
 
+struct CategoryGroup {
+    var id: String
+    var name: String
+    var categories: [String]
+    var icon: String?
+}
+
 struct PersonalizedProductView: View {
     @StateObject var viewModel: PersonalizedProductViewModel = PersonalizedProductViewModel()
-    @State var category: String
-    
-    var categories = [
-        "Cleanser",
-        "Toner",
-        "Serum",
-        "Essence",
-        "Moisturizer",
-        "Sunscreen",
-        "Face Mask",
-        "Exfoliator",
-        "Makeup Remover"
-    ]
+    @State var categoryGroup: CategoryGroup
     
     var body: some View {
         ScrollView {
@@ -30,11 +25,11 @@ struct PersonalizedProductView: View {
                 // MARK: Selector
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(categories, id: \.self) { category in
+                        ForEach(AppConstants.categoryGroups, id: \.name) { categoryGroup in
                             CustomCheckbox(onPress: { selected in
-                                self.category = selected.name
-                                viewModel.fetchProducts(category: selected.name)
-                            }, object: GeneralAttribute(name: category), isActive: self.category == category)
+                                self.categoryGroup = AppConstants.categoryGroups.first(where: {$0.id == categoryGroup.id})!
+                                viewModel.fetchProducts(categories: self.categoryGroup.categories)
+                            }, object: GeneralAttribute(name: categoryGroup.name), isActive: self.categoryGroup.id == categoryGroup.id)
                         }
                     }
                 }
@@ -61,13 +56,15 @@ struct PersonalizedProductView: View {
         .navigationTitle("Personalized Product")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            viewModel.fetchProducts(category: self.category)
+            viewModel.fetchProducts(categories: self.categoryGroup.categories)
         }
     }
 }
 
 #Preview {
     NavigationView {
-        PersonalizedProductView(category: "Serum")
+        PersonalizedProductView(categoryGroup:CategoryGroup(id: "cleanser",name: "Cleanser", categories: [
+            "Face cleanser"
+        ]))
     }
 }
