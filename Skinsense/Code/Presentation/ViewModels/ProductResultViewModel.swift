@@ -8,8 +8,9 @@
 import Foundation
 
 class ProductResultViewModel: ObservableObject {
-    private var repository: MockProductRepository = MockProductRepository()
+    private var productRepository: ProductRepository = ProductRepository()
     private var analyzerRepository: AnalyzerRepository = AnalyzerRepository()
+    private var reviewRepository: ReviewRepository = ReviewRepository()
     
     @Published var scanRequest: AnalysisRequest?
     @Published var scanResult: AnalysisModel?
@@ -18,6 +19,8 @@ class ProductResultViewModel: ObservableObject {
     
     @Published var productData: Product?
     @Published var isLoading: Bool = true
+    
+    @Published var reviews: [Review]?
     
     func getAnalysis() {
         guard let scanRequest = self.scanRequest else { return }
@@ -31,6 +34,19 @@ class ProductResultViewModel: ObservableObject {
             }
             
             self.isLoading = false
+        }
+    }
+    
+    func fetchReviews() {
+        if let productId = self.productData?.id {
+            productRepository.getReviews(productId: productId) { result in
+                switch result {
+                case .success(let success):
+                    self.reviews = success
+                case .failure(let failure):
+                    print(failure)
+                }
+            }
         }
     }
     
@@ -57,16 +73,8 @@ class ProductResultViewModel: ObservableObject {
             
             if self.scanRequest != nil {
                 getAnalysis()
+                fetchReviews()
             }
         }
     }
-//    init() {
-//        self.fetchProductData()
-//    }
-//    
-//    func fetchProductData() {
-//        repository.fetchData { products in
-//            self.productData = products.first
-//        }
-//    }
 }

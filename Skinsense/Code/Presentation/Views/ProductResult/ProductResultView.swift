@@ -276,8 +276,12 @@ struct ProductResultView: View {
                                     }
                                 }
                                 
-                                if let review = product.reviews?.first {
-                                    ReviewComponent(review: review)
+                                if let reviews = viewModel.reviews {
+                                    ForEach(reviews.prefix(2), id: \.self.id) { review in
+                                        ReviewComponent(review: review)
+                                    }
+                                } else {
+                                    ProgressView()
                                 }
                             }
                         }
