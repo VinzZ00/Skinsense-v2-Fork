@@ -16,12 +16,16 @@ struct ProfileTabView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                if(viewModel.isSigned) {
-                    SignedInView(viewModel: viewModel)
-                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                if viewModel.isLoading {
+                    ProgressView()
                 } else {
-                    LoggedOutView(viewModel: viewModel)
-                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                    if(viewModel.isSigned) {
+                        SignedInView(viewModel: viewModel)
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                    } else {
+                        LoggedOutView(viewModel: viewModel)
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                    }
                 }
             }
             .onAppear {

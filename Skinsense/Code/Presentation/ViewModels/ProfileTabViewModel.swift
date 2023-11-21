@@ -21,6 +21,7 @@ class ProfileTabViewModel: ObservableObject {
     @Published var userData : User?
     @Published var showBottomSheet: Bool = false
     @Published var activeSheet: ActiveSheet = .skinPersonalization
+    @Published var isLoading: Bool = true
     
     var repository : AuthRepository = AuthRepository()
     
@@ -35,9 +36,12 @@ class ProfileTabViewModel: ObservableObject {
     }
     
     func updateState() {
+        self.isLoading = true
         let userCoreData = self.fetchUserData()
         self.isSigned = userCoreData?.appleUserId != nil
         self.userData = userCoreData
+        
+        self.isLoading = false
     }
     
     func updateLocalUserData(newUserData: APIUser) -> User?{
