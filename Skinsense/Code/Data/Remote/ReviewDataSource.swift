@@ -31,4 +31,17 @@ class ReviewDataSource {
             }
         }
     }
+    
+    func addLike(reviewId: String, completion: @escaping (Result<Review, Error>) -> Void) {
+        AF.request("\(APIBASEURL)/\(reviewId)/addLike", method: .post, encoding:JSONEncoding.default)
+            .responseDecodable(of: Review.self) { response in
+            print(response)
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

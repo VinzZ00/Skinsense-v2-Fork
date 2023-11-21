@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct ReviewComponent: View {
-    var review: Review
+    @State var review: Review
+    
+    func addLike() {
+        ReviewRepository.shared.addLike(reviewId: self.review.id) { result in
+            switch result {
+            case .success(let success):
+                self.review = success
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16){
@@ -20,7 +31,7 @@ struct ReviewComponent: View {
                     .frame(width: 60, height: 60)
                 
                 VStack(alignment: .leading, spacing: 8){
-                    Text(review.user.name ?? "")
+                    Text(review.user.name ?? "User")
                         .font(.subheadline)
                         .bold()
                     
@@ -37,6 +48,7 @@ struct ReviewComponent: View {
                 
                 Button {
                     // TODO: Implement like
+                    addLike()
                 } label: {
                     VStack {
                         Image(systemName: "hand.thumbsup")
@@ -52,6 +64,7 @@ struct ReviewComponent: View {
             
             Text(review.comment)
                 .font(.subheadline)
+            Divider()
         }
     }
 }
