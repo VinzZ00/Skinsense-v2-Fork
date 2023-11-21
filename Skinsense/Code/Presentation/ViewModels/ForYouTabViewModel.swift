@@ -10,11 +10,14 @@ import Foundation
 class ForYouTabViewModel : ObservableObject {
     @Published var searchText: String = ""
     @Published var showSearch: Bool = true
+    @Published var isLoading: Bool = false
     @Published var searchedProduct: [Product] = []
+    @Published var productHistory: [ProductHistory]?
     
     private var productRepository: ProductRepository = ProductRepository()
     
     func searchProduct(query: String) {
+        self.isLoading = true
         productRepository.searchProduct(query: query) { res in
             switch res {
             case .success(let data):
@@ -23,6 +26,18 @@ class ForYouTabViewModel : ObservableObject {
                 self.searchedProduct = []
                 print(failure)
             }
+            self.isLoading = false
+        }
+    }
+    
+    func fetchProductHistory() {
+        let productHistory = CoreDataManager.shared.fetchProductHistory()
+        self.productHistory = productHistory
+    }
+    
+    func clearProductHistory() {
+        if CoreDataManager.shared.clearHistoryData() {
+            self.productHistory = nil
         }
     }
 }

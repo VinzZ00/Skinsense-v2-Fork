@@ -7,10 +7,21 @@
 
 import Foundation
 
-struct Review {
+struct Review: Decodable {
     var id : String
-    var user: User
     var rating: Double
-    var notes: String
-    var likes: Int
+    var comment: String
+    var totalLikes: Int
+    var userId: String?
+    var productId: String?
+    var user: APIUser
+    var product: Product?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, rating, comment, user, product
+        case totalLikes = "total_likes"
+        case userId = "user_id"
+        case productId = "product_id"
+    }
+
 }

@@ -25,6 +25,7 @@ struct ForYouTabView: View {
                     }
                 }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
@@ -50,30 +51,56 @@ struct ForYouView: View {
                                 .bold()
                             Spacer()
                             Button {
-                                // Clear history
+                                viewModel.clearProductHistory()
                             } label: {
                                 Text("Clear")
                             }
                         }
+                        
+                        if let productHistory = viewModel.productHistory {
+                            VStack {
+                                ForEach(productHistory) {
+                                    history in
+                                    ProductHistoryItem(productHistory: history)
+                                }
+                            }
+                            
+                        } else {
+                            VStack {
+                                Text("No history")
+                            }
+                            .padding()
+                        }
+                        
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
-            } else  {
-                List {
-                    ForEach(viewModel.searchedProduct, id: \.id) {
-                        product in
-                        ProductSearchListItem(product: product)
-                    }
+                .onAppear {
+                    viewModel.fetchProductHistory()
                 }
-                .listStyle(.plain)
-                .padding(.top, 16)
-                .scrollContentBackground(.hidden)
-                .overlay(Group {
+            } else  {
+                if viewModel.isLoading {
+                    VStack(spacing: 16) {
+                        ProgressView()
+                        Text("Searching...")
+                            .font(.caption)
+                    }
+                } else {
                     if viewModel.searchedProduct.isEmpty {
                         CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
+                    } else {
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(viewModel.searchedProduct, id: \.id) {
+                                    product in
+                                    ProductSearchListItem(product: product)
+                                }
+                            }
+                        }
+                        .padding()
                     }
-                })
+                }
             }
         } else {
             ScrollView {

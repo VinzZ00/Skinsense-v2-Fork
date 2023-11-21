@@ -34,10 +34,10 @@ class MockProductRepository: IProductRepository {
                 reviews: [
                     Review(
                         id: UUID().uuidString,
-                        user: userData,
                         rating: 3.2,
-                        notes: "Baguss",
-                        likes: 10
+                        comment: "OK",
+                        totalLikes: 10,
+                        user: APIUser(id: UUID().uuidString)
                     )
                 ]
             )

@@ -266,13 +266,22 @@ struct ProductResultView: View {
                                         .font(.title3)
                                         .bold()
                                     Spacer()
-                                    Text("See More")
-                                        .font(.subheadline)
-                                        .foregroundColor(colorScheme == .light ? .darkPurple : .mediumPurple)
+                                    
+                                    if let productId = product.id {
+                                        NavigationLink(destination: ReviewView(viewModel: ReviewViewViewModel(productId: productId))) {
+                                            Text("See More")
+                                                .font(.subheadline)
+                                                .foregroundColor(colorScheme == .light ? .darkPurple : .mediumPurple)
+                                        }
+                                    }
                                 }
                                 
-                                if let review = product.reviews?.first {
-                                    ReviewComponent(review: review)
+                                if let reviews = viewModel.reviews {
+                                    ForEach(reviews.prefix(2), id: \.self.id) { review in
+                                        ReviewComponent(review: review)
+                                    }
+                                } else {
+                                    ProgressView()
                                 }
                             }
                         }

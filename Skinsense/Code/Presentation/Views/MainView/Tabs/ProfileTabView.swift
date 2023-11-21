@@ -16,12 +16,16 @@ struct ProfileTabView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                if(viewModel.isSigned) {
-                    SignedInView(viewModel: viewModel)
-                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                if viewModel.isLoading {
+                    ProgressView()
                 } else {
-                    LoggedOutView(viewModel: viewModel)
-                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                    if(viewModel.isSigned) {
+                        SignedInView(viewModel: viewModel)
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                    } else {
+                        LoggedOutView(viewModel: viewModel)
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.3)))
+                    }
                 }
             }
             .onAppear {
@@ -51,7 +55,7 @@ struct SignedInView: View {
                 
                 if let userData = viewModel.userData {
                     VStack {
-                        KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId)?d=identicon"))
+                        KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId ?? "default_avatar")?d=identicon"))
                             .resizable()
                             .frame(width: 106, height: 106)
                             .clipShape(Circle())
