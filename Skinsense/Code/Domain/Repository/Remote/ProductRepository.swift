@@ -13,4 +13,8 @@ class ProductRepository {
     func searchProduct(query: String ,completion: @escaping (Result<[Product], Error>) -> Void) {
         dataSource.searchProduct(query: query, completion: completion)
     }
+    
+    func getReviews(productId: String ,completion: @escaping (Result<[Review], Error>) -> Void) {
+        dataSource.getReviews(productId: productId, completion: completion)
+    }
 }

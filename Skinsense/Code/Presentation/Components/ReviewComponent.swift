@@ -12,28 +12,22 @@ struct ReviewComponent: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16){
-            HStack(spacing: 16){
-                Image(review.user.photo ?? "")
+            HStack(spacing: 12){
+                Image("placeholder")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
+                    .scaledToFill()
+                    .clipShape(Circle())
+                    .frame(width: 60, height: 60)
                 
                 VStack(alignment: .leading){
                     Text(review.user.name ?? "")
                         .font(.subheadline)
                         .bold()
-                    if let skinTypes = review.user.skinTypes?.allObjects as? [PersonalizationData] {
-                        Text(skinTypes.map({$0.name ?? ""}).joined(separator: ",")).font(.subheadline)
-                    }
+                    
+                    Text((review.user.skinTypes ?? "") + ", " + (review.user.skinConcerns ?? "")).font(.subheadline)
                     Spacer()
                         .frame(height: 10)
-                    HStack{
-                        Image(systemName: "heart")
-                        Image(systemName: "heart")
-                        Image(systemName: "heart")
-                        Image(systemName: "heart")
-                        Image(systemName: "heart")
-                    }
+                    RatingsView(value: review.rating)
                 }
                 
                 Spacer()
@@ -46,36 +40,19 @@ struct ReviewComponent: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24, height: 24)
-                        Text("\(review.likes)")
-                            .font(.caption)
+//                        Text("\(review.likes)")
+//                            .font(.caption)
                     }
                 }
                 
             }
             
-            Text(review.notes)
+            Text(review.comment)
                 .font(.subheadline)
         }
     }
 }
 
-//#Preview {
-//    @Environment(\.managedObjectContext) var moc
-//    
-//    let userData = User()
-//    userData.email = "email"
-//    userData.name = "Name"
-//    userData.photo = "photo"
-//    userData.skinConcerns = [SkinConcern(name: "Redness")]
-//    userData.skinTypes = [SkinType(name: "Dry")]
-//    userData.allergens = [Allergen(name: "Linalool")]
-//    
-//    ReviewComponent(review:
-//                        Review(
-//                            id: UUID().uuidString,
-//                            user: userData,
-//                            rating: 3.1,
-//                            notes: "Cool",
-//                            likes: 10)
-//    )
-//}
+#Preview {
+    ReviewComponent(review: Review(id: UUID().uuidString, rating: 4.3, comment: "This is review", user: APIUser(id: UUID().uuidString, name: "User Name", skinTypes: "Dry", skinConcerns: "Redness, Acne")))
+}

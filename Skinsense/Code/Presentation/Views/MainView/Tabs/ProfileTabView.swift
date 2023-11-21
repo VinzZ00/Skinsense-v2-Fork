@@ -51,7 +51,7 @@ struct SignedInView: View {
                 
                 if let userData = viewModel.userData {
                     VStack {
-                        KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId)?d=identicon"))
+                        KFImage(URL(string: "https://gravatar.com/avatar/\(userData.appleUserId ?? "default_avatar")?d=identicon"))
                             .resizable()
                             .frame(width: 106, height: 106)
                             .clipShape(Circle())

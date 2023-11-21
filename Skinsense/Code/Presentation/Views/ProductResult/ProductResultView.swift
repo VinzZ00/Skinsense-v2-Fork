@@ -266,9 +266,14 @@ struct ProductResultView: View {
                                         .font(.title3)
                                         .bold()
                                     Spacer()
-                                    Text("See More")
-                                        .font(.subheadline)
-                                        .foregroundColor(colorScheme == .light ? .darkPurple : .mediumPurple)
+                                    
+                                    if let productId = product.id {
+                                        NavigationLink(destination: ReviewView(viewModel: ReviewViewViewModel(productId: productId))) {
+                                            Text("See More")
+                                                .font(.subheadline)
+                                                .foregroundColor(colorScheme == .light ? .darkPurple : .mediumPurple)
+                                        }
+                                    }
                                 }
                                 
                                 if let review = product.reviews?.first {
