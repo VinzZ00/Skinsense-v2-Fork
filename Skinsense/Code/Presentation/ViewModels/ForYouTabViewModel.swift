@@ -34,4 +34,10 @@ class ForYouTabViewModel : ObservableObject {
         let productHistory = CoreDataManager.shared.fetchProductHistory()
         self.productHistory = productHistory
     }
+    
+    func clearProductHistory() {
+        if CoreDataManager.shared.clearHistoryData() {
+            self.productHistory = nil
+        }
+    }
 }

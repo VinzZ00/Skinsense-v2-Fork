@@ -163,6 +163,22 @@ class CoreDataManager {
         }
     }
     
+    func clearHistoryData() -> Bool {
+        self.delete(entityName: "ProductHistory")
+    }
+    
+    func delete(entityName: String) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try persistentContainer.viewContext.execute(deleteRequest)
+            return true
+        } catch let error as NSError {
+            debugPrint(error)
+            return false
+        }
+    }
+    
     func clearPersonalizationData() {
         // Step 1: Delete all managed objects for the "SavedRoutine" entity
         let entityName = "User"

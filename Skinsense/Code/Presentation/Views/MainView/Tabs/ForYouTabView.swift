@@ -25,6 +25,7 @@ struct ForYouTabView: View {
                     }
                 }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
@@ -50,28 +51,33 @@ struct ForYouView: View {
                                 .bold()
                             Spacer()
                             Button {
-                                // Clear history
+                                viewModel.clearProductHistory()
                             } label: {
                                 Text("Clear")
                             }
                         }
-                        .onAppear {
-                            viewModel.fetchProductHistory()
-                        }
                         
-                        VStack {
-                            if let productHistory = viewModel.productHistory {
+                        if let productHistory = viewModel.productHistory {
+                            VStack {
                                 ForEach(productHistory) {
                                     history in
                                     ProductHistoryItem(productHistory: history)
                                 }
-                            } else {
+                            }
+                            
+                        } else {
+                            VStack {
                                 Text("No history")
                             }
+                            .padding()
                         }
+                        
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .onAppear {
+                    viewModel.fetchProductHistory()
                 }
             } else  {
                 if viewModel.isLoading {
