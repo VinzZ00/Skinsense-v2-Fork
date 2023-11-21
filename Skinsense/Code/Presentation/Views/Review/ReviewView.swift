@@ -23,8 +23,12 @@ struct ReviewView: View {
             }
             
             VStack {
-                CustomButton(title: "Add Review") {
-                    viewModel.showAddReviewSheet.toggle()
+                if (viewModel.userData != nil) {
+                    CustomButton(title: "Add Review") {
+                        viewModel.showAddReviewSheet.toggle()
+                    }
+                } else {
+                    Text("Sign in to add review")
                 }
             }
             .padding()
