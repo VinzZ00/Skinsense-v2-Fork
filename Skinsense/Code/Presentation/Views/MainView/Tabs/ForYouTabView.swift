@@ -60,20 +60,28 @@ struct ForYouView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             } else  {
-                List {
-                    ForEach(viewModel.searchedProduct, id: \.id) {
-                        product in
-                        ProductSearchListItem(product: product)
+                if viewModel.isLoading {
+                    VStack(spacing: 16) {
+                        ProgressView()
+                        Text("Searching...")
+                            .font(.caption)
                     }
+                } else {
+                    List {
+                        ForEach(viewModel.searchedProduct, id: \.id) {
+                            product in
+                            ProductSearchListItem(product: product)
+                        }
+                    }
+                    .listStyle(.plain)
+                    .padding(.top, 16)
+                    .scrollContentBackground(.hidden)
+                    .overlay(Group {
+                        if viewModel.searchedProduct.isEmpty {
+                            CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
+                        }
+                    })
                 }
-                .listStyle(.plain)
-                .padding(.top, 16)
-                .scrollContentBackground(.hidden)
-                .overlay(Group {
-                    if viewModel.searchedProduct.isEmpty {
-                        CustomEmptyView(title: "Not Found", subTitle: "for \(viewModel.searchText)",withImage: false)
-                    }
-                })
             }
         } else {
             ScrollView {
