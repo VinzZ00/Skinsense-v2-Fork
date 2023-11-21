@@ -49,4 +49,22 @@ class ProductDataSource {
             }
         }
     }
+    
+    func getRecommended(category: String, skinTypes: [String], concerns: [String], completion: @escaping (Result<[Product], Error>) -> Void) {
+        
+        // Define parameters (if any)
+        let parameters: [String: Any] = [
+            "skinTypes": skinTypes,
+            "concerns": concerns
+        ]
+        
+        AF.request("\(APIBASEURL)/get-recommended/\(category)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseDecodable(of: [Product].self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

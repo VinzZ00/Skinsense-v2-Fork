@@ -20,6 +20,7 @@ struct ProductSearchListItem: View {
                         Text(product.brandName ?? "-")
                             .bold()
                         Text(product.name ?? "-")
+                            .multilineTextAlignment(.leading)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

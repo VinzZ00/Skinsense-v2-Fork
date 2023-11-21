@@ -21,4 +21,8 @@ class ProductRepository {
     func getById(productId: String, completion: @escaping (Result<Product, Error>) -> Void) {
         dataSource.getById(productId: productId, completion: completion)
     }
+    
+    func getRecommended(category: String, skinTypes: [String], concerns: [String], completion: @escaping (Result<[Product], Error>) -> Void) {
+        dataSource.getRecommended(category: category, skinTypes: skinTypes, concerns: concerns, completion: completion)
+    }
 }

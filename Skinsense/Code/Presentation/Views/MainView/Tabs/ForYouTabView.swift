@@ -111,14 +111,14 @@ struct ForYouView: View {
                             .bold()
                         
                         LazyVGrid (columns: columns) {
-                            PersonalizedProductIcon(text: "Cleanser", icon2: "FacialFoam")
-                            PersonalizedProductIcon(text: "Toner", icon2: "Toner")
-                            PersonalizedProductIcon(text: "Serum", icon2: "Serum")
-                            PersonalizedProductIcon(text: "Moisturizer", icon2: "Moisturizer")
-                            PersonalizedProductIcon(text: "Exfoliator", icon2: "Exfo")
-                            PersonalizedProductIcon(text: "Sun Screen", icon2: "Sunscreen")
-                            PersonalizedProductIcon(text: "Face Mask", icon2: "faceMask")
-                            PersonalizedProductIcon(text: "Others", icon2: "Others")
+                            PersonalizedProductIcon(category: "Cleanser", icon: "FacialFoam")
+                            PersonalizedProductIcon(category: "Toner", icon: "Toner")
+                            PersonalizedProductIcon(category: "Serum", icon: "Serum")
+                            PersonalizedProductIcon(category: "Moisturizer", icon: "Moisturizer")
+                            PersonalizedProductIcon(category: "Exfoliator", icon: "Exfo")
+                            PersonalizedProductIcon(category: "Sun Screen", icon: "Sunscreen")
+                            PersonalizedProductIcon(category: "Face Mask", icon: "faceMask")
+                            PersonalizedProductIcon(category: "Others", icon: "Others")
                         }
                     }
                     
