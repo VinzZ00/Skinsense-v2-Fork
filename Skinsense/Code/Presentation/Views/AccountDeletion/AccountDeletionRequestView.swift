@@ -49,7 +49,6 @@ struct AccountDeletionRequestView: View {
                     Text("Type confirmation text to proceed")
                     TextField("Type: 'I am sure'", text: $confirmationText)
                         .padding()
-                        .background(Color.bgColor)
                 }
                 
                 CustomButton(title: "Delete Account", action:  {
