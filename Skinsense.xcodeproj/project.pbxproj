@@ -20,6 +20,8 @@
 		830ED70C2AF3BFE400D80556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70B2AF3BFE400D80556 /* Assets.xcassets */; };
 		830ED70F2AF3BFE400D80556 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */; };
 		834180742B0D295E00C5D054 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834180732B0D295E00C5D054 /* AppConstants.swift */; };
+		834180772B0E2B7800C5D054 /* AccountDeletionRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834180762B0E2B7800C5D054 /* AccountDeletionRequestView.swift */; };
+		834180792B0E31F000C5D054 /* DeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834180782B0E31F000C5D054 /* DeleteResponse.swift */; };
 		835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */; };
 		835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C222AFA3EF400B9E8E1 /* Colors.swift */; };
 		835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */; };
@@ -108,6 +110,8 @@
 		830ED70B2AF3BFE400D80556 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		830ED70E2AF3BFE400D80556 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		834180732B0D295E00C5D054 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		834180762B0E2B7800C5D054 /* AccountDeletionRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionRequestView.swift; sourceTree = "<group>"; };
+		834180782B0E31F000C5D054 /* DeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteResponse.swift; sourceTree = "<group>"; };
 		835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		835D1C222AFA3EF400B9E8E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
@@ -237,6 +241,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		834180752B0E2B6A00C5D054 /* AccountDeletion */ = {
+			isa = PBXGroup;
+			children = (
+				834180762B0E2B7800C5D054 /* AccountDeletionRequestView.swift */,
+			);
+			path = AccountDeletion;
+			sourceTree = "<group>";
+		};
 		835D1C1B2AFA34E500B9E8E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +265,7 @@
 				839ED7A92B00D92600D077CB /* AnalysisModel.swift */,
 				839ED7B02B00E33300D077CB /* AnalysisRequest.swift */,
 				83A164C22B077E6A007657C7 /* APIUser.swift */,
+				834180782B0E31F000C5D054 /* DeleteResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +273,7 @@
 		835D1C1C2AFA34EC00B9E8E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				834180752B0E2B6A00C5D054 /* AccountDeletion */,
 				8369D7E02B0D155A00EE327E /* PersonalizedProduct */,
 				8306E9962B0B62C800F72306 /* Review */,
 				83A164AF2B03C3FD007657C7 /* EmptyView */,
@@ -631,6 +645,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				839ED7B12B00E33300D077CB /* AnalysisRequest.swift in Sources */,
+				834180792B0E31F000C5D054 /* DeleteResponse.swift in Sources */,
 				835D1C422AFB91A800B9E8E1 /* ProfileTabView.swift in Sources */,
 				8306E9952B08CD9600F72306 /* PersonalizationData+CoreDataProperties.swift in Sources */,
 				839ED7AF2B00E1DF00D077CB /* AnalyzerRepository.swift in Sources */,
@@ -672,6 +687,7 @@
 				83A164AB2B03BEAB007657C7 /* ProductRepository.swift in Sources */,
 				8306E9A02B0CAEE200F72306 /* ReviewRepository.swift in Sources */,
 				835D1C662AFE04DE00B9E8E1 /* Product.swift in Sources */,
+				834180772B0E2B7800C5D054 /* AccountDeletionRequestView.swift in Sources */,
 				83C35BE02B039805002E9256 /* ForYouTabViewModel.swift in Sources */,
 				83A164B92B076C48007657C7 /* AuthDataSource.swift in Sources */,
 				83A164C32B077E6A007657C7 /* APIUser.swift in Sources */,

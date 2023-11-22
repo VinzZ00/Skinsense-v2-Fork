@@ -240,6 +240,15 @@ struct ProfileMenuView : View {
                         }
                         .padding()
                     }
+                    NavigationLink(destination: AccountDeletionRequestView( profileTabViewModel: viewModel)) {
+                        HStack {
+                            Text("Account Deletion Request")
+                                .foregroundStyle(.red)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                        .padding()
+                    }
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .cornerRadius(20)

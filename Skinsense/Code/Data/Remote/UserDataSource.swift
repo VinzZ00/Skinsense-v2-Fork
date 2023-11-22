@@ -21,4 +21,15 @@ class UserDataSource {
             }
         }
     }
+    
+    func delete(userId: String, completion: @escaping (Result<DeleteResponse, Error>) -> Void) {
+        AF.request("\(APIBASEURL)/\(userId)", method: .delete, encoding: JSONEncoding.default).responseDecodable(of: DeleteResponse.self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
