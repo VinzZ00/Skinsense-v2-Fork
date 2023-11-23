@@ -10,20 +10,26 @@ import SwiftUI
 struct CustomLabel: View {
     @Environment(\.colorScheme) var colorScheme
     
-    var text: String
+    var ingredient: Ingredient
+    var onClick: () -> Void
     
     var body: some View {
         VStack{
-            Text(text)
-                .font(.caption)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 10)
-                .background(colorScheme == .light ? Color.lightPurple : Color.darkPurple)
-                .cornerRadius(10)
+            Button {
+                onClick()
+            } label: {
+                Text(ingredient.name ?? "-")
+                    .font(.caption)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
+            .background(colorScheme == .light ? Color.lightPurple : Color.darkPurple)
+            .background(colorScheme == .light ? Color.darkPurple : Color.white)
+            .cornerRadius(10)
         }
     }
 }
 
 #Preview {
-    CustomLabel(text: "anjay")
+    CustomLabel(ingredient: Ingredient(name: "Ingredient"), onClick: {})
 }

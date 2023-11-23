@@ -228,17 +228,18 @@ struct ScanResultView: View {
                                     } else {
                                         ForEach(concerns, id:\.self) {
                                             concern in
-                                            IngredientInformation(
-                                                title: "Ingredients are good for reducing \(concern)",
-                                                ingredients: viewModel.scanResult?.ingredients?.filter({ ing in
-                                                    ing.getIngredientGoodFor().contains { test in
-                                                        test == concern
-                                                    }
-                                                }).map({ el in
-                                                    el.name
-                                                }) as! [String],  
-                                                totalIngredients: viewModel.scanResult?.ingredients?.count ?? 0
-                                            )
+                                            if let ingredients = viewModel.scanResult?.ingredients {
+                                                IngredientInformation (
+                                                    title: "Ingredients are good for reducing \(concern)",
+                                                    ingredients: ingredients.filter({
+                                                        ing in
+                                                        ing.getIngredientGoodFor().contains { test in
+                                                            test == concern
+                                                        }
+                                                    }),
+                                                    totalIngredients: viewModel.scanResult?.ingredients?.count ?? 0
+                                                )
+                                            }
                                         }
                                     }
                                 }

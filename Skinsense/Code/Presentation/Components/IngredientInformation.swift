@@ -10,13 +10,16 @@ import WrappingHStack
 
 struct IngredientInformation: View {
     var title: String
-    var ingredients: [String]
+    var ingredients: [Ingredient]
     var totalIngredients: Int
     
     @State var progress : CGFloat = 0
     @State var showProgress = true
     
-    init(title: String, ingredients: [String], totalIngredients: Int) {
+    @State var showSheet = false
+    @State var selectedIngredient: Ingredient?
+    
+    init(title: String, ingredients: [Ingredient], totalIngredients: Int) {
         self.title = title
         self.ingredients = ingredients
         self.totalIngredients = totalIngredients
@@ -44,9 +47,12 @@ struct IngredientInformation: View {
                 Text(title)
                     .font(.subheadline)
                 WrappingHStack(alignment:.leading){
-                    ForEach(ingredients, id: \.self) {
+                    ForEach(ingredients, id: \.id) {
                         ing in
-                        CustomLabel(text: ing)
+                        CustomLabel(ingredient: ing, onClick: {
+                            self.showSheet = true
+                            self.selectedIngredient = ing
+                        })
                     }
                 }
             }
@@ -55,10 +61,41 @@ struct IngredientInformation: View {
             .onAppear() {
                 self.progress = CGFloat((Float(ingredients.count) as Float / Float(totalIngredients) as Float))
             }
+            .sheet(isPresented: $showSheet, content: {
+                NavigationView {
+                    VStack {
+                        if let ingredient = self.selectedIngredient {
+                            IngredientInformationSheetView(ingredient: ingredient)
+                        } else {
+                            Text("No information")
+                        }
+                    }
+                    .navigationTitle("Ingredient Detail")
+                }
+            })
+        }
+    }
+}
+
+struct IngredientInformationSheetView : View {
+    var ingredient: Ingredient
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text(ingredient.name ?? "-")
+                    .font(.title2)
+                    .bold()
+                
+                Text(ingredient.description ?? "-")
+            }
+            .padding()
+            .frame(maxWidth:.infinity, alignment: .leading)
         }
     }
 }
 
 #Preview {
-    IngredientInformation(title: "Ingredients are good for reducing scar", ingredients: ["Salicilic Acid", "Acid"], totalIngredients: 10)
+    IngredientInformation(title: "Ingredients are good for reducing scar", ingredients: [
+        Ingredient(name: "Ing"),
+    ], totalIngredients: 10)
 }
