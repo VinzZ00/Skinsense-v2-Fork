@@ -65,12 +65,22 @@ struct IngredientInformation: View {
                 NavigationView {
                     VStack {
                         if let ingredient = self.selectedIngredient {
-                            IngredientInformationSheetView(ingredient: ingredient)
+                            IngredientInformationSheetView(showSheet: $showSheet, ingredient: ingredient)
                         } else {
                             Text("No information")
                         }
                     }
                     .navigationTitle("Ingredient Detail")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar(content: {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button {
+                                showSheet = false
+                            } label: {
+                                Text("Back")
+                            }
+                        }
+                    })
                 }
             })
         }
@@ -78,15 +88,75 @@ struct IngredientInformation: View {
 }
 
 struct IngredientInformationSheetView : View {
+    @Binding var showSheet: Bool
     var ingredient: Ingredient
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text(ingredient.name ?? "-")
-                    .font(.title2)
-                    .bold()
+                VStack(alignment: .leading) {
+                    Text(ingredient.name ?? "-")
+                        .font(.title2)
+                        .bold()
+                    Text(ingredient.categories ?? "-")
+                        .font(.subheadline)
+                }
                 
-                Text(ingredient.description ?? "-")
+                VStack(alignment: .leading) {
+                    Text("Description")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.description ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Effective For")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.benefits ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Bad For")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.badFor ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Good For Skin Type")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.goodForSkinType ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Bad For Skin Type")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.badForSkinType ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Incompatible Ingredients")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.incompatibleIngredients ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Enhance the Effectiveness")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.enhancer ?? "-")
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Additional Description")
+                        .font(.headline)
+                        .bold()
+                    Text(ingredient.additionalDescription ?? "-")
+                }
+                
             }
             .padding()
             .frame(maxWidth:.infinity, alignment: .leading)
