@@ -22,6 +22,8 @@
 		834180742B0D295E00C5D054 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834180732B0D295E00C5D054 /* AppConstants.swift */; };
 		834180772B0E2B7800C5D054 /* AccountDeletionRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834180762B0E2B7800C5D054 /* AccountDeletionRequestView.swift */; };
 		834180792B0E31F000C5D054 /* DeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834180782B0E31F000C5D054 /* DeleteResponse.swift */; };
+		8341808C2B0F414700C5D054 /* ScanHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341808A2B0F414700C5D054 /* ScanHistory+CoreDataClass.swift */; };
+		8341808D2B0F414700C5D054 /* ScanHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341808B2B0F414700C5D054 /* ScanHistory+CoreDataProperties.swift */; };
 		835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */; };
 		835D1C232AFA3EF400B9E8E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C222AFA3EF400B9E8E1 /* Colors.swift */; };
 		835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */; };
@@ -112,6 +114,8 @@
 		834180732B0D295E00C5D054 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		834180762B0E2B7800C5D054 /* AccountDeletionRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionRequestView.swift; sourceTree = "<group>"; };
 		834180782B0E31F000C5D054 /* DeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteResponse.swift; sourceTree = "<group>"; };
+		8341808A2B0F414700C5D054 /* ScanHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8341808B2B0F414700C5D054 /* ScanHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		835D1C1F2AFA3EE700B9E8E1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		835D1C222AFA3EF400B9E8E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		835D1C242AFA46E200B9E8E1 /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 		830ED6FB2AF3BFE200D80556 = {
 			isa = PBXGroup;
 			children = (
+				8341808A2B0F414700C5D054 /* ScanHistory+CoreDataClass.swift */,
+				8341808B2B0F414700C5D054 /* ScanHistory+CoreDataProperties.swift */,
 				830ED7062AF3BFE200D80556 /* Skinsense */,
 				830ED7052AF3BFE200D80556 /* Products */,
 			);
@@ -661,6 +667,7 @@
 				835D1C6E2AFE06DC00B9E8E1 /* MockProductRepository.swift in Sources */,
 				83A164B12B03C406007657C7 /* CustomEmptyView.swift in Sources */,
 				835D1C742AFE07E900B9E8E1 /* ProductResultViewModel.swift in Sources */,
+				8341808D2B0F414700C5D054 /* ScanHistory+CoreDataProperties.swift in Sources */,
 				835D1C2A2AFA4C6E00B9E8E1 /* SkinType.swift in Sources */,
 				835D1C4A2AFCD13000B9E8E1 /* ScannerView.swift in Sources */,
 				8306E9942B08CD9600F72306 /* PersonalizationData+CoreDataClass.swift in Sources */,
@@ -705,6 +712,7 @@
 				8369D7DF2B0CD1AE00EE327E /* ProductHistoryItem.swift in Sources */,
 				835D1C762AFE0BCF00B9E8E1 /* CheckListItem.swift in Sources */,
 				835D1C252AFA46E200B9E8E1 /* CustomCheckbox.swift in Sources */,
+				8341808C2B0F414700C5D054 /* ScanHistory+CoreDataClass.swift in Sources */,
 				839ED7C12B020E5700D077CB /* LocalUserData.xcdatamodeld in Sources */,
 				835D1C202AFA3EE700B9E8E1 /* CustomButton.swift in Sources */,
 				839ED7AC2B00E0FD00D077CB /* ConfigurationManager.swift in Sources */,

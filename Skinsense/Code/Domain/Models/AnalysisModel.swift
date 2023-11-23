@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - AnalysisModel
-struct AnalysisModel: Decodable {
+struct AnalysisModel: Decodable, Encodable {
     var id: Int?
     var score, denominator: Double?
     var percentage: Double?

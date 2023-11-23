@@ -47,6 +47,7 @@ struct ProductImageWithStamp: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: getProductImageSize().width, height: getProductImageSize().height)
+                .cornerRadius(10)
             if showStamp {
                 Image(isRecommended ? "Stamp_Recommended" : "Stamp_Not_Recommended")
                     .resizable()

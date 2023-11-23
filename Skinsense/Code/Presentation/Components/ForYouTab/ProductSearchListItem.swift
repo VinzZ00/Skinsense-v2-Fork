@@ -10,6 +10,7 @@ import Kingfisher
 
 struct ProductSearchListItem: View {
     var product: Product
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
@@ -18,10 +19,12 @@ struct ProductSearchListItem: View {
                     ProductSearchListImage(photo: product.photo)
                     VStack(alignment:.leading) {
                         Text(product.brandName ?? "-")
-                            .bold()
+                            .font(.subheadline)
                         Text(product.name ?? "-")
+                            .bold()
                             .multilineTextAlignment(.leading)
                     }
+                    .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -39,6 +42,7 @@ struct ProductSearchListImage :View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 100, alignment: .center)
+                .cornerRadius(10)
                 .clipped()
         } else {
             Image("placeholder")

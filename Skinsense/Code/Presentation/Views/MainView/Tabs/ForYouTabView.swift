@@ -32,6 +32,7 @@ struct ForYouTabView: View {
 struct ForYouView: View {
     @Environment(\.isSearching) private var isSearching
     @ObservedObject var viewModel: ForYouTabViewModel
+    let decoder = JSONDecoder()
     
     let columns = [
         GridItem(.flexible()),
@@ -124,23 +125,33 @@ struct ForYouView: View {
                             .font(.title3)
                             .bold()
                         
-                        VStack {
-                            // TODO: Integrate from inez-buset
-                            NavigationLink(destination: MainView()) {
-                                HStack {
-                                    Text("Scanned Product #1")
-                                        .foregroundStyle(.black)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.customDarkGrey)
+                        if let scanHistory = viewModel.scanHistoryAnalysisModel {
+                            VStack {
+                                ForEach(scanHistory, id: \.id) {
+                                    history in
+                                    NavigationLink(destination: ScanResultView(viewModel: ScanResultViewModel(scannedData: nil, analysisResult: history))) {
+                                        HStack {
+                                            Text("Scanned Product #\(history.id ?? 0)")
+                                                .foregroundStyle(.black)
+                                            Spacer()
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.customDarkGrey)
+                                        }
+                                        .padding()
+                                    }
+                                    
                                 }
-                                .padding()
+                                
                             }
-                            .disabled(true)
+                            .background(.white)
+                            .cornerRadius(10)
+                        } else {
+                            Text("No history")
                         }
-                        .background(.white)
-                        .cornerRadius(10)
                         
+                    }
+                    .onAppear() {
+                        viewModel.fetchScanHistory()
                     }
                 }
                 .padding()

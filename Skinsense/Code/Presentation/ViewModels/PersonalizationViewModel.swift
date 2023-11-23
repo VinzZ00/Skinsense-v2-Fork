@@ -22,6 +22,7 @@ class PersonalizationViewModel: ObservableObject {
         SkinType(id: UUID(), name: "Combination"),
         SkinType(id: UUID(), name: "Dry"),
         SkinType(id: UUID(), name: "Normal"),
+        SkinType(id: UUID(), name: "Oily"),
         SkinType(id: UUID(), name: "Sensitive")
     ]
     

@@ -28,19 +28,29 @@ struct ScanResultView: View {
                                     .bold()
                                 
                                 NavigationLink(destination: ProductResultView(viewModel: ProductResultViewModel(productData: similarProduct))) {
-                                    HStack {
+                                    HStack(spacing: 16) {
                                         ProductImageWithStamp(imageLink: similarProduct.photo ?? "placeholder", imageSize:.small, showStamp: false)
                                         
-                                        Text(similarProduct.name ?? "Product Name")
+                                        VStack(alignment: .leading) {
+                                            Text(similarProduct.brandName ?? "Brand Name")
+                                                .font(.subheadline)
+                                                .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
+                                            
+                                            Text(similarProduct.name ?? "Product Name")
+                                                .bold()
+                                                .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
+                                        }
                                         
                                         Spacer()
                                         
                                         Image(systemName: "chevron.right")
+                                            .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                                     }
                                     .padding()
-                                    .background(colorScheme == .light ? Color.white : Color.customDarkGrey)
+                                    .background(colorScheme == .light ? Color.white : Color.darkGrey)
                                     .cornerRadius(10)
                                 }
+                                .foregroundColor(.black)
                                 
                             }
                         }

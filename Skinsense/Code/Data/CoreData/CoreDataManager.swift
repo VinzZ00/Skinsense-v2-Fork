@@ -89,6 +89,25 @@ class CoreDataManager {
         }
     }
     
+    func saveScanHistory(scanResult: AnalysisModel) -> ScanHistory? {
+        do {
+            let encoder = JSONEncoder()
+            let scanHistory = ScanHistory(context: viewContext)
+            
+            let data = try encoder.encode(scanResult)
+            let jsonString = String(data: data, encoding: .utf8)
+            
+            scanHistory.id = UUID()
+            scanHistory.jsonString = jsonString
+            
+            try viewContext.save()
+            return scanHistory
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     func updateUserData(userData: User, skinConcerns: [SkinConcern], skinTypes: [SkinType], allergens: [Allergen]) -> User?{
         do {
             userData.skinTypes = nil
@@ -129,6 +148,18 @@ class CoreDataManager {
             return userData
         } catch {
             print("Error fetching user data: \(error)")
+            return []
+        }
+    }
+    
+    func fetchScanHistory() -> [ScanHistory] {
+        let fetchRequest: NSFetchRequest<ScanHistory> = ScanHistory.fetchRequest()
+        
+        do {
+            let scanHistory = try self.viewContext.fetch(fetchRequest)
+            return scanHistory
+        } catch {
+            print("Error fetching scan history: \(error)")
             return []
         }
     }
