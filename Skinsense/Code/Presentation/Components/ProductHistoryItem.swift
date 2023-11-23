@@ -12,6 +12,7 @@ struct ProductHistoryItem: View {
     var productHistory: ProductHistory
     var productRepository: ProductRepository = ProductRepository()
     
+    @Environment(\.colorScheme) var colorScheme
     @State var productData: Product?
     
     func fetchProductData() {
@@ -36,9 +37,12 @@ struct ProductHistoryItem: View {
                             ProductSearchListImage(photo: productData.photo)
                             VStack(alignment:.leading) {
                                 Text(productData.brandName ?? "-")
-                                    .bold()
+                                    .font(.subheadline)
                                 Text(productData.name ?? "-")
+                                    .bold()
+                                    .multilineTextAlignment(.leading)
                             }
+                            .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }

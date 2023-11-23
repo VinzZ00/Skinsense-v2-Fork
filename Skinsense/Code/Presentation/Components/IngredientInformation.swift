@@ -39,6 +39,7 @@ struct IngredientInformation: View {
                     .frame(height: 26)
                     Text("\(ingredients.count) out of \(totalIngredients)")
                         .font(.subheadline)
+                        .foregroundStyle(.black)
                 }
                 Text(title)
                     .font(.subheadline)

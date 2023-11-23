@@ -188,12 +188,13 @@ struct LoggedOutView: View {
 
 struct ProfileMenuView : View {
     @ObservedObject var viewModel: ProfileTabViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         
         // Menu
         VStack {
-            VStack {
+            VStack(spacing: 0) {
                 Button {
                     viewModel.activeSheet = .skinPersonalization
                     viewModel.showBottomSheet.toggle()
@@ -205,6 +206,8 @@ struct ProfileMenuView : View {
                     }
                     .padding()
                 }
+                
+                Divider()
                 
                 Button {
                     viewModel.activeSheet = .savedProducts
@@ -218,9 +221,11 @@ struct ProfileMenuView : View {
                     .padding()
                 }
             }
+            .font(.subheadline)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .cornerRadius(20)
-            .background(Color.white)
+            .background(colorScheme == .light ? Color.white : Color.darkGrey)
+            .foregroundColor(colorScheme == .light ? Color.black : Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             
             if viewModel.isSigned {

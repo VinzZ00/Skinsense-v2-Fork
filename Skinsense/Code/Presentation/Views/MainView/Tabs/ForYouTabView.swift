@@ -31,6 +31,7 @@ struct ForYouTabView: View {
 
 struct ForYouView: View {
     @Environment(\.isSearching) private var isSearching
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ForYouTabViewModel
     let decoder = JSONDecoder()
     
@@ -47,7 +48,7 @@ struct ForYouView: View {
                 ScrollView {
                     VStack {
                         HStack {
-                            Text("Recently viewed Product")
+                            Text("Recently Viewed Product")
                                 .font(.title3)
                                 .bold()
                             Spacer()
@@ -126,20 +127,21 @@ struct ForYouView: View {
                             .bold()
                         
                         if let scanHistory = viewModel.scanHistoryAnalysisModel {
-                            VStack {
+                            VStack(spacing: 0) {
                                 ForEach(scanHistory, id: \.id) {
                                     history in
                                     NavigationLink(destination: ScanResultView(viewModel: ScanResultViewModel(scannedData: nil, analysisResult: history))) {
                                         HStack {
                                             Text("Scanned Product #\(history.id ?? 0)")
-                                                .foregroundStyle(.black)
+                                                .font(.subheadline)
                                             Spacer()
                                             Image(systemName: "chevron.right")
-                                                .foregroundColor(.customDarkGrey)
                                         }
                                         .padding()
                                     }
-                                    
+                                    .background(colorScheme == .light ? Color.white : Color.darkGrey)
+                                    .foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                                    Divider()
                                 }
                                 
                             }
