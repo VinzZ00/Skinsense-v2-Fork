@@ -57,7 +57,22 @@ struct ScanResultView: View {
                             }
                             Spacer()
                             BookmarkButton { state in
-                                print(state)
+                                // TODO: SAVE logic
+//                                print(state)
+                                if state {
+                                    
+                                    
+                                    // check product is nil or not
+                                    guard let productData = viewModel.scanResult?.product else {
+                                        print("error no product found")
+                                        return
+                                    }
+                                    
+                                    // save to core data
+                                    CoreDataManager
+                                        .shared
+                                        .saveProductHistory(productData: productData)
+                                }
                             }
                         }
                         
